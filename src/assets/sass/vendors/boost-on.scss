@@ -1,0 +1,85 @@
+@mixin make-grid( $prefix, $length ) {
+    @for $i from 1 to $length + 1 {
+        .#{$prefix}-#{$i}-#{$length} {
+            float: left;
+            width: ( 100% / $length ) * $i;
+            min-height: 1px;
+        }
+
+        .#{$prefix}-offset-#{$i}-#{$length} {
+            float: left;
+            margin-left: ( 100% / $length ) * $i;
+            min-height: 1px;
+        }
+    }
+}
+
+@mixin make-grid-set( $length ) {
+    @include make-grid( xs, $length );
+
+    @media ( min-width: 768px ) {
+        @include make-grid( sm, $length );
+    }
+    @media ( min-width: 992px ) {
+        @include make-grid( md, $length );
+    }
+    @media ( min-width: 1200px ) {
+        @include make-grid( lg, $length );
+    }
+}
+
+.h-group {
+    overflow: hidden;
+
+    @include make-grid-set( 10 );
+    @include make-grid-set( 12 );
+
+    .col {
+        float: left;
+
+        &.right {
+            float: right;
+        }
+    }
+
+    &::after {
+        clear: both;
+    }
+}
+
+.tablize {
+    display: table;
+    width: 100%;
+
+    .table-row {
+        display: table-row;
+
+        .cell {
+            display: table-cell;
+
+            &.vertical-top {
+                vertical-align: top;
+            }
+
+            &.vertical-middle {
+                vertical-align: middle;
+            }
+
+            &.vertical-bottom {
+                vertical-align: bottom;
+            }
+        }
+    }
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}

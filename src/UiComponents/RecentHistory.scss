@@ -1,0 +1,25 @@
+.recent-history {
+  display: inline-block;
+  position: relative;
+  padding-right: 1em;
+  color: #ffffff;
+  font-size: 12px;
+  font-family: 'Exo 2', sans-serif;
+  font-style: italic;
+  font-weight: 200;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 0;
+  background-color: #1b1b26;
+
+  &:after {
+    content: '';
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #5c5c74;
+    top: -8px;
+    left: 220px;
+    display: block
+  }
+}

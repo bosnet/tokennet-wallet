@@ -1,9 +1,0 @@
-{
-  "common": {},
-  "welcome_view": {
-    "title": "BOScoin 웹지갑",
-    "title_description": "시드를 만들고, 지갑을 관리하고, BOScoin을 보내고 받으세요.",
-    "button_make": "새로운 키 생성",
-    "button_open": "지갑 열기"
-  }
-}

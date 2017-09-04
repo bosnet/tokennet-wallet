@@ -1,0 +1,50 @@
+.select-box-styled {
+    position: absolute;
+    display: inline-block;
+    font-family: 'Exo 2', sans-serif;
+    top: 10px;
+    right: 0;
+    width: 115px;
+    height: 22px;
+    text-align: left;
+    background-color: #29263d;
+    color: #ffffff;
+    border-radius: 3px;
+    padding: 6px 0 0 12px;
+    font-size: 0.5em;
+}
+
+.select-box-styled:after {
+    content: '';
+    width: 15px;
+    height: 8px;
+    top: 9px;
+    right: 8px;
+    display: block;
+    position: absolute;
+    background: url('../assets/imgs/arrow-down-head.png') no-repeat;
+    background-size: 7px 4px;
+}
+
+.select-box-list {
+    display: none;
+    position: absolute;
+    top: 22px;
+    left: 0;
+    border-radius: 3px;
+    background-color: #29263d;
+    width: 115px;
+    z-index: 999;
+}
+
+.select-box-list p {
+    padding: 6px 0 6px 12px;
+}
+
+.select-box-list p:hover {
+    background-color: #1b1b26;
+}
+
+.select-box-list.select-box-open {
+    display: block;
+}

@@ -1,0 +1,29 @@
+.balance-container {
+  padding: 25px;
+  text-align: center;
+}
+
+#balance-label {
+  color: #039cbf;
+  font-size: 14px;
+  margin: 0 0 10px;
+  text-align: left;
+}
+
+#balance {
+  color: #ffffff;
+  text-align: center;
+  font-family: 'San Francisco Display Ultralight', sans-serif;
+  font-size: 50px;
+  margin: 0;
+}
+
+#bos-unit {
+  display: inline-block;
+  color: #039cbf;
+  font-family: 'San Francisco Display Ultralight', sans-serif;
+  font-size: 30px;
+  border-bottom: 2px solid #039cbf;
+  margin: 0;
+  padding-bottom: 15px;
+}

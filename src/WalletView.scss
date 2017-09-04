@@ -1,0 +1,22 @@
+.wall-view-container {
+  text-align: left;
+}
+
+.your-account {
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 25px;
+  font-weight: 200;
+  margin: 0;
+  line-height: 0.5em;
+}
+
+.button-wrapper {
+  text-align: center;
+  padding-top: 1em;
+
+  button:first-child {
+    margin-right: 1em;
+  }
+}

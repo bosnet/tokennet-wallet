@@ -1,0 +1,18 @@
+{
+  "common": {
+    "copy": "Copy"
+  },
+  "welcome_view": {
+    "title": "BOScoin wallet",
+    "title_description": "Make your Seed, manage your Wallet, Send and receive BOScoins.",
+    "button_make": "Make a new key",
+    "button_open": "Open your wallet"
+  },
+  "wallet_view": {
+    "balance" : "Balance",
+    "send" : "Send",
+    "receive" : "Receive",
+    "history" : "History",
+    "open_secret_seed": "Open Secret Seed"
+  }
+}

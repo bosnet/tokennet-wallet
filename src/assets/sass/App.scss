@@ -1,0 +1,13 @@
+@import "vendors/boost-on";
+
+* {
+    box-sizing: border-box;
+}
+
+button, input, select, textarea {
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}

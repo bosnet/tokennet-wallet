@@ -1,0 +1,18 @@
+{
+  "common": {
+    "copy": "복사"
+  },
+  "welcome_view": {
+    "title": "BOScoin 웹지갑",
+    "title_description": "시드를 만들고, 지갑을 관리하고, BOScoin을 보내고 받으세요.",
+    "button_make": "새로운 키 생성",
+    "button_open": "지갑 열기"
+  },
+  "wallet_view": {
+    "balance" : "잔고",
+    "send" : "보내기",
+    "receive" : "받기",
+    "history" : "거래내역",
+    "open_secret_seed": "시크릿 시드 보기"
+  }
+}

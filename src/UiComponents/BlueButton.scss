@@ -1,0 +1,65 @@
+.blue-button {
+  width: 60px;
+  height: 20px;
+  border-radius: 20px;
+  border: 2px solid #039cbf;
+
+  &.big {
+    width: 156px;
+    height: 32px;
+    border-radius: 32px;
+  }
+
+  &.medium {
+    width: 85px;
+    height: 27px;
+    font-size: 10px;
+    border-radius: 27px;
+  }
+
+  &.small {
+    font-size: 10px;
+    width: 100px;
+    height: 20px;
+    border-radius: 20px;
+    margin: 0 0.5em;
+    border-width: 1px;
+  }
+
+  &.tiny {
+    font-size: 10px;
+    width: 46px;
+    height: 20px;
+    border-radius: 14px;
+    border-width: 1px;
+  }
+
+  background-color: transparent;
+  color: #039cbf;
+  font-size: 12px;
+
+  &:hover {
+    background-color: #039cbf;
+    color: #ffffff;
+
+    &.non-action {
+      background-color: transparent;;
+      color: #039cbf;
+    }
+  }
+
+  &.filled {
+    background-color: #039cbf;
+    color: #ffffff;
+
+    &:hover {
+      background-color: transparent;
+      color: #039cbf;
+
+      &.non-action {
+        background-color: #039cbf;
+        color: #ffffff;
+      }
+    }
+  }
+}

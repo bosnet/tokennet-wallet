@@ -1,9 +1,0 @@
-{
-  "common": {},
-  "welcome_view": {
-    "title": "BOScoin wallet",
-    "title_description": "Make your Seed, manage your Wallet, Send and receive BOScoins.",
-    "button_make": "Make a new key",
-    "button_open": "Open your wallet"
-  }
-}
