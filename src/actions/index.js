@@ -19,3 +19,8 @@ export const showGeneratorConfirm = ( $isShow ) => ( {
 	type: types.SHOW_GENERATOR_CONFIRM,
   isShow: $isShow,
 } );
+
+export const showSeedLogin = ( $isShow ) => ( {
+	type: types.SHOW_SEED_LOGIN,
+	isShow: $isShow,
+} );

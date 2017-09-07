@@ -19,6 +19,7 @@ import Header from './Header';
 import Spinner from './UiComponents/Spinner';
 import ConfirmGeneratorOpen from './Modals/ConfirmGeneratorOpen';
 import KeyGenerator from './Modals/KeyGenerator'
+import SeedLogin from './Modals/SeedLogin';
 
 /*
 	Styles
@@ -47,12 +48,14 @@ class App extends Component {
   }
 
   render() {
+    console.log( this.props );
     return (
         <div className="App">
 
           <Spinner spinnerShow={false}/>
           <ConfirmGeneratorOpen modalOpen={ this.props.showGeneratorConfirm }/>
           <KeyGenerator modalOpen={ this.props.showKeyGenerator }/>
+          <SeedLogin modalOpen={ this.props.showSeedLogin }/>
 
           <Header/>
 
@@ -72,6 +75,7 @@ const mapStateToProps = ( state ) => ({
   language: state.language.language,
   showKeyGenerator: state.keyGenerator.isShow,
   showGeneratorConfirm: state.generatorConfirm.isShow,
+  showSeedLogin: state.seedLogin.isShow,
 });
 
 App = withRouter( connect( mapStateToProps, null )( App ) );

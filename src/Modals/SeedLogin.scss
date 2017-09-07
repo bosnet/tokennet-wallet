@@ -1,0 +1,12 @@
+.seed-login-container {
+  padding: 2em 2em;
+  .warn {
+    color: #f40b20;
+  }
+
+  input {
+    width: 100%;
+    border: 1px solid #000000;
+    border-radius: 5px;
+  }
+}

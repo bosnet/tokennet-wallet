@@ -14,32 +14,21 @@ class MainPageView extends Component {
 			redirect: null,
 		};
 
-		this.renderRedirect = this.renderRedirect.bind( this );
 		this.clickMakeNewKey = this.clickMakeNewKey.bind( this );
 		this.clickOpenYourWallet = this.clickOpenYourWallet.bind( this );
 	}
-
-  renderRedirect() {
-	  if( this.state.redirect ) {
-	  	return <Redirect to={ this.state.redirect }/>
-	  }
-	  else {
-	  	return '';
-	  }
-  }
 
   clickMakeNewKey() {
 		this.props.showGeneratorConfirm( true );
   }
 
   clickOpenYourWallet() {
-		this.setState( { redirect: '/wallet' } );
+    this.props.showSeedLogin( true );
   }
 
 	render() {
 		return (
 			<div className="main-page-container">
-				{ this.renderRedirect() }
 				<div className="symbol-image-container">
 					<img src={symbolImage} alt="BOSCoin symbol"/>
 				</div>
@@ -73,7 +62,10 @@ class MainPageView extends Component {
 const mapDispatchToProps = ( dispatch ) => ({
   showGeneratorConfirm: ( $isShow ) => {
     dispatch( actions.showGeneratorConfirm( $isShow ) );
-  }
+  },
+  showSeedLogin: ( $isShow ) => {
+    dispatch( actions.showSeedLogin( $isShow ) );
+  },
 });
 
 MainPageView = connect( null, mapDispatchToProps )( MainPageView );
