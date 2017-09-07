@@ -1,0 +1,25 @@
+h1 {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 30px;
+  font-weight: 100;
+}
+
+.black-line {
+  width: 36px;
+  height: 2px;
+  background-color: #000000;
+  display: inline-block;
+
+
+  & + p {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+    margin-bottom: 12px;
+    line-height: 1.4em;
+
+    & > span {
+      font-weight: bold;
+    }
+  }
+}

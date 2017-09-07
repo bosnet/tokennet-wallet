@@ -2,11 +2,44 @@ import React, { Component } from 'react';
 import symbolImage from './assets/imgs/boscoin-symbol-image.png';
 import BlueButton from './UiComponents/BlueButton';
 import './MainPageView.scss';
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "./actions/index";
 
 class MainPageView extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			redirect: null,
+		};
+
+		this.renderRedirect = this.renderRedirect.bind( this );
+		this.clickMakeNewKey = this.clickMakeNewKey.bind( this );
+		this.clickOpenYourWallet = this.clickOpenYourWallet.bind( this );
+	}
+
+  renderRedirect() {
+	  if( this.state.redirect ) {
+	  	return <Redirect to={ this.state.redirect }/>
+	  }
+	  else {
+	  	return '';
+	  }
+  }
+
+  clickMakeNewKey() {
+		this.props.showGeneratorConfirm( true );
+  }
+
+  clickOpenYourWallet() {
+		this.setState( { redirect: '/wallet' } );
+  }
+
 	render() {
 		return (
 			<div className="main-page-container">
+				{ this.renderRedirect() }
 				<div className="symbol-image-container">
 					<img src={symbolImage} alt="BOSCoin symbol"/>
 				</div>
@@ -14,8 +47,8 @@ class MainPageView extends Component {
 				<p>Make your seed, manage your Wallet, send and receive BOScoins</p>
 
 				<div className="button-container">
-					<BlueButton big>Make a new key</BlueButton> <br/>
-					<BlueButton big>Open your wallet</BlueButton>
+					<BlueButton big onClick={ this.clickMakeNewKey }>Make a new key</BlueButton> <br/>
+					<BlueButton big onClick={ this.clickOpenYourWallet }>Open your wallet</BlueButton>
 				</div>
 
 				<div>
@@ -36,5 +69,13 @@ class MainPageView extends Component {
 		)
 	}
 }
+
+const mapDispatchToProps = ( dispatch ) => ({
+  showGeneratorConfirm: ( $isShow ) => {
+    dispatch( actions.showGeneratorConfirm( $isShow ) );
+  }
+});
+
+MainPageView = connect( null, mapDispatchToProps )( MainPageView );
 
 export default MainPageView;

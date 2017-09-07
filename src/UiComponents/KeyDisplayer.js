@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import BlueButton from './BlueButton';
-import ArrowDown from '../assets/imgs/blue-arrow-head-down.png';
+import ArrowDown from 'assets/imgs/blue-arrow-head-down.png';
 import T from 'i18n-react';
-import './keyDisplayer.scss';
+import './KeyDisplayer.scss';
 
 class KeyDisplayer extends Component {
   constructor () {

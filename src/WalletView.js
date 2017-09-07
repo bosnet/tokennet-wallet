@@ -10,7 +10,7 @@ import './WalletView.scss';
 class WalletView extends Component {
   render () {
     return (
-      <div className="wall-view-container">
+      <div className="wallet-view-container">
         <RecentHistory/>
         <MyBalance/>
 

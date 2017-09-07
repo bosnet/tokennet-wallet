@@ -1,55 +1,79 @@
+/*
+	React Core
+ */
 import React, { Component } from 'react';
-import './App.css';
-import './assets/sass/App.scss';
-import Header from './Header';
-import WalletView from './WalletView';
-import T from 'i18n-react';
-import * as actions from './actions';
+import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+/*
+	Libraries
+ */
+import T from 'i18n-react';
+
+/*
+	Views
+ */
+import MainPageView from './MainPageView';
+import WalletView from './WalletView';
+import Header from './Header';
+import Spinner from './UiComponents/Spinner';
+import ConfirmGeneratorOpen from './Modals/ConfirmGeneratorOpen';
+import KeyGenerator from './Modals/KeyGenerator'
+
+/*
+	Styles
+ */
+import './App.scss';
+import './assets/sass/App.scss';
+
 class App extends Component {
-	constructor() {
-		super();
+  constructor() {
+    super();
 
-		const userLang = navigator.language || navigator.userLanguage;
-		this.selectLang( userLang );
-	}
+    const userLang = navigator.language || navigator.userLanguage;
+    this.selectLang( userLang );
+  }
 
-	selectLang( $lang ) {
-		let lang = 'en';
-		switch ( $lang ) {
-			case 'ko' :
-				lang = 'ko';
-				break;
-		}
-		T.setTexts( require( './languages/' + lang + '.json' ) );
-	}
+  selectLang( $lang ) {
+    let lang = 'en';
+    switch ( $lang ) {
+      case 'ko' :
+        lang = 'ko';
+        break;
+      default:
+        lang = 'en';
+    }
+    T.setTexts( require( './languages/' + lang + '.json' ) );
+  }
 
-	render() {
-		return (
-			<div className="App">
-				<Header/>
-				{/*<MainPageView/>*/}
-				<WalletView/>
-			</div>
-		);
-	}
+  render() {
+    return (
+        <div className="App">
 
-	componentWillReceiveProps( nextProps ) {
-		this.selectLang( nextProps.language );
-	}
+          <Spinner spinnerShow={false}/>
+          <ConfirmGeneratorOpen modalOpen={ this.props.showGeneratorConfirm }/>
+          <KeyGenerator modalOpen={ this.props.showKeyGenerator }/>
 
-	componentDidMount() {
-		let height = document.documentElement.clientHeight || document.body.clientHeight;
-		height = Math.max( height, window.outerHeight );
-		document.querySelector( '.App' ).style.height = height + 'px';
-	}
+          <Header/>
+
+          <Route exact path="/" component={MainPageView}/>
+          <Route path="/wallet" component={WalletView}/>
+
+        </div>
+    );
+  }
+
+  componentWillReceiveProps( nextProps ) {
+    this.selectLang( nextProps.language );
+  }
 }
 
 const mapStateToProps = ( state ) => ({
-	language: state.language,
+  language: state.language.language,
+  showKeyGenerator: state.keyGenerator.isShow,
+  showGeneratorConfirm: state.generatorConfirm.isShow,
 });
 
-App = connect( mapStateToProps, null )( App );
+App = withRouter( connect( mapStateToProps, null )( App ) );
 
 export default App;

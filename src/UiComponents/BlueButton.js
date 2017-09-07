@@ -12,7 +12,7 @@ class BlueButton extends Component {
         (this.props.small ? ' small' : '') +
         (this.props.tiny ? ' tiny' : '') +
         (this.props.nonAction ? ' non-action' : '')
-      }>
+      } onClick={ this.props.onClick }>
         {this.props.children}
       </button>
     )

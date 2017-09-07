@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import * as actions from '../actions';
+import * as actions from 'actions';
 import { connect } from 'react-redux';
-import './LanguageSelector.css';
+import './LanguageSelector.scss';
 
 class LanguageSelector extends Component {
 	constructor() {

@@ -1,20 +1,15 @@
-import * as types from '../actions/ActionTypes';
+import language from './language';
+import spinner from './spinner';
+import keyGenerator from './keyGenerator';
+import generatorConfirm from './generatorConfirm';
 
-// 초기 상태를 정의합니다
-const initialState = {
-	language: 'en',
-};
+import { combineReducers } from 'redux';
 
-function setLanguage(state = initialState, action) {
-	switch (action.type) {
-		case types.SET_LANGUAGE:
-			return {
-				...state,
-				language: action.language,
-			};
-		default:
-			return state;
-	}
-};
+const reducers = combineReducers( {
+  language,
+  spinner,
+  keyGenerator,
+  generatorConfirm,
+} );
 
-export default setLanguage;
+export default reducers;

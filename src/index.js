@@ -9,10 +9,15 @@ import { createStore } from 'redux'
 import reducers from './reducers';
 import { Provider } from 'react-redux';
 
+// Router 관련
+import { BrowserRouter } from 'react-router-dom';
+
 // 스토어 생성
 const store = createStore( reducers );
 const DOM = <Provider store={store}>
-	<App/>
+	<BrowserRouter>
+		<App/>
+	</BrowserRouter>
 </Provider>;
 
 ReactDOM.render( DOM, document.getElementById( 'root' ) );
