@@ -57,13 +57,13 @@ class App extends Component {
     return (
         <div className="App">
 
-          <Spinner spinnerShow={ this.props.showSpinner }/>
           <ConfirmGeneratorOpen modalOpen={ this.props.showGeneratorConfirm }/>
           <KeyGenerator modalOpen={ this.props.showKeyGenerator }/>
           <RecordSeeds modalOpen={ this.props.showRecordSeed } />
           <TransactionConfirm modalOpen={this.props.transactionConfirm}/>
           <TransactionComplete modalOpen={this.props.transctionComplete}/>
           <CopyComplete show={ this.props.showCopyComplete }/>
+          <Spinner spinnerShow={ this.props.showSpinner }/>
 
           <Header/>
 

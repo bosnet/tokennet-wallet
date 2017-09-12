@@ -7,6 +7,8 @@ import './ConfirmGeneratorOpen.scss';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
 import { Keypair } from 'stellar-sdk';
+import { StellarServer } from 'stellar-toolkit';
+const { generateTestPair } = StellarServer;
 
 class ConfirmGeneratorOpen extends Component {
   constructor() {
@@ -17,9 +19,16 @@ class ConfirmGeneratorOpen extends Component {
   }
 
   openKeyGenerator() {
-    this.props.updateKeypair( Keypair.random() );
-    this.props.showGeneratorConfirm( false );
-    this.props.showKeyGenerator( true );
+    this.props.showSpinner( true );
+    generateTestPair()
+        .then((newPair) => {
+          this.props.showSpinner( false );
+          this.props.updateKeypair( newPair );
+          this.props.showGeneratorConfirm( false );
+          this.props.showKeyGenerator( true );
+        } );
+
+
   }
 
   doClose() {
@@ -45,6 +54,9 @@ class ConfirmGeneratorOpen extends Component {
 
 // 리덕스 연결
 const mapDispatchToProps = ( dispatch ) => ({
+  showSpinner: ( $isShow ) => {
+    dispatch( actions.showSpinner( $isShow ) );
+  },
   showKeyGenerator: ( $isShow ) => {
     dispatch( actions.showKeyGenerator( $isShow ) );
   },
