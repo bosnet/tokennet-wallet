@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import symbolImage from './assets/imgs/boscoin-symbol-image.png';
-import BlueButton from './UiComponents/BlueButton';
+import symbolImage from 'assets/imgs/boscoin-symbol-image.png';
+import BlueButton from 'UiComponents/BlueButton';
 import './MainPageView.scss';
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actions from "./actions/index";
+import * as actions from "actions/index";
+import { Redirect } from "react-router-dom";
 
 class MainPageView extends Component {
 	constructor() {
@@ -23,12 +23,22 @@ class MainPageView extends Component {
   }
 
   clickOpenYourWallet() {
-    this.props.showSeedLogin( true );
+	  this.setState( { redirect: '/login' } );
+  }
+
+  renderRedirect() {
+		if( this.state.redirect === null ) {
+			return '';
+		}
+		else {
+			return <Redirect to={ this.state.redirect }/>
+		}
   }
 
 	render() {
 		return (
 			<div className="main-page-container">
+				{ this.renderRedirect() }
 				<div className="symbol-image-container">
 					<img src={symbolImage} alt="BOSCoin symbol"/>
 				</div>
@@ -62,10 +72,7 @@ class MainPageView extends Component {
 const mapDispatchToProps = ( dispatch ) => ({
   showGeneratorConfirm: ( $isShow ) => {
     dispatch( actions.showGeneratorConfirm( $isShow ) );
-  },
-  showSeedLogin: ( $isShow ) => {
-    dispatch( actions.showSeedLogin( $isShow ) );
-  },
+  }
 });
 
 MainPageView = connect( null, mapDispatchToProps )( MainPageView );

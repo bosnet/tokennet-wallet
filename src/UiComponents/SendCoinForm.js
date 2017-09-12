@@ -53,7 +53,7 @@ class SendCoinForm extends Component {
         </div>
 
         <div className="button-wrapper">
-          <BlueButton content="Send" medium/>
+          <BlueButton medium>Send</BlueButton>
         </div>
       </div>
     )

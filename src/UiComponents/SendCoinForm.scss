@@ -1,3 +1,13 @@
+.send-coin-view-container {
+  .button-wrapper {
+    margin-top: 0;
+  }
+}
+
+.seed-container + .button-wrapper {
+  padding-bottom: 2em;
+}
+
 .send-coin-form-container {
   > p {
     text-align: center;
@@ -5,6 +15,10 @@
     font-size: 20px;
     font-weight: 200;
     margin: 0;
+  }
+
+  .button-wrapper {
+    margin-top: 45px;
   }
 }
 

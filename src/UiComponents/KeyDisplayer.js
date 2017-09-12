@@ -1,36 +1,49 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import BlueButton from './BlueButton';
 import ArrowDown from 'assets/imgs/blue-arrow-head-down.png';
 import T from 'i18n-react';
 import './KeyDisplayer.scss';
+import { connect } from 'react-redux';
+import * as actions from '../actions/index';
+import Clipboard from 'clipboard';
 
 class KeyDisplayer extends Component {
-  constructor () {
+  constructor() {
     super();
 
-    this.toggleSecretSeed = this.toggleSecretSeed.bind(this);
+    this.toggleSecretSeed = this.toggleSecretSeed.bind( this );
 
     const state = {
-      secretSeedOpen: false
+      secretSeedOpen: false,
     };
 
     this.state = state;
   }
 
-  toggleSecretSeed () {
-    this.setState({
-      secretSeedOpen: !this.state.secretSeedOpen
-    })
+  componentDidMount () {
+    const clipboard = new Clipboard('.copy-btn-wrapper');
+
+    clipboard.on('success', ($event) => {
+      this.props.showCopyComplete(true);
+      setTimeout(() => {this.props.showCopyComplete(false)}, 1500)
+    });
   }
 
-  render () {
+  toggleSecretSeed() {
+    this.setState( {
+      secretSeedOpen: !this.state.secretSeedOpen
+    } );
+  }
+
+  render() {
     return (
       <div className={
         'seed-container ' +
         (this.state.secretSeedOpen ? 'secret-seed-open' : '')
       }>
         <p className="open-seed-wrapper">
-          <button onClick={this.toggleSecretSeed} className="open-seed"><T.span text="wallet_view.open_secret_seed"/> <img src={ArrowDown} alt="arrow"/></button>
+          <button onClick={this.toggleSecretSeed} className="open-seed"><T.span text="wallet_view.open_secret_seed"/>
+            <img src={ArrowDown} alt="arrow"/></button>
         </p>
         <p>Account Address</p>
         <div className="keys-box">
@@ -38,9 +51,11 @@ class KeyDisplayer extends Component {
             <p>Public address</p>
             <div className="public-key-wrapper">
               <div>
-                <p className="public-key">fjief99dafadsfadsfasdfadsfasf3243rj21jj0jfdfjf902023ijfidsfjijfeiaerrqrefjiej290f09fjasjfijeajfaf</p>
+                <p className="public-key" data-clipboard-text={ this.props.keypair ? this.props.keypair.publicKey() : '' }>
+                  { this.props.keypair ? this.props.keypair.publicKey() : '' }
+                </p>
               </div>
-              <div>
+              <div className="copy-btn-wrapper" data-clipboard-target=".public-key">
                 <BlueButton tiny filled><T.span text="common.copy"/></BlueButton>
               </div>
             </div>
@@ -50,9 +65,11 @@ class KeyDisplayer extends Component {
             <p>Secret seed</p>
             <div className="secret-key-wrapper">
               <div>
-                <p className="secret-key">fjief99dafadsfadsfasdfadsfasf3243rj21jj0jfdfjf902023ijfidsfjijfeiaerrqrefjiej290f09fjasjfijeajfaf</p>
+                <p className="secret-key" data-clipboard-text={ this.props.keypair ? this.props.keypair.secret() : '' }>
+                  { this.props.keypair ? this.props.keypair.secret() : '' }
+                </p>
               </div>
-              <div>
+              <div className="copy-btn-wrapper" data-clipboard-target=".secret-key">
                 <BlueButton tiny filled><T.span text="common.copy"/></BlueButton>
               </div>
             </div>
@@ -62,5 +79,17 @@ class KeyDisplayer extends Component {
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  showCopyComplete: ($isShow) => {
+    dispatch( actions.showCopyComplete($isShow));
+  }
+});
+
+const mapStateToProps = ( state ) => ({
+  keypair: state.keypair.keypair,
+});
+
+KeyDisplayer = connect( mapStateToProps, mapDispatchToProps )( KeyDisplayer );
 
 export default KeyDisplayer;

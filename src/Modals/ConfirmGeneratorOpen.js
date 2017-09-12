@@ -4,8 +4,9 @@ import BlueButton from '../UiComponents/BlueButton';
 import SymbolWhiteBack from '../assets/imgs/boscoin-symbol-image-white.png';
 import KeyGeneratorMessage from './KeyGeneratorMessage';
 import './ConfirmGeneratorOpen.scss';
-import * as actions from "../actions/index";
+import * as actions from "actions/index";
 import { connect } from "react-redux";
+import { Keypair } from 'stellar-sdk';
 
 class ConfirmGeneratorOpen extends Component {
   constructor() {
@@ -16,6 +17,7 @@ class ConfirmGeneratorOpen extends Component {
   }
 
   openKeyGenerator() {
+    this.props.updateKeypair( Keypair.random() );
     this.props.showGeneratorConfirm( false );
     this.props.showKeyGenerator( true );
   }
@@ -48,6 +50,9 @@ const mapDispatchToProps = ( dispatch ) => ({
   },
   showGeneratorConfirm: ( $isShow ) => {
     dispatch( actions.showGeneratorConfirm( $isShow ) );
+  },
+  updateKeypair: ( $keypair ) => {
+    dispatch( actions.updateKeypair( $keypair ) );
   },
 });
 

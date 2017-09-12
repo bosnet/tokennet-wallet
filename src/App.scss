@@ -61,6 +61,9 @@ html, body, #root, .App {
 
   @include response(md) {
     padding: 70px 60px;
+    background-image: url('assets/imgs/main-background-wide.png');
+    background-size: 100%;
+    background-attachment: fixed;
   }
 }
 
@@ -78,6 +81,15 @@ html, body, #root, .App {
 
 .App-intro {
   font-size: large;
+}
+
+.button-wrapper {
+  text-align: center;
+  padding-top: 1em;
+
+  button:first-child {
+    margin-right: 1em;
+  }
 }
 
 @keyframes App-logo-spin {

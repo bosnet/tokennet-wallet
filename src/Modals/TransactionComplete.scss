@@ -1,0 +1,48 @@
+.transaction-complete-container {
+  padding: 18px;
+
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+  }
+
+  .under-line {
+    position: relative;
+    display: inline-block;
+    width: 3em;
+    height: 2px;
+    background-color: #000000;
+  }
+
+  p {
+    color: #f40b20;
+    font-style: italic;
+    font-size: 11px;
+  }
+
+  .amount-text {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 100;
+    color: #000000;
+    margin: 1em 0 0;
+
+    &.bold {
+      margin-top: 0;
+      font-weight: bold;
+    }
+  }
+
+  .transaction-amount {
+    font-size: 40px;
+    font-weight: 100;
+    font-style: normal;
+    margin: 0;
+    font-family: 'San Francisco Display Ultralight', sans-serif;
+    color: #039cbf;
+  }
+
+  .button-wrapper button.blue-button {
+    margin-right: 0;
+  }
+}

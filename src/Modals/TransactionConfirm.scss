@@ -1,0 +1,37 @@
+.transaction-confirm-container {
+  padding: 18px;
+
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 0;
+  }
+
+  .under-line {
+    position: relative;
+    display: inline-block;
+    width: 3em;
+    height: 2px;
+    background-color: #000000;
+  }
+
+  p {
+    color: #f40b20;
+    font-style: italic;
+    font-size: 11px;
+  }
+
+  table {
+    width: 100%;
+    text-align: left;
+    word-break: break-all;
+    font-size: 11px;
+
+    tr {
+      td:first-child {
+        width: 80px;
+        font-size: 10px;
+        font-weight: 100;
+      }
+    }
+  }
+}

@@ -16,6 +16,7 @@ class KeyGenerator extends Component {
 
   closeKeyGenerator() {
     this.props.showKeyGenerator( false );
+    this.props.showRecordSeed( true );
   }
 
   render() {
@@ -44,6 +45,9 @@ class KeyGenerator extends Component {
 const mapDispatchToProps = ( dispatch ) => ({
   showKeyGenerator: ( $isShow ) => {
     dispatch( actions.showKeyGenerator( $isShow ) );
+  },
+  showRecordSeed: ( $isShow ) => {
+    dispatch( actions.showRecordSeed( $isShow ) )
   }
 });
 

@@ -44,16 +44,16 @@
 .select-box-list {
     display: none;
     position: absolute;
-    top: 22px;
+    top: 36px;
     left: 0;
     border-radius: 3px;
     background-color: #29263d;
-    width: 115px;
+    width: 164px;
     z-index: 999;
 }
 
 .select-box-list p {
-    padding: 6px 0 6px 12px;
+    padding: 6px 0 6px 24px;
 }
 
 .select-box-list p:hover {

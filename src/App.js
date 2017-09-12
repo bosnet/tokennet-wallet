@@ -13,13 +13,19 @@ import T from 'i18n-react';
 /*
 	Views
  */
-import MainPageView from './MainPageView';
-import WalletView from './WalletView';
+import MainPageView from './views/MainPageView';
+import WalletView from './views/WalletView';
+import LoginView from './views/LoginView';
+import SendCoinView from './views/SendCoinView';
+import ReceiveCoinView from './views/ReceiveCoinView';
 import Header from './Header';
 import Spinner from './UiComponents/Spinner';
+import CopyComplete from './UiComponents/CopyComplete';
 import ConfirmGeneratorOpen from './Modals/ConfirmGeneratorOpen';
 import KeyGenerator from './Modals/KeyGenerator'
-import SeedLogin from './Modals/SeedLogin';
+import TransactionConfirm from './Modals/TransactionConfirm';
+import TransactionComplete from './Modals/TransactionComplete';
+import RecordSeeds from './Modals/RecordSeeds';
 
 /*
 	Styles
@@ -48,20 +54,24 @@ class App extends Component {
   }
 
   render() {
-    console.log( this.props );
     return (
         <div className="App">
 
-          <Spinner spinnerShow={false}/>
+          <Spinner spinnerShow={ this.props.showSpinner }/>
           <ConfirmGeneratorOpen modalOpen={ this.props.showGeneratorConfirm }/>
           <KeyGenerator modalOpen={ this.props.showKeyGenerator }/>
-          <SeedLogin modalOpen={ this.props.showSeedLogin }/>
+          <RecordSeeds modalOpen={ this.props.showRecordSeed } />
+          <TransactionConfirm modalOpen={this.props.transactionConfirm}/>
+          <TransactionComplete modalOpen={this.props.transctionComplete}/>
+          <CopyComplete show={ this.props.showCopyComplete }/>
 
           <Header/>
 
           <Route exact path="/" component={MainPageView}/>
           <Route path="/wallet" component={WalletView}/>
-
+          <Route path="/login" component={LoginView}/>
+          <Route path="/send" component={SendCoinView}/>
+          <Route path="/receive" component={ReceiveCoinView}/>
         </div>
     );
   }
@@ -73,9 +83,13 @@ class App extends Component {
 
 const mapStateToProps = ( state ) => ({
   language: state.language.language,
+  showSpinner: state.spinner.isShow,
   showKeyGenerator: state.keyGenerator.isShow,
   showGeneratorConfirm: state.generatorConfirm.isShow,
-  showSeedLogin: state.seedLogin.isShow,
+  showRecordSeed: state.recordSeed.isShow,
+  showCopyComplete: state.copyComplete.isShow,
+  showTransactionConfirm: state.transactionConfirm.isShow,
+  showTransactionComplete: state.transactionComplete.isShow,
 });
 
 App = withRouter( connect( mapStateToProps, null )( App ) );

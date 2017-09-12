@@ -2,19 +2,19 @@ import * as types from 'actions/ActionTypes';
 
 // 초기 상태를 정의합니다
 const initialState = {
-  isShow: false,
+  keypair: null,
 };
 
-function seedLogin(state = initialState, action) {
+function generatorConfirm(state = initialState, action) {
   switch (action.type) {
-    case types.SHOW_SEED_LOGIN:
+    case types.UPDATE_KEYPAIR:
       return {
         ...state,
-        isShow: action.isShow,
+        keypair: action.keypair,
       };
     default:
       return state;
   }
 };
 
-export default seedLogin;
+export default generatorConfirm;

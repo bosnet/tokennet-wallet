@@ -25,10 +25,16 @@
   position: absolute;
   top: -40px;
   right: 40px;
+  background: transparent;
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  border: none;
 
   &:after {
     content: '';
     position: absolute;
+    left: -5px;
     width: 25px;
     height: 1px;
     background-color: #ffffff;
@@ -38,6 +44,7 @@
   &:before {
     content: '';
     position: absolute;
+    left: -5px;
     width: 25px;
     height: 1px;
     background-color: #ffffff;

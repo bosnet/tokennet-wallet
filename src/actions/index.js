@@ -5,6 +5,11 @@ export const setLanguage = ( $language ) => ( {
 	language: $language,
 } );
 
+export const updateKeypair = ( $keypair ) => ( {
+	type: types.UPDATE_KEYPAIR,
+	keypair: $keypair,
+} );
+
 export const showSpinner = ( $isShow ) => ( {
 	type: types.SHOW_SPINNER,
   isShow: $isShow,
@@ -20,7 +25,22 @@ export const showGeneratorConfirm = ( $isShow ) => ( {
   isShow: $isShow,
 } );
 
-export const showSeedLogin = ( $isShow ) => ( {
-	type: types.SHOW_SEED_LOGIN,
+export const showRecordSeed = ( $isShow ) => ({
+	type: types.SHOW_RECORD_SEED,
 	isShow: $isShow,
 } );
+
+export const showCopyComplete = ( $isShow ) => ({
+	type: types.SHOW_COPY_COMPLETE,
+	isShow: $isShow,
+});
+
+export const showTransactionConfirm = ( $isShow ) => ({
+	type: types.SHOW_TRANSACTION_CONFIRM,
+	isShow: $isShow,
+});
+
+export const showTransactionComplete = ( $isShow ) => ({
+	type: types.SHOW_TRANSACTION_COMPLETE,
+	isShow: $isShow,
+});
