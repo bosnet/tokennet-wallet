@@ -12,10 +12,12 @@ class MainPageView extends Component {
 
 		this.state = {
 			redirect: null,
+			contentBottom: false,
 		};
 
 		this.clickMakeNewKey = this.clickMakeNewKey.bind( this );
 		this.clickOpenYourWallet = this.clickOpenYourWallet.bind( this );
+		this.resizing = this.resizing.bind(this);
 	}
 
   clickMakeNewKey() {
@@ -35,9 +37,26 @@ class MainPageView extends Component {
 		}
   }
 
+  resizing () {
+    let upper = 302;
+    let under = 0;
+    if( document.getElementById('step-to-make-account') ) {
+    	under = document.getElementById('step-to-make-account').clientHeight;
+    }
+
+    this.setState({
+			contentBottom: upper + under <= window.innerHeight
+		});
+	}
+
+  componentDidMount () {
+		this.resizing();
+		window.addEventListener('resize', this.resizing);
+	}
+
 	render() {
 		return (
-			<div className="main-page-container">
+			<div id="main-page-container" className="main-page-container">
 				{ this.renderRedirect() }
 				<div className="symbol-image-container">
 					<img src={symbolImage} alt="BOSCoin symbol"/>
@@ -50,7 +69,7 @@ class MainPageView extends Component {
 					<BlueButton big onClick={ this.clickOpenYourWallet }>Open your wallet</BlueButton>
 				</div>
 
-				<div>
+				<div id="step-to-make-account" className={this.state.contentBottom ? 'content-bottom' : ''}>
 					<h2>Step to make your account send BOScoin</h2>
 					<ol>
 						<li>Make new key by <BlueButton small nonAction>Make a new key</BlueButton> button above</li>
@@ -67,6 +86,10 @@ class MainPageView extends Component {
 			</div>
 		)
 	}
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizing);
+  }
 }
 
 const mapDispatchToProps = ( dispatch ) => ({

@@ -3,9 +3,11 @@ import wallet from 'assets/imgs/boscoin-symbol-image-blue.png';
 import BlueButton from 'UiComponents/BlueButton';
 import './LoginView.scss';
 import { Redirect } from "react-router-dom";
-import { StellarTools } from 'stellar-toolkit';
+import { StellarServer, StellarTools } from 'stellar-toolkit';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
+
+const { getAccount } = StellarServer;
 
 class LoginView extends Component {
   constructor() {
@@ -41,7 +43,16 @@ class LoginView extends Component {
     if( isValid ) {
       const keypair = StellarTools.KeypairInstance( { secretSeed: value } );
       this.props.updateKeypair( keypair );
-      this.setState( { isValid: true } );
+
+      getAccount( keypair.publicKey() )
+          .then( account => {
+            this.props.updateKeypair( keypair );
+            this.setState( { isValid: true } );
+          } )
+          .catch( error => {
+            this.props.updateKeypair( null );
+            this.setState( { isValid: false } );
+          } );
     }
     else {
       this.setState( { isValid: false } );

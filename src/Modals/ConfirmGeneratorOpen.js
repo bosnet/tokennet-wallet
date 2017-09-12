@@ -6,7 +6,6 @@ import KeyGeneratorMessage from './KeyGeneratorMessage';
 import './ConfirmGeneratorOpen.scss';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
-import { Keypair } from 'stellar-sdk';
 import { StellarServer } from 'stellar-toolkit';
 const { generateTestPair } = StellarServer;
 
