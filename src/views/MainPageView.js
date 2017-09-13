@@ -45,7 +45,7 @@ class MainPageView extends Component {
     }
 
     this.setState({
-			contentBottom: upper + under <= window.innerHeight
+			contentBottom: upper + under <= window.innerHeight && window.innerWidth < 640
 		});
 	}
 

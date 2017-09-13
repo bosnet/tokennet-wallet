@@ -6,33 +6,33 @@ import MyBalance from 'UiComponents/MyBalance'
 import RecentHistory from 'UiComponents/RecentHistory';
 import T from 'i18n-react';
 import './WalletView.scss';
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 class WalletView extends Component {
   renderRedirect() {
-    if( this.props.keypair === null ) {
-      return <Redirect to={ '/' } />;
+    if (this.props.keypair === null) {
+      return <Redirect to={'/'}/>;
     }
     else {
       return '';
     }
   }
-  render () {
+
+  render() {
     return (
       <div className="wallet-view-container">
-        { this.renderRedirect() }
+        {this.renderRedirect()}
         <RecentHistory/>
         <MyBalance/>
 
         <p className="your-account">Your Account</p>
         <p className="button-wrapper">
-            <BlueButton medium>
-                <T.span text="wallet_view.send"/>
-            </BlueButton>
-            <BlueButton medium>
-                <T.span text="wallet_view.receive"/>
-            </BlueButton>
+          <BlueButton medium>
+            <T.span text="wallet_view.send"/>
+          </BlueButton>
+          <BlueButton medium>
+            <T.span text="wallet_view.receive"/>
+          </BlueButton>
         </p>
 
         <KeyDisplayer/>
@@ -41,11 +41,5 @@ class WalletView extends Component {
     )
   }
 }
-
-const mapStateToProps = ( state ) => ({
-  keypair: state.keypair.keypair,
-});
-
-WalletView = connect( mapStateToProps, null )( WalletView );
 
 export default WalletView;

@@ -7,6 +7,7 @@ import recordSeed from './recordSeed';
 import copyComplete from './copyComplete';
 import transactionConfirm from './transactionConfirm';
 import transactionComplete from './transactionComplete';
+import stream from './stream';
 
 import { combineReducers } from 'redux';
 
@@ -19,7 +20,8 @@ const reducers = combineReducers( {
   recordSeed,
   copyComplete,
   transactionConfirm,
-  transactionComplete
+  transactionComplete,
+  stream,
 } );
 
 export default reducers;
