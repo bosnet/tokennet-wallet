@@ -1,3 +1,5 @@
+@import '../assets/sass/vendors/response';
+
 .recent-history {
   display: inline-block;
   position: relative;
@@ -10,7 +12,25 @@
   text-align: left;
   margin-top: 20px;
   margin-bottom: 0;
-  background-color: #1b1b26;
+  background-color: #1b182a;
+
+  @include response(md) {
+    font-size: 15px;
+  }
+
+  &:before {
+    content: '';
+    width: 33px;
+    height: 26px;
+    background-image: url('../assets/imgs/recent-history-icon.png');
+    background-size: cover;
+    vertical-align: middle;
+    margin-right: 15px;
+
+    @include response(md) {
+      display: inline-block;
+    }
+  }
 
   &:after {
     content: '';
@@ -20,6 +40,10 @@
     background-color: #5c5c74;
     top: -8px;
     left: 220px;
-    display: block
+    display: block;
+    
+    @include response(md) {
+      display: none;
+    }
   }
 }

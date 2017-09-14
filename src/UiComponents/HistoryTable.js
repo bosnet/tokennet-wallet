@@ -6,17 +6,25 @@ import { connect } from "react-redux";
 import { sortBy } from 'underscore';
 
 class HistoryTable extends Component {
+  RENDER_ITEM_PER = 5;
+
   constructor () {
     super();
 
     this.renderHistory = this.renderHistory.bind(this);
+    this.readMore = this.readMore.bind(this);
 
     const state = {
-      historyList: [
-      ]
+      historyPage: 0,
     };
 
     this.state = state;
+  }
+
+  readMore () {
+    this.setState({
+      historyPage: this.state.historyPage + 1
+    });
   }
 
   renderHistory () {
@@ -26,8 +34,12 @@ class HistoryTable extends Component {
 
     sortBy( data, 'timestamp' );
 
+    if ((this.state.historyPage + 1) * this.RENDER_ITEM_PER < length) {
+      length = (this.state.historyPage + 1) * this.RENDER_ITEM_PER;
+    }
+
     for (let i = 0; i < length; i++) {
-      data[i][1] = numeral( data[i][1] ).format( '0,0.0000' );
+      data[i].amount = numeral( data[i].amount ).format( '0,0.0000' );
       history.push(<tr key={ i }><td><T.span text={data[i].action}/></td><td>{data[i].amount}</td><td>{data[i].date}</td></tr>)
     }
 
@@ -43,6 +55,11 @@ class HistoryTable extends Component {
             {this.renderHistory()}
           </tbody>
         </table>
+        <p className={"more-wrapper " +
+          ((this.state.historyPage + 1) * this.RENDER_ITEM_PER < this.props.history.length ? 'is-more' : '')
+        }>
+          <span onClick={this.readMore}>more </span>
+        </p>
       </div>
     )
   }

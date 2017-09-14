@@ -1,5 +1,12 @@
+@import '../assets/sass/vendors/response';
+
 .wallet-view-container {
   text-align: left;
+
+  @include response(md) {
+    max-width: 860px;
+    margin: auto;
+  }
 }
 
 .your-account {
