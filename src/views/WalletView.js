@@ -7,6 +7,7 @@ import RecentHistory from 'UiComponents/RecentHistory';
 import T from 'i18n-react';
 import './WalletView.scss';
 import {Redirect} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class WalletView extends Component {
   renderRedirect() {
@@ -27,12 +28,16 @@ class WalletView extends Component {
 
         <p className="your-account">Your Account</p>
         <p className="button-wrapper">
-          <BlueButton medium>
-            <T.span text="wallet_view.send"/>
-          </BlueButton>
-          <BlueButton medium>
-            <T.span text="wallet_view.receive"/>
-          </BlueButton>
+          <Link to="/send">
+            <BlueButton medium>
+             <T.span text="wallet_view.send"/>
+            </BlueButton>
+          </Link>
+          <Link to="/receive">
+            <BlueButton medium>
+             <T.span text="wallet_view.receive"/>
+            </BlueButton>
+          </Link>
         </p>
 
         <KeyDisplayer/>
