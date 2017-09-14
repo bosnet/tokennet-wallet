@@ -55,15 +55,15 @@ html, body, #root, .App {
   background-image: url('assets/imgs/main-background.png');
   background-size: 100%;
   background-position: center bottom;
-  background-color: #1b1b26;
+  background-color: #1b182a;
   background-repeat: no-repeat;
   overflow-x: hidden;
 
   @include response(md) {
     padding: 70px 60px;
     background-image: url('assets/imgs/main-background-wide.png');
-    background-size: 100%;
-    background-attachment: fixed;
+    background-size: contain;
+    background-attachment: local;
   }
 }
 

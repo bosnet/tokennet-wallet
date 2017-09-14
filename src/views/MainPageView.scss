@@ -16,7 +16,7 @@
     margin: 20% auto 0;
 
     @include response(md) {
-      margin: calc(20% - 122px) auto 0;
+      margin: calc(25% - 122px) auto 0;
     }
   }
 
@@ -34,6 +34,11 @@
     font-weight: 300;
     white-space: nowrap;
     margin: 20px 0 10px;
+
+    @include response(md) {
+      font-size: 36px;
+      margin: 36px 0 18px;
+    }
   }
 
   p + p {
@@ -41,6 +46,11 @@
     font-weight: 200;
     font-style: italic;
     margin: 0 0 20px 0;
+
+    @include response(md) {
+      font-size: 17px;
+      margin: 0 0 36px 0;
+    }
   }
 
   .button-container {
@@ -65,6 +75,10 @@
     font-size: 12px;
     color: #ffffff;
     margin-bottom: 1em;
+
+    @include response(md) {
+      font-size: 18px;
+    }
   }
 
   ol {
@@ -81,6 +95,7 @@
     display: inline-block;
 
     @include response(md) {
+      display: block;
       font-size: 18px;
     }
 
@@ -95,7 +110,7 @@
 
       @include response(md) {
         top: 12px;
-        left: 44%;
+        right: -40%;
       }
     }
   }

@@ -1,7 +1,13 @@
+@import '../assets/sass/vendors/response';
+
 h1 {
   font-family: 'Exo 2', sans-serif;
   font-size: 30px;
   font-weight: 100;
+
+  @include response(md) {
+    font-size: 36px;
+  }
 }
 
 .black-line {
@@ -10,6 +16,9 @@ h1 {
   background-color: #000000;
   display: inline-block;
 
+  @include response(md) {
+    width: 72px;
+  }
 
   & + p {
     font-family: 'Exo 2', sans-serif;
@@ -17,6 +26,10 @@ h1 {
     font-weight: 100;
     margin-bottom: 12px;
     line-height: 1.4em;
+
+    @include response(md) {
+      font-size: 17px;
+    }
 
     & > span {
       font-weight: bold;

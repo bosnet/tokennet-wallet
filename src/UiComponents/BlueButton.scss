@@ -1,3 +1,5 @@
+@import '../assets/sass/vendors/response';
+
 .blue-button {
   width: 60px;
   height: 20px;
@@ -9,6 +11,13 @@
     width: 156px;
     height: 32px;
     border-radius: 32px;
+
+    @include response(md) {
+      width: 233px;
+      height: 45px;
+      border-radius: 45px;
+      font-size: 17px;
+    }
   }
 
   &.medium {
@@ -16,6 +25,13 @@
     height: 27px;
     font-size: 10px;
     border-radius: 27px;
+
+    @include response(md) {
+      width: 159px;
+      height: 45px;
+      font-size: 17px;
+      border-radius: 45px;
+    }
   }
 
   &.small {
