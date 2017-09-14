@@ -29,6 +29,7 @@
     "html-webpack-plugin": "2.29.0",
     "i18n-react": "^0.4.0",
     "jest": "20.0.4",
+    "moment": "^2.18.1",
     "node-sass": "^4.5.3",
     "numeral": "^2.0.6",
     "object-assign": "4.1.1",

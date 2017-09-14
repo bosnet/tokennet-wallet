@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import numeral from 'numeral';
 import T from 'i18n-react';
 import './HistoryTable.scss';
+import { connect } from "react-redux";
+import moment from "moment";
 
 class HistoryTable extends Component {
   constructor () {
@@ -11,9 +13,6 @@ class HistoryTable extends Component {
 
     const state = {
       historyList: [
-        ['wallet_view.send', 12334.456, '2017.04.16 13:22'],
-        ['wallet_view.receive', 2233.456, '2017.04.16 13:22'],
-        ['wallet_view.send', 12344223.456, '2017.04.16 13:22']
       ]
     };
 
@@ -45,6 +44,32 @@ class HistoryTable extends Component {
       </div>
     )
   }
+
+  componentWillReceiveProps( nextProps ) {
+    if( nextProps.payment && nextProps.payment.type === 'payment' ) {
+      const payment = nextProps.payment;
+      const transaction = payment.transaction;
+      let action = 'wallet_view.send';
+      if( transaction.source_account !== this.props.keypair.publicKey() ) {
+        action = 'wallet_view.receive';
+      }
+      const amount = payment.amount;
+      const date = moment( transaction.created_at ).format( 'YYYY.MM.DD HH:mm' );
+      this.setState( {
+        historyList: [
+          [ action, amount, date ],
+          ...this.state.historyList,
+        ]
+      } );
+    }
+  }
 }
+
+const mapStoreToProps = ( store ) => ( {
+  keypair: store.keypair.keypair,
+  payment: store.stream.payment,
+} );
+
+HistoryTable = connect( mapStoreToProps )( HistoryTable );
 
 export default HistoryTable;

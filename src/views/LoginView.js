@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import wallet from 'assets/imgs/boscoin-symbol-image-blue.png';
 import BlueButton from 'UiComponents/BlueButton';
 import './LoginView.scss';
@@ -6,8 +6,9 @@ import { Redirect } from "react-router-dom";
 import { StellarServer, StellarTools } from 'stellar-toolkit';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
-import {StellarStreamers} from 'stellar-toolkit';
-const {OffersStream, EffectsStream, AccountStream, PaymentStream} = StellarStreamers;
+import { StellarStreamers } from 'stellar-toolkit';
+
+const { OffersStream, EffectsStream, AccountStream, PaymentStream } = StellarStreamers;
 
 const { getAccount } = StellarServer;
 
@@ -35,7 +36,7 @@ class LoginView extends Component {
       return '';
     }
     else {
-      return <Redirect to={ this.state.redirect } />
+      return <Redirect to={this.state.redirect}/>
     }
   }
 
@@ -47,35 +48,38 @@ class LoginView extends Component {
       this.props.updateKeypair( keypair );
 
       getAccount( keypair.publicKey() )
-          .then( account => {
-            // to redux
-            this.props.updateKeypair( keypair );
+        .then( account => {
+          // to redux
+          this.props.updateKeypair( keypair );
 
-            // 스트림 시작
-            AccountStream( keypair.publicKey(), (streamAccount) => {
-              this.props.streamAccount( streamAccount );
-            } );
-            EffectsStream(keypair.publicKey(), (effect) => {
-            } );
-            OffersStream(keypair.publicKey(), (offer) => {
-            } );
-            PaymentStream(keypair.publicKey(), (payment) => {
-            } );
-
-            // state 바인딩
-            this.setState( { isValid: true } );
-          } )
-          .catch( error => {
-            this.props.updateKeypair( null );
-            this.setState( { isValid: false } );
+          // 스트림 시작
+          AccountStream( keypair.publicKey(), ( streamAccount ) => {
+            this.props.streamAccount( streamAccount );
           } );
+          EffectsStream( keypair.publicKey(), ( effects ) => {
+            this.props.streamEffects( effects );
+          } );
+          OffersStream( keypair.publicKey(), ( offers ) => {
+            this.props.streamOffers( offers );
+          } );
+          PaymentStream( keypair.publicKey(), ( payment ) => {
+            this.props.streamPayment( payment );
+          } );
+
+          // state 바인딩
+          this.setState( { isValid: true } );
+        } )
+        .catch( error => {
+          this.props.updateKeypair( null );
+          this.setState( { isValid: false } );
+        } );
     }
     else {
       this.setState( { isValid: false } );
     }
   }
 
-  render () {
+  render() {
     const style = {
       border: '1px solid #039cbf',
     };
@@ -84,7 +88,7 @@ class LoginView extends Component {
     }
     return (
       <div className="login-container">
-        { this.renderRedirect() }
+        {this.renderRedirect()}
         <img src={wallet} alt="BOSCoin symbol"/>
         <h1>
           Input your seed
@@ -95,9 +99,9 @@ class LoginView extends Component {
           Make sure that you don't forget or leak your Seed. You can lose your whole coins.
         </p>
 
-        <input type="text" placeholder="Input your seed" onChange={ this.validateSeed } style={ style }/>
+        <input type="text" placeholder="Input your seed" onChange={this.validateSeed} style={style}/>
         <p className="button-wrapper">
-          <BlueButton medium onClick={ this.openWallet }>Open</BlueButton>
+          <BlueButton medium onClick={this.openWallet}>Open</BlueButton>
         </p>
       </div>
     )
@@ -111,6 +115,15 @@ const mapDispatchToStore = ( dispatch ) => ( {
   },
   streamAccount: ( $account ) => {
     dispatch( actions.streamAccount( $account ) );
+  },
+  streamEffects: ( $effects ) => {
+    dispatch( actions.streamEffects( $effects ) );
+  },
+  streamOffers: ( $offers ) => {
+    dispatch( actions.streamOffers( $offers ) );
+  },
+  streamPayment: ( $payment ) => {
+    dispatch( actions.streamPayment( $payment ) );
   },
 } );
 
