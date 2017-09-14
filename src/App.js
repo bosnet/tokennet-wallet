@@ -60,11 +60,10 @@ class App extends Component {
           <ConfirmGeneratorOpen modalOpen={ this.props.showGeneratorConfirm }/>
           <KeyGenerator modalOpen={ this.props.showKeyGenerator }/>
           <RecordSeeds modalOpen={ this.props.showRecordSeed } />
-          <TransactionConfirm modalOpen={this.props.transactionConfirm}/>
-          <TransactionComplete modalOpen={this.props.transctionComplete}/>
+          <TransactionConfirm modalOpen={this.props.showTransactionConfirm}/>
+          <TransactionComplete modalOpen={this.props.showTransactionComplete}/>
           <CopyComplete show={ this.props.showCopyComplete }/>
           <Spinner spinnerShow={ this.props.showSpinner }/>
-
           <Header/>
 
           <Route exact path="/" component={MainPageView}/>

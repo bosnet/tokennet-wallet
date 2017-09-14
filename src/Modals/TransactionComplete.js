@@ -2,11 +2,23 @@ import React, {Component} from 'react';
 import ModalContainer from './ModalContainer';
 import BlueButton from '../UiComponents/BlueButton';
 import './TransactionComplete.scss';
+import { connect } from "react-redux";
+import * as actions from "actions/index";
 
 class TransactionComplete extends Component {
+  constructor () {
+    super();
+
+    this.closeTransactionComplete = this.closeTransactionComplete.bind(this);
+  }
+
+  closeTransactionComplete () {
+    this.props.transactionComplete(false);
+  }
+
   render () {
     return (
-      <ModalContainer modalOpen={this.props.modalOpen}>
+      <ModalContainer modalOpen={this.props.modalOpen} doClose={this.closeTransactionComplete}>
         <div className="transaction-complete-container">
           <h1>
             Transaction Complete!
@@ -22,12 +34,21 @@ class TransactionComplete extends Component {
             was sent successfully
           </p>
           <p className="button-wrapper">
-            <BlueButton medium>Close</BlueButton>
+            <BlueButton medium onClick={this.closeTransactionComplete}>Close</BlueButton>
           </p>
         </div>
       </ModalContainer>
     )
   }
 }
+
+const mapDispatchToProps = ( dispatch ) => ({
+  transactionComplete: ( $isShow ) => {
+    dispatch( actions.showTransactionComplete( $isShow ) );
+  }
+});
+
+TransactionComplete = connect( null, mapDispatchToProps )( TransactionComplete );
+
 
 export default TransactionComplete;

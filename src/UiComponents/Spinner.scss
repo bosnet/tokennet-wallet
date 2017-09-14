@@ -15,7 +15,7 @@
   .spinner {
     width: 51px;
     height: 58px;
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     transform: translate3D(-50%, -50%, 0);

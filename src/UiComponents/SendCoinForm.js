@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import BlueButton from './BlueButton';
+import { connect } from "react-redux";
+import * as actions from "actions/index";
 import './SendCoinForm.scss';
 
 class SendCoinForm extends Component {
   constructor () {
     super();
+
+    this.openTransactionConfirm = this.openTransactionConfirm.bind(this);
 
     const state = {
       sendingAmount: 0,
@@ -19,6 +23,11 @@ class SendCoinForm extends Component {
     this.setState({
       sendingAmount: $event.currentTarget.value
     });
+  }
+
+  openTransactionConfirm () {
+    console.log('this');
+    this.props.showTransactionConfirm(true);
   }
 
   render () {
@@ -53,11 +62,19 @@ class SendCoinForm extends Component {
         </div>
 
         <div className="button-wrapper">
-          <BlueButton medium>Send</BlueButton>
+          <BlueButton onClick={this.openTransactionConfirm} medium>Send</BlueButton>
         </div>
       </div>
     )
   }
 }
+
+const mapDispatchToProps = ( dispatch ) => ({
+  showTransactionConfirm: ( $isShow ) => {
+    dispatch( actions.showTransactionConfirm( $isShow ) );
+  }
+});
+
+SendCoinForm = connect( null, mapDispatchToProps )( SendCoinForm );
 
 export default SendCoinForm;
