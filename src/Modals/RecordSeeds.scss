@@ -46,6 +46,10 @@
   .warn-header {
     font-size: 1.5em;
     margin-bottom: 0.2em;
+
+    .red-and-bold {
+      animation: blink 500ms 3;
+    }
   }
 
   .red-and-bold {
@@ -64,5 +68,19 @@
   .warn-body {
     font-size: 0.8em;
     color: #f40b20;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
