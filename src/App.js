@@ -4,6 +4,8 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import * as actions from "actions/index";
+import { StellarStreamers } from 'stellar-toolkit';
 
 /*
 	Libraries
@@ -32,10 +34,19 @@ import RecordSeeds from './Modals/RecordSeeds';
  */
 import './App.scss';
 import './assets/sass/App.scss';
+import moment from "moment";
+
+const { OffersStream, EffectsStream, AccountStream, PaymentStream } = StellarStreamers;
 
 class App extends Component {
   constructor() {
     super();
+
+    this.state = {
+      publicKey: null,
+    };
+
+    this.streams = [];
 
     const userLang = navigator.language || navigator.userLanguage;
     this.selectLang( userLang );
@@ -76,12 +87,59 @@ class App extends Component {
   }
 
   componentWillReceiveProps( nextProps ) {
+    if( nextProps.keypair ) {
+      if( nextProps.keypair.publicKey() !== this.state.publicKey ) {
+        const keypair = nextProps.keypair;
+
+        this.setState( {
+          publicKey: nextProps.keypair.publicKey(),
+        } );
+
+        // 기존 스트림 제거
+        this.streams.map( $stream => {
+          $stream();
+        } );
+        this.streams.length = 0;
+        this.props.resetHistory();
+
+        // 스트림 시작
+        this.streams.push( AccountStream( keypair.publicKey(), ( streamAccount ) => {
+          this.props.streamAccount( streamAccount );
+        } ) );
+        this.streams.push( EffectsStream( keypair.publicKey(), ( effects ) => {
+          this.props.streamEffects( effects );
+        } ) );
+        this.streams.push( OffersStream( keypair.publicKey(), ( offers ) => {
+          this.props.streamOffers( offers );
+        } ) );
+        this.streams.push( PaymentStream( keypair.publicKey(), ( payment ) => {
+          this.props.streamPayment( payment );
+        } ) );
+      }
+    }
+
+    if( nextProps.payment && nextProps.payment.type === 'payment' ) {
+      const payment = nextProps.payment;
+      const id = payment.id;
+      const transaction = payment.transaction;
+      let action = 'wallet_view.send';
+      if( transaction.source_account !== this.props.keypair.publicKey() ) {
+        action = 'wallet_view.receive';
+      }
+      const amount = payment.amount;
+      const created_at = moment( transaction.created_at );
+      const date = created_at.format( 'YYYY.MM.DD HH:mm' );
+      const timestamp = created_at.unix();
+      this.props.unshiftHistory( { id, action, amount, date, timestamp } );
+    }
+
     this.selectLang( nextProps.language );
   }
 }
 
 const mapStateToProps = ( state ) => ({
   language: state.language.language,
+  keypair: state.keypair.keypair,
   showSpinner: state.spinner.isShow,
   showKeyGenerator: state.keyGenerator.isShow,
   showGeneratorConfirm: state.generatorConfirm.isShow,
@@ -89,8 +147,30 @@ const mapStateToProps = ( state ) => ({
   showCopyComplete: state.copyComplete.isShow,
   showTransactionConfirm: state.transactionConfirm.isShow,
   showTransactionComplete: state.transactionComplete.isShow,
+  payment: state.stream.payment,
 });
 
-App = withRouter( connect( mapStateToProps, null )( App ) );
+const mapDispatchToStore = ( dispatch ) => ( {
+  streamAccount: ( $account ) => {
+    dispatch( actions.streamAccount( $account ) );
+  },
+  streamEffects: ( $effects ) => {
+    dispatch( actions.streamEffects( $effects ) );
+  },
+  streamOffers: ( $offers ) => {
+    dispatch( actions.streamOffers( $offers ) );
+  },
+  streamPayment: ( $payment ) => {
+    dispatch( actions.streamPayment( $payment ) );
+  },
+  unshiftHistory: ( $historyItem ) => {
+    dispatch( actions.unshiftHistory( $historyItem ) );
+  },
+  resetHistory: () => {
+    dispatch( actions.resetHistory() );
+  },
+} );
+
+App = withRouter( connect( mapStateToProps, mapDispatchToStore )( App ) );
 
 export default App;

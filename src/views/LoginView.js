@@ -6,9 +6,6 @@ import { Redirect } from "react-router-dom";
 import { StellarServer, StellarTools } from 'stellar-toolkit';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
-import { StellarStreamers } from 'stellar-toolkit';
-
-const { OffersStream, EffectsStream, AccountStream, PaymentStream } = StellarStreamers;
 
 const { getAccount } = StellarServer;
 
@@ -51,20 +48,6 @@ class LoginView extends Component {
         .then( account => {
           // to redux
           this.props.updateKeypair( keypair );
-
-          // 스트림 시작
-          AccountStream( keypair.publicKey(), ( streamAccount ) => {
-            this.props.streamAccount( streamAccount );
-          } );
-          EffectsStream( keypair.publicKey(), ( effects ) => {
-            this.props.streamEffects( effects );
-          } );
-          OffersStream( keypair.publicKey(), ( offers ) => {
-            this.props.streamOffers( offers );
-          } );
-          PaymentStream( keypair.publicKey(), ( payment ) => {
-            this.props.streamPayment( payment );
-          } );
 
           // state 바인딩
           this.setState( { isValid: true } );
@@ -112,18 +95,6 @@ class LoginView extends Component {
 const mapDispatchToStore = ( dispatch ) => ( {
   updateKeypair: ( $keypair ) => {
     dispatch( actions.updateKeypair( $keypair ) );
-  },
-  streamAccount: ( $account ) => {
-    dispatch( actions.streamAccount( $account ) );
-  },
-  streamEffects: ( $effects ) => {
-    dispatch( actions.streamEffects( $effects ) );
-  },
-  streamOffers: ( $offers ) => {
-    dispatch( actions.streamOffers( $offers ) );
-  },
-  streamPayment: ( $payment ) => {
-    dispatch( actions.streamPayment( $payment ) );
   },
 } );
 

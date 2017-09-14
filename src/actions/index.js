@@ -64,3 +64,12 @@ export const streamPayment = ( $payment ) => ( {
   type: types.STREAM_PAYMENT,
   payment: $payment,
 } );
+
+export const unshiftHistory = ( $historyItem ) => ( {
+  type: types.UNSHIFT_HISTORY,
+  historyItem: $historyItem,
+} );
+
+export const resetHistory = () => ( {
+  type: types.RESET_HISTORY,
+} );
