@@ -25,12 +25,12 @@ class KeyGenerator extends Component {
           <KeyGeneratorMessage/>
 
           <div className="key-displayer-wrapper">
-            <KeyDisplayer/>
+            <KeyDisplayer setOpenSecretKey={true}/>
           </div>
 
           <p className="warn-message">
             Please write down your Public Address and Secret Seed at safe place. <br/>
-            Make sure that you don't forget or leak your Seed. <br/>
+            Make sure that you don't forget or leak your Seed. <br className="only-mobile"/>
             You can lose your whole coins!
           </p>
           <p className="button-wrapper">

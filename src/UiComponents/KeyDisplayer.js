@@ -21,6 +21,12 @@ class KeyDisplayer extends Component {
   }
 
   componentDidMount () {
+    if (this.props.setOpenSecretKey) {
+      this.setState({
+        secretSeedOpen: true
+      });
+    }
+
     const clipboard = new Clipboard('.copy-btn-wrapper');
 
     clipboard.on('success', ($event) => {

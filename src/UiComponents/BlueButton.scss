@@ -49,6 +49,14 @@
     height: 20px;
     border-radius: 14px;
     border-width: 1px;
+
+
+    @include response(md) {
+      width: 72px;
+      height: 30px;
+      border-radius: 30px;
+      font-size: 14px;
+    }
   }
 
   background-color: transparent;

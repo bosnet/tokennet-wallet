@@ -1,3 +1,5 @@
+@import '../assets/sass/vendors/response';
+
 .key-displayer-wrapper {
   .seed-container {
     padding: 0 15px;
@@ -32,4 +34,14 @@
 .warn-message {
   color: #f40b20;
   font-size: 10px;
+
+  @include response(md) {
+    font-size: 14px;
+  }
+
+  .only-mobile {
+    @include response(md) {
+      display: none;
+    }
+  }
 }

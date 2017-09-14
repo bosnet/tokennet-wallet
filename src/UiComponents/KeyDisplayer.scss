@@ -1,3 +1,6 @@
+@import '../assets/sass/vendors/response';
+
+
 .seed-container {
   text-align: center;
 }
@@ -10,11 +13,17 @@
     color: #039cbf;
     border: none;
     background: none;
+    font-size: 17px;
 
     img {
       width: 8px;
       vertical-align: middle;
       margin-left: 0.5em;
+
+      @include response(md) {
+        width: 16px;
+        margin-bottom: 2px;
+      }
     }
   }
 
@@ -27,6 +36,10 @@
     background-color: #1b1b26;
     margin: 0;
     z-index: 999;
+
+    @include response(md) {
+      font-size: 17px;
+    }
   }
 }
 
@@ -45,6 +58,10 @@
     color: #039cbf;
     font-size: 12px;
     margin: 0;
+
+    @include response(md) {
+      font-size: 17px;
+    }
   }
 
   .public-key,
@@ -92,6 +109,10 @@
     width: 80%;
     display: inline-block;
     font-size: 10px;
+
+    @include response(md) {
+      font-size: 17px;
+    }
   }
 
   div:last-child {
