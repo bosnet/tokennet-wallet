@@ -1,9 +1,15 @@
+@import '../assets/sass/vendors/response';
+
 .transaction-complete-container {
   padding: 18px;
 
   h1 {
     font-size: 1.5em;
     margin-bottom: 0;
+
+    @include response(md) {
+      font-size: 2em;
+    }
   }
 
   .under-line {
@@ -12,6 +18,10 @@
     width: 3em;
     height: 2px;
     background-color: #000000;
+
+    @include response(md) {
+      width: 5em;
+    }
   }
 
   p {
@@ -27,6 +37,10 @@
     color: #000000;
     margin: 1em 0 0;
 
+    @include response(md) {
+      font-size: 17px;
+    }
+
     &.bold {
       margin-top: 0;
       font-weight: bold;
@@ -40,6 +54,10 @@
     margin: 0;
     font-family: 'San Francisco Display Ultralight', sans-serif;
     color: #039cbf;
+
+    @include response(md) {
+      margin: 10px 0;
+    }
   }
 
   .button-wrapper button.blue-button {

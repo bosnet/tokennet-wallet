@@ -4,6 +4,7 @@ import RecentHistory from 'UiComponents/RecentHistory';
 import KeyDisplayer from 'UiComponents/KeyDisplayer';
 import SendCoinForm from 'UiComponents/SendCoinForm';
 import BlueButton from 'UiComponents/BlueButton';
+import { Link } from "react-router-dom";
 import './SendCoinView.scss';
 
 class SendCoinView extends Component {
@@ -15,8 +16,13 @@ class SendCoinView extends Component {
         <SendCoinForm/>
         <KeyDisplayer/>
         <div className="button-wrapper">
-          <BlueButton medium>Account</BlueButton>
-          <BlueButton medium>Receive</BlueButton>
+          <Link to="/wallet">
+            <BlueButton medium>Account</BlueButton>
+          </Link>
+
+          <Link to="/receive">
+            <BlueButton medium>Receive</BlueButton>
+          </Link>
         </div>
       </div>
     )

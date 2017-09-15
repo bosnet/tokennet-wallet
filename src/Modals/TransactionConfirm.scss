@@ -1,9 +1,20 @@
+@import '../assets/sass/vendors/response';
+
 .transaction-confirm-container {
   padding: 18px;
+
+  @include response(md) {
+    width: 860px;
+    margin: auto;
+  }
 
   h1 {
     font-size: 1.5em;
     margin-bottom: 0;
+
+    @include response(md) {
+      font-size: 2em;
+    }
   }
 
   .under-line {
@@ -12,12 +23,24 @@
     width: 3em;
     height: 2px;
     background-color: #000000;
+
+    @include response(md) {
+      width: 5em;
+    }
   }
 
   p {
     color: #f40b20;
     font-style: italic;
     font-size: 11px;
+
+    @include response(md) {
+      font-size: 17px;
+
+      &.button-wrapper {
+        margin-top: 20px;
+      }
+    }
   }
 
   table {
@@ -26,11 +49,28 @@
     word-break: break-all;
     font-size: 11px;
 
+    @include response(md) {
+      padding: 30px 38px;
+      border-radius: 5px;
+      border: 2px solid #039cbf;
+    }
+
     tr {
+      td {
+        @include response(md) {
+          font-size: 18px;
+        }
+      }
+
       td:first-child {
         width: 80px;
         font-size: 10px;
         font-weight: 100;
+
+        @include response(md) {
+          width: 120px;
+          font-size: 15px;
+        }
       }
     }
   }

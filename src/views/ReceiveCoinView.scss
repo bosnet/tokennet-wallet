@@ -1,3 +1,5 @@
+@import '../assets/sass/vendors/response';
+
 .receive-wrapper {
   text-align: center;
   p {
@@ -11,6 +13,18 @@
     width: 90px;
     height: 90px;
     margin: 0 auto 1.5em;
+
+    @include response(md) {
+      width: 180px;
+      height: 180px;
+    }
+  }
+}
+
+.receive-coin-view-container {
+  @include response(md) {
+    width: 860px;
+    margin: auto;
   }
 }
 

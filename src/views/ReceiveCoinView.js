@@ -4,6 +4,7 @@ import RecentHistory from 'UiComponents/RecentHistory';
 import KeyDisplayer from 'UiComponents/KeyDisplayer';
 import BlueButton from 'UiComponents/BlueButton';
 import QRious from 'qrious';
+import { Link } from "react-router-dom";
 import './ReceiveCoinView.scss';
 
 class ReceiveCoinView extends Component {
@@ -16,7 +17,7 @@ class ReceiveCoinView extends Component {
 
   render () {
     return (
-      <div className="send-coin-view-container">
+      <div className="receive-coin-view-container">
         <RecentHistory/>
         <MyBalance/>
 
@@ -27,8 +28,13 @@ class ReceiveCoinView extends Component {
 
         <KeyDisplayer/>
         <div className="button-wrapper">
-          <BlueButton medium>Account</BlueButton>
-          <BlueButton medium>Send</BlueButton>
+          <Link to="/wallet">
+            <BlueButton medium>Account</BlueButton>
+          </Link>
+
+          <Link to="/send">
+            <BlueButton medium>Send</BlueButton>
+          </Link>
         </div>
       </div>
     )

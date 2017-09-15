@@ -15,6 +15,7 @@
   background-color: #1b182a;
 
   @include response(md) {
+    width: 100%;
     font-size: 15px;
   }
 

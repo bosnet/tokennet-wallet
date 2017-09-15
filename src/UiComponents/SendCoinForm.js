@@ -37,11 +37,15 @@ class SendCoinForm extends Component {
 
         <div className="input-group">
           <div className="input-group-label-wrapper">
-            <p className="input-label">
+            <p className="input-label only-mobile">
               Input the public address of recipient
             </p>
             <p className="transaction-fee">
               Transaction fee: <span>{this.state.transactionFee} BOS</span>
+            </p>
+
+            <p className="input-label gt-md">
+              Input the public address of recipient
             </p>
             <input className="input-public-address" type="text"/>
             <span className={
@@ -53,9 +57,12 @@ class SendCoinForm extends Component {
 
         <div className="input-group">
           <div className="input-group-label-wrapper">
-            <p className="input-label">
+            <p className="input-label only-mobile">
               Input the amount you want to send
             </p> <br/>
+            <p className="input-label gt-md">
+              Input the amount you want to send
+            </p>
             <input onChange={$event => {this.updateAmount($event)}} className="input-sending-amount" type="tel" defaultValue={this.state.sendingAmount} />
             <p className="sending-amount">Total {this.state.sendingAmount < 0 ? 0 : this.state.sendingAmount - this.state.transactionFee} BOS will be sent to Recipient</p>
           </div>

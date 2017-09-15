@@ -1,4 +1,23 @@
+@import '../assets/sass/vendors/response';
+
 .send-coin-view-container {
+  .gt-md {
+    display: none;
+  }
+
+  @include response(md) {
+    max-width: 860px;
+    margin: auto;
+
+    .only-mobile {
+      display: none;
+    }
+
+    .gt-md {
+      display: inline-block;
+    }
+  }
+
   .button-wrapper {
     margin-top: 0;
   }
@@ -19,6 +38,12 @@
 
   .button-wrapper {
     margin-top: 45px;
+
+    @include response(md) {
+      padding-bottom: 2em;
+      border-bottom: 2px solid #5c5c74;
+      margin-bottom: 2em;
+    }
   }
 }
 
@@ -29,6 +54,13 @@
     color: #ffffff;
     font-weight: 200;
     margin-bottom: 0.5em;
+
+    @include response(md) {
+      &.gt-md {
+        width: 30%;
+        font-size: 15px;
+      }
+    }
   }
 }
 
@@ -40,6 +72,11 @@
 .transaction-fee {
   float: right;
 
+  @include response(md) {
+    width: 100%;
+    text-align: right;
+  }
+
   span {
     color: #039cbf;
   }
@@ -50,6 +87,10 @@
 }
 
 .input-group {
+  @include response(md) {
+    height: 64px;
+  }
+
   input {
     background-color: #ffffff;
     border: none;
@@ -59,6 +100,12 @@
 
   .input-public-address {
     width: calc(100% - 41px);
+    padding-left: 1.5em;
+
+    @include response(md) {
+      display: inline-block;
+      width: 70%;
+    }
   }
 
   .input-sending-amount {
@@ -68,6 +115,11 @@
     font-weight: 400;
     padding: 10px;
     font-size: 22px;
+
+    @include response(md) {
+      display: inline-block;
+      width: 70%;
+    }
   }
 
   .sending-amount {
@@ -89,44 +141,24 @@
   display: inline-block;
   width: 38px;
   height: 38px;
-  background-color: darkred;
+  background: #b3c9d1 url('../assets/imgs/check-mark-white.png') no-repeat;
+  background-size: 19px;
+  background-position: center;
   vertical-align: middle;
   margin-left: 3px;
   border-radius: 5px;
   position: relative;
 
-  &:after {
-    content: '';
-    width: 1.5em;
-    height: 2px;
-    background-color: #ffffff;
-    display: block;
-    position: absolute;
-    transform: rotate(45deg);
-    top: 18px;
-    left: 7px;
-  }
-
-  &:before {
-    content: '';
-    width: 1.5em;
-    height: 2px;
-    background-color: #ffffff;
-    display: block;
-    position: absolute;
-    transform: rotate(-45deg);
-    top: 18px;
-    left: 7px;
-  }
-
   &.validated {
-    &:after,
-    &:before {
-      display: none;
-    }
-
     background: #039cbf url('../assets/imgs/check-mark-white.png') no-repeat;
     background-size: 19px;
     background-position: center;
+
+    @include response(md) {
+      width: 36px;
+      height: 36px;
+      top: -37px;
+      left: calc(100% - 40px);
+    }
   }
 }
