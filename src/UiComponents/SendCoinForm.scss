@@ -149,16 +149,16 @@
   border-radius: 5px;
   position: relative;
 
+  @include response(md) {
+    top: -37px;
+    left: calc(100% - 40px);
+    width: 36px;
+    height: 36px;
+  }
+
   &.validated {
     background: #039cbf url('../assets/imgs/check-mark-white.png') no-repeat;
     background-size: 19px;
     background-position: center;
-
-    @include response(md) {
-      width: 36px;
-      height: 36px;
-      top: -37px;
-      left: calc(100% - 40px);
-    }
   }
 }

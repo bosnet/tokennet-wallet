@@ -61,7 +61,7 @@ class SendCoinForm extends Component {
               Input the amount you want to send
             </p> <br/>
             <p className="input-label gt-md">
-              Input the amount you want to send
+              Input the public address of recipient
             </p>
             <input onChange={$event => {this.updateAmount($event)}} className="input-sending-amount" type="tel" defaultValue={this.state.sendingAmount} />
             <p className="sending-amount">Total {this.state.sendingAmount < 0 ? 0 : this.state.sendingAmount - this.state.transactionFee} BOS will be sent to Recipient</p>

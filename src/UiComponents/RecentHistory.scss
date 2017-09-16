@@ -13,9 +13,9 @@
   margin-top: 20px;
   margin-bottom: 0;
   background-color: #1b182a;
+  width: 100%;
 
   @include response(md) {
-    width: 100%;
     font-size: 15px;
   }
 

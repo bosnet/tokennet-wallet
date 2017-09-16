@@ -56,6 +56,11 @@ class KeyDisplayer extends Component {
           <div className="public-key-box">
             <p>Public address</p>
             <div className="public-key-wrapper">
+              <div className="gt-md-label">
+                <p>
+                  Public address
+                </p>
+              </div>
               <div>
                 <p className="public-key" data-clipboard-text={ this.props.keypair ? this.props.keypair.publicKey() : '' }>
                   { this.props.keypair ? this.props.keypair.publicKey() : '' }
@@ -70,6 +75,11 @@ class KeyDisplayer extends Component {
           <div className="secret-key-box">
             <p>Secret seed</p>
             <div className="secret-key-wrapper">
+              <div className="gt-md-label">
+                <p>
+                  Secret seed
+                </p>
+              </div>
               <div>
                 <p className="secret-key" data-clipboard-text={ this.props.keypair ? this.props.keypair.secret() : '' }>
                   { this.props.keypair ? this.props.keypair.secret() : '' }

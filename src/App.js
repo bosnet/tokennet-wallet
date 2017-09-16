@@ -98,6 +98,7 @@ class App extends Component {
         // 기존 스트림 제거
         this.streams.map( $stream => {
           $stream();
+          return true;
         } );
         this.streams.length = 0;
         this.props.resetHistory();

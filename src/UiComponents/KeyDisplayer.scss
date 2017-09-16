@@ -3,6 +3,33 @@
 
 .seed-container {
   text-align: center;
+
+  .gt-md-label {
+    @include response(md) {
+      display: inline-block;
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .blue-button.filled {
+    @include response(md) {
+      background-color: transparent;
+      color: #039cbf;
+      font-size: 12px;
+
+      &:hover {
+        background-color: #039cbf;
+        color: #ffffff;
+
+        &.non-action {
+          background-color: transparent;;
+          color: #039cbf;
+        }
+      }
+    }
+  }
 }
 
 .open-seed-wrapper {
@@ -60,13 +87,14 @@
     margin: 0;
 
     @include response(md) {
-      font-size: 17px;
+      display: none;
     }
   }
 
   .public-key,
   .secret-key {
     word-wrap: break-word;
+    font-style: italic;
     color: #ffffff;
     text-align: left;
     font-weight: 100;
@@ -90,10 +118,19 @@
   .public-key-box {
     margin-bottom: 1em;
     border-bottom: 1px solid #5c5c74;
+
+    @include response(md) {
+      margin-bottom: 0;
+      border: none;
+    }
   }
 
   .public-key {
     margin-bottom: 1.5em;
+
+    @include response(md) {
+      margin: 0;
+    }
   }
 
   .open-seed {
@@ -106,20 +143,43 @@
 .public-key-wrapper,
 .secret-key-wrapper {
   div:first-child {
-    width: 80%;
-    display: inline-block;
-    font-size: 10px;
+    display: none;
 
     @include response(md) {
+      display: inline-block;
       font-size: 17px;
+      width: 20%;
+      text-align: left;
+    }
+
+    & + div {
+      width: 80%;
+      display: inline-block;
+      font-size: 10px;
+
+      @include response(md) {
+        width: 68%;
+        font-size: 16px;
+      }
     }
   }
 
   div:last-child {
     width: 20%;
     display: inline-block;
-    vertical-align: super;
+    vertical-align: middle;
     text-align: right;
+
+    @include response(md) {
+      width: 12%;
+    }
+  }
+  
+  @include response(md) {
+    > div {
+      display: inline-block;
+      color: #039cbf;
+    }
   }
 }
 
