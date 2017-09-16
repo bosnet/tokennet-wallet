@@ -4,6 +4,7 @@ import BlueButton from '../UiComponents/BlueButton';
 import './TransactionConfirm.scss';
 import { connect } from "react-redux";
 import * as actions from "actions/index";
+import T from 'i18n-react';
 
 class TransactionConfirm extends Component {
   constructor () {
@@ -27,32 +28,32 @@ class TransactionConfirm extends Component {
       <ModalContainer modalOpen={this.props.modalOpen} doClose={this.hideTransactionConfirm}>
         <div className="transaction-confirm-container">
           <h1>
-            Confirm your Transaction
+            {T.translate("transaction_confirm.header")}
           </h1>
           <span className="under-line"></span>
           <p>
-            Please confirm your Transaction once again.
+            {T.translate("transaction_confirm.text")}
           </p>
           <div className="transaction-box">
             <table>
               <tbody>
                 <tr>
                   <td>
-                    Public Address
+                    {T.translate("common.public_address")}
                   </td>
                   <td>
                     SFJEIFS234923SFDS32FJIES9EIFJO9EFJISJIEO78798EJFIOJSIOJ656528UIUIOE
                   </td>
                 </tr>
                 <tr>
-                  <td>Amount</td>
+                  <td>{T.translate("common.amount")}</td>
                   <td>
                     1000 BOS
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    Total Amount
+                    {T.translate("common.total_amount")}
                   </td>
                   <td>
                     1000.01 BOS
@@ -62,8 +63,8 @@ class TransactionConfirm extends Component {
             </table>
           </div>
           <p className="button-wrapper">
-            <BlueButton medium onClick={this.showSendComplete}>Send</BlueButton>
-            <BlueButton medium onClick={this.hideTransactionConfirm}>Cancel</BlueButton>
+            <BlueButton medium onClick={this.showSendComplete}>{T.translate("common.send")}</BlueButton>
+            <BlueButton medium onClick={this.hideTransactionConfirm}>{T.translate("common.cancel")}</BlueButton>
           </p>
         </div>
       </ModalContainer>

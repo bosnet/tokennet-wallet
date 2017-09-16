@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 import { StellarServer, StellarTools } from 'stellar-toolkit';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
+import T from 'i18n-react';
 
 const { getAccount } = StellarServer;
 
@@ -74,17 +75,17 @@ class LoginView extends Component {
         {this.renderRedirect()}
         <img src={wallet} alt="BOSCoin symbol"/>
         <h1>
-          Input your seed
+          <T.span text="login_view.header" />
         </h1>
         <span className="under-line-blue"> </span>
         <p>
-          Please input your Secret Seed to open your account.<br/>
-          Make sure that you don't forget or leak your Seed. You can lose your whole coins.
+          <T.span text="login_view.guide_line_1" /><br/>
+          <T.span text="login_view.guide_line_2" />
         </p>
 
-        <input type="text" placeholder="Input your seed" onChange={this.validateSeed} style={style}/>
+        <input type="text" placeholder={T.translate('login_view.header')} onChange={this.validateSeed} style={style}/>
         <p className="button-wrapper">
-          <BlueButton medium onClick={this.openWallet}>Open</BlueButton>
+          <BlueButton medium onClick={this.openWallet}><T.span text="common.open" /></BlueButton>
         </p>
       </div>
     )

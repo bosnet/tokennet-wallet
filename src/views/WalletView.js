@@ -26,7 +26,7 @@ class WalletView extends Component {
         <RecentHistory/>
         <MyBalance/>
 
-        <p className="your-account">Your Account</p>
+        <p className="your-account">{T.translate('common.your_account')}</p>
         <p className="button-wrapper">
           <Link to="/send">
             <BlueButton medium>

@@ -51,14 +51,14 @@ class KeyDisplayer extends Component {
           <button onClick={this.toggleSecretSeed} className="open-seed"><T.span text="wallet_view.open_secret_seed"/>
             <img src={ArrowDown} alt="arrow"/></button>
         </p>
-        <p>Account Address</p>
+        <p>{T.translate('common.account_address')}</p>
         <div className="keys-box">
           <div className="public-key-box">
-            <p>Public address</p>
+            <p>{T.translate('common.public_address')}</p>
             <div className="public-key-wrapper">
               <div className="gt-md-label">
                 <p>
-                  Public address
+                  {T.translate('common.public_address')}
                 </p>
               </div>
               <div>
@@ -73,11 +73,11 @@ class KeyDisplayer extends Component {
           </div>
 
           <div className="secret-key-box">
-            <p>Secret seed</p>
+            <p>{T.translate('common.secret_seed')}</p>
             <div className="secret-key-wrapper">
               <div className="gt-md-label">
                 <p>
-                  Secret seed
+                  {T.translate('common.secret_seed')}
                 </p>
               </div>
               <div>

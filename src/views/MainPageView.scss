@@ -79,6 +79,12 @@
 
     @include response(md) {
       font-size: 18px;
+
+      .blue-button.small {
+        width: 150px;
+        height: 40px;
+        font-size: 14px;
+      }
     }
   }
 

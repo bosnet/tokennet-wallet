@@ -6,6 +6,7 @@ import BlueButton from 'UiComponents/BlueButton';
 import QRious from 'qrious';
 import { Link } from "react-router-dom";
 import './ReceiveCoinView.scss';
+import T from 'i18n-react';
 
 class ReceiveCoinView extends Component {
   componentDidMount() {
@@ -22,18 +23,18 @@ class ReceiveCoinView extends Component {
         <MyBalance/>
 
         <div className="receive-wrapper">
-          <p>Receive</p>
+          <p>{T.translate('common.receive')}</p>
           <canvas width="90" height="90" id="my-address-qrcode"> </canvas>
         </div>
 
         <KeyDisplayer/>
         <div className="button-wrapper">
           <Link to="/wallet">
-            <BlueButton medium>Account</BlueButton>
+            <BlueButton medium>{T.translate('common.account')}</BlueButton>
           </Link>
 
           <Link to="/send">
-            <BlueButton medium>Send</BlueButton>
+            <BlueButton medium>{T.translate('common.send')}</BlueButton>
           </Link>
         </div>
       </div>

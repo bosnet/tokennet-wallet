@@ -5,6 +5,7 @@ import BlueButton from '../UiComponents/BlueButton';
 import './RecordSeeds.scss';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
+import T from 'i18n-react';
 
 class RecordSeeds extends Component {
   constructor () {
@@ -27,16 +28,16 @@ class RecordSeeds extends Component {
 
   warningMessages = [
     [
-      <span>Record your Seeds</span>,
-      <span>Be sure to record your Public Address and Secret Seeds securely.<br />Be sure not to lose or share your Secret Seed. This is the key to your Wallet.</span>
+      <span>{T.translate("record_seed.warn_header1")}</span>,
+      <span>{T.translate("record_seed.warn_text1_1")}<br />{T.translate("record_seed.warn_text1_2")}</span>
     ],
     [
-      <span>Record your Seeds <span className="red-and-bold">NOW!</span></span>,
-      <span>PLEASE double check if you have the right Seeds.<br />You are solely responsible for the security of your Seeds.</span>
+      <span>{T.translate("record_seed.warn_header2_1")}<span className="red-and-bold">{T.translate("record_seed.warn_header2_2")}</span></span>,
+      <span>{T.translate("record_seed.warn_text2_1")}<br />{T.translate("record_seed.warn_text2_2")}</span>
     ],
     [
-      <span className="red-and-bold">DO NOT LOSE YOUR SEEDS!!!</span>,
-      <span>Please confirm your seeds again. You may lose all of your<br/>You may lose all of your funds if you lose your Seeds. <span className="red-and-bold">Final warning.</span></span>
+      <span className="red-and-bold">{T.translate("record_seed.warn_header3")}</span>,
+      <span>{T.translate("record_seed.warn_text3_1")}<br/>{T.translate("record_seed.warn_text3_2")}<span className="red-and-bold">{T.translate("record_seed.warn_text3_3")}</span></span>
     ]
   ];
 
@@ -65,7 +66,7 @@ class RecordSeeds extends Component {
 
   render () {
     return (
-      <ModalContainer doClose={ this.closeRecordSeed } modalOpen={this.props.modalOpen}>
+      <ModalContainer doClose={this.nextStep} modalOpen={this.props.modalOpen}>
         <div className="record-seed-container">
           {this.renderWarningMessage()}
           <KeyDisplayer/>

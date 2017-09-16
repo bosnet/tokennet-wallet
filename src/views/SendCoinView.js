@@ -6,6 +6,7 @@ import SendCoinForm from 'UiComponents/SendCoinForm';
 import BlueButton from 'UiComponents/BlueButton';
 import { Link } from "react-router-dom";
 import './SendCoinView.scss';
+import T from 'i18n-react';
 
 class SendCoinView extends Component {
   render () {
@@ -17,11 +18,11 @@ class SendCoinView extends Component {
         <KeyDisplayer/>
         <div className="button-wrapper">
           <Link to="/wallet">
-            <BlueButton medium>Account</BlueButton>
+            <BlueButton medium>{T.translate('common.account')}</BlueButton>
           </Link>
 
           <Link to="/receive">
-            <BlueButton medium>Receive</BlueButton>
+            <BlueButton medium>{T.translate('common.receive')}</BlueButton>
           </Link>
         </div>
       </div>

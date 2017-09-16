@@ -7,7 +7,10 @@ import './ConfirmGeneratorOpen.scss';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
 import { StellarServer } from 'stellar-toolkit';
+import T from 'i18n-react';
+
 const { generateTestPair } = StellarServer;
+
 
 class ConfirmGeneratorOpen extends Component {
   constructor() {
@@ -26,8 +29,6 @@ class ConfirmGeneratorOpen extends Component {
           this.props.showGeneratorConfirm( false );
           this.props.showKeyGenerator( true );
         } );
-
-
   }
 
   doClose() {
@@ -42,8 +43,8 @@ class ConfirmGeneratorOpen extends Component {
 
             <img src={SymbolWhiteBack} alt="BOSCoin wallet symbol"/>
             <p className="button-wrapper">
-              <BlueButton medium onClick={ this.openKeyGenerator }>Generator</BlueButton>
-              <BlueButton medium onClick={ this.doClose }>Close</BlueButton>
+              <BlueButton medium onClick={ this.openKeyGenerator }>{T.translate('common.generator')}</BlueButton>
+              <BlueButton medium onClick={ this.doClose }>{T.translate('common.close')}</BlueButton>
             </p>
           </div>
         </ModalContainer>

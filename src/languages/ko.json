@@ -1,12 +1,84 @@
 {
   "common": {
-    "copy": "복사"
+    "copy": "복사",
+    "open": "열기",
+    "send": "보내기",
+    "cancel": "취소",
+    "account": "계정",
+    "amount": "금액",
+    "total_amount": "총계",
+    "your_account": "당신의 계정",
+    "public_address": "공개 주소",
+    "secret_seed": "비밀 시드",
+    "receive": "받기",
+    "account_address": "계정 주소",
+    "generator": "생성하기",
+    "close": "닫기"
+  },
+  "header": {
+    "see_manual": "전체 메뉴얼 보기"
   },
   "welcome_view": {
     "title": "BOScoin 웹지갑",
     "title_description": "시드를 만들고, 지갑을 관리하고, BOScoin을 보내고 받으세요.",
     "button_make": "새로운 키 생성",
-    "button_open": "지갑 열기"
+    "button_open": "지갑 열기",
+    "guide_title": "계정을 만들고 BOScoin을 보내는 법",
+    "guide": {
+      "step1_1": "위에 있는 ",
+      "step1_2": "버튼을 눌러서 새로운 키를 만드세요",
+      "step2": "두 개의 키를 적어서 안전하게 보관하세요(매우 중요합니다!!)",
+      "step3_1": "위에 있는 ",
+      "step3_2": " 버튼을 눌러서 계정을 여세요",
+      "step4": "빈칸에 시드 주소를 넣으세요",
+      "step5_1": "",
+      "step5_2": " 버튼을 눌러서 당신의 계정을 여세요",
+      "step6_1": "",
+      "step6_2": " 버튼을 누르고 받을 공개 주소를 변칸에 입력하세요"
+    }
+  },
+  "login_view": {
+    "header": "당신의 시드를 입력하세요",
+    "guide_line_1": "열고자 하는 계정의 비밀 시드를 입력하세요.",
+    "guide_line_2": "당신의 시드를 잃어버리거나 노출되지 않도록 하세요. 모든 코인을 잃을 수 있습니다."
+  },
+  "send_coin": {
+    "input_recipient_address": "받는 사람의 공개주소를 입력하세요",
+    "input_amount": "보내고자하는 금액을 입력하세요",
+    "transaction_fee": "이체 수수료",
+    "total": "총합 ",
+    "will_be_sent": " 를 보냅니다"
+  },
+  "key_generator": {
+    "header": "생성하기 버튼을 눌러 새로운 키를 만드세요",
+    "description_line1": "이것은 계정을 생성하는 기능이 아닙니다.",
+    "description_line2": "반드시 다음의 주소로 보내기 작업을 하여야만",
+    "description_line3": "잔고가 생성되고 유지됩니다.",
+    "description_line4": "시드를 안전하게 보관하세요.",
+    "warn_line1": "공개 주소와 비밀 시드를 반드시 안전한 곳에 적어 두세요.",
+    "warn_line2": "당신의 시드를 잊어버리거나 노출되지 않도록 주의하세요.",
+    "warn_line3": "모든 코인을 잃게 될 수 있습니다!"
+  },
+  "record_seed": {
+    "warn_header1": "당신의 시드를 기록하세요. ",
+    "warn_header2_1": "당신의 시드를 기록하세요. ",
+    "warn_header2_2": "지금 바로요!",
+    "warn_header3": "당신의 시드를 잊지않도록 하세요!!!",
+    "warn_text1_1": "당신의 공개 주소와 비밀 시드가 제대로 기록되었는지 확인하세요",
+    "warn_text1_2": "당신의 비밀 시드를 잊어버리거나 타인과 공유하지 마세요. 당신의 지갑으로 통하는 열쇠입니다.",
+    "warn_text2_1": "다시한번 당신의 시드가 제대로 기록되었는지 확인하세요.",
+    "warn_text2_2": "당신의 시드를 안전하게 보관하는 것은 오직 당신의 책임입니다.",
+    "warn_text3_1": "당신의 시드를 다시한번 확인하세요. 만일 시드를 분실한다면 ",
+    "warn_text3_2": "모든 코인을 잃게 됩니다. ",
+    "warn_text3_3": "마지막 경고입니다."
+  },
+  "transaction_confirm": {
+    "header": "이체 내용 확인",
+    "text": "이체 내용을 다시한번 확인하세요"
+  },
+  "transaction_complete": {
+    "header": "이체 완료!",
+    "send_success": "성공적으로 이체하였습니다."
   },
   "wallet_view": {
     "balance" : "잔고",

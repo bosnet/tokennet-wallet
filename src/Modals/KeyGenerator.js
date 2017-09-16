@@ -6,6 +6,7 @@ import BlueButton from '../UiComponents/BlueButton';
 import './KeyGenerator.scss';
 import { connect } from "react-redux";
 import * as actions from "../actions/index";
+import T from 'i18n-react';
 
 class KeyGenerator extends Component {
   constructor() {
@@ -29,12 +30,14 @@ class KeyGenerator extends Component {
           </div>
 
           <p className="warn-message">
-            Please write down your Public Address and Secret Seed at safe place. <br/>
-            Make sure that you don't forget or leak your Seed. <br className="only-mobile"/>
-            You can lose your whole coins!
+            {T.translate('key_generator.warn_line1')}<br/>
+            {T.translate('key_generator.warn_line2')}<br className="only-mobile"/>
+            {T.translate('key_generator.warn_line3')}
           </p>
           <p className="button-wrapper">
-            <BlueButton onClick={ () => this.closeKeyGenerator() } medium>Close</BlueButton>
+            <BlueButton onClick={ () => this.closeKeyGenerator() } medium>
+              {T.translate('common.close')}
+            </BlueButton>
           </p>
         </ModalContainer>
     )

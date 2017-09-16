@@ -1,21 +1,22 @@
 import React, {Component} from 'react';
 import './KeyGeneratorMessage.scss';
+import T from 'i18n-react';
 
 class KeyGeneratorMessage extends Component {
   render () {
     return (
       <div>
         <h1>
-          Click on generate to get a new keypair
+          {T.translate('key_generator.header')}
         </h1>
 
         <span className="black-line"> </span>
 
         <p>
-          This tool does not create an account. <br/>
-          You have to send create_account operation to the following <br/>
-          address with a starting balance so it can exist. <br/>
-          <span>Keep your seed safe.</span>
+          {T.translate('key_generator.description_line1')}<br/>
+          {T.translate('key_generator.description_line2')} <br/>
+          {T.translate('key_generator.description_line3')}<br/>
+          <span>{T.translate('key_generator.description_line4')}</span>
         </p>
       </div>
     )
