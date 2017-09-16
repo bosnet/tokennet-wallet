@@ -14,7 +14,7 @@ class MyBalance extends Component {
     return (
       <div className="balance-container">
         <p id="balance-label"><T.span text="wallet_view.balance"/></p>
-        <p id="balance">{ numeral( balance ).format( '0,0.0000' ) }</p>
+        <p id="balance">{ numeral( balance ).format( '0,0.0000' ) } <span>BOS</span></p>
         <p id="bos-unit">BOS</p>
       </div>
     )

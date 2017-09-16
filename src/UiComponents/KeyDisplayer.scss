@@ -40,7 +40,11 @@
     color: #039cbf;
     border: none;
     background: none;
-    font-size: 17px;
+    font-size: 10px;
+
+    @include response(md) {
+      font-size: 17px;
+    }
 
     img {
       width: 8px;
