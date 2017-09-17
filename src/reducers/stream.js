@@ -2,6 +2,7 @@ import * as types from 'actions/ActionTypes';
 import { find } from 'underscore';
 
 const initialState = {
+  list: [],
   account: null,
   effects: null,
   offers: null,
@@ -47,10 +48,8 @@ function stream( state = initialState, action ) {
         return state;
       }
     case types.RESET_HISTORY :
-      return {
-        ...state,
-        history: []
-      };
+      state.history.length = 0;
+      return state;
     default:
       return state;
   }

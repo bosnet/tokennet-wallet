@@ -11,6 +11,7 @@ function transactionComplete(state = initialState, action) {
       return {
         ...state,
         isShow: action.isShow,
+        paymentData: action.paymentData,
       };
     default:
       return state;

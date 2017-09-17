@@ -85,6 +85,8 @@
     "send" : "Send",
     "receive" : "Receive",
     "history" : "History",
-    "open_secret_seed": "Open Secret Seed"
+    "open_secret_seed": "Open Secret Seed",
+    "you_just_received": "You just received {amount} BOS",
+    "you_just_sended": "You just received {amount} BOS"
   }
 }

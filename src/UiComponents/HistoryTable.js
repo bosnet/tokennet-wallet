@@ -40,7 +40,11 @@ class HistoryTable extends Component {
 
     for (let i = 0; i < length; i++) {
       data[i].amount = numeral( data[i].amount ).format( '0,0.0000' );
-      history.push(<tr key={ i }><td><T.span text={data[i].action}/></td><td>{data[i].amount}</td><td>{data[i].date}</td></tr>)
+      const DOM = <tr key={ i }>
+        <td data-lang={ this.props.language }><T.span text={data[i].action}/></td>
+        <td>{data[i].amount}</td><td>{data[i].date}</td>
+      </tr>;
+      history.push( DOM );
     }
 
     return history;
@@ -68,6 +72,7 @@ class HistoryTable extends Component {
 const mapStoreToProps = ( store ) => ( {
   keypair: store.keypair.keypair,
   history: store.stream.history,
+  language: store.language.language,
 } );
 
 HistoryTable = connect( mapStoreToProps )( HistoryTable );

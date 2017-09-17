@@ -35,14 +35,16 @@ export const showCopyComplete = ( $isShow ) => ( {
   isShow: $isShow,
 } );
 
-export const showTransactionConfirm = ( $isShow ) => ( {
+export const showTransactionConfirm = ( $isShow, $paymentData ) => ( {
   type: types.SHOW_TRANSACTION_CONFIRM,
   isShow: $isShow,
+  paymentData: $paymentData,
 } );
 
-export const showTransactionComplete = ( $isShow ) => ( {
+export const showTransactionComplete = ( $isShow, $paymentData ) => ( {
   type: types.SHOW_TRANSACTION_COMPLETE,
   isShow: $isShow,
+  paymentData: $paymentData,
 } );
 
 export const streamAccount = ( $account ) => ( {

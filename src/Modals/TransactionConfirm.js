@@ -5,6 +5,9 @@ import './TransactionConfirm.scss';
 import { connect } from "react-redux";
 import * as actions from "actions/index";
 import T from 'i18n-react';
+import numeral from 'numeral';
+import * as StellarToolkit from 'libs/stellar-toolkit/index';
+const { StellarOperations } = StellarToolkit;
 
 class TransactionConfirm extends Component {
   constructor () {
@@ -15,15 +18,29 @@ class TransactionConfirm extends Component {
   }
 
   showSendComplete () {
-    this.props.transactionComplete( true );
-    this.props.transactionConfirm( false );
+    this.props.showSpinner( true );
+    StellarOperations.sendPayment( this.props.paymentData )( this.props.keypair )
+      .then( () => {
+        this.props.showSpinner( false );
+        this.props.transactionComplete( true, this.props.paymentData );
+        this.props.transactionConfirm( false, null );
+      } )
+      .catch( () => {
+        this.props.showSpinner( false );
+        console.log( 'catch' );
+        console.log( arguments );
+      } );
   }
 
   hideTransactionConfirm () {
-    this.props.transactionConfirm( false );
+    this.props.transactionConfirm( false, null );
   }
 
   render () {
+    let amount = 0;
+    if( this.props.paymentData ) {
+      amount = numeral( this.props.paymentData.amount ).format( '0,0.0000' );
+    }
     return (
       <ModalContainer modalOpen={this.props.modalOpen} doClose={this.hideTransactionConfirm}>
         <div className="transaction-confirm-container">
@@ -42,13 +59,13 @@ class TransactionConfirm extends Component {
                     {T.translate("common.public_address")}
                   </td>
                   <td>
-                    SFJEIFS234923SFDS32FJIES9EIFJO9EFJISJIEO78798EJFIOJSIOJ656528UIUIOE
+                    { this.props.paymentData ? this.props.paymentData.destination : '' }
                   </td>
                 </tr>
                 <tr>
                   <td>{T.translate("common.amount")}</td>
                   <td>
-                    1000 BOS
+                    { amount } BOS
                   </td>
                 </tr>
                 <tr>
@@ -56,7 +73,7 @@ class TransactionConfirm extends Component {
                     {T.translate("common.total_amount")}
                   </td>
                   <td>
-                    1000.01 BOS
+                    { amount } BOS
                   </td>
                 </tr>
               </tbody>
@@ -72,15 +89,23 @@ class TransactionConfirm extends Component {
   }
 }
 
+const mapStoreToProps = ( store ) => ({
+  keypair: store.keypair.keypair,
+  paymentData: store.transactionConfirm.paymentData,
+});
+
 const mapDispatchToProps = ( dispatch ) => ({
-  transactionConfirm: ( $isShow ) => {
-    dispatch( actions.showTransactionConfirm( $isShow ) );
+  showSpinner: ( $isShow ) => {
+    dispatch( actions.showSpinner( $isShow ) );
   },
-  transactionComplete: ( $isShow ) => {
-    dispatch( actions.showTransactionComplete( $isShow ) );
+  transactionConfirm: ( $isShow, $paymentData ) => {
+    dispatch( actions.showTransactionConfirm( $isShow, $paymentData ) );
+  },
+  transactionComplete: ( $isShow, $paymentData ) => {
+    dispatch( actions.showTransactionComplete( $isShow, $paymentData ) );
   }
 });
 
-TransactionConfirm = connect( null, mapDispatchToProps )( TransactionConfirm );
+TransactionConfirm = connect( mapStoreToProps, mapDispatchToProps )( TransactionConfirm );
 
 export default TransactionConfirm;

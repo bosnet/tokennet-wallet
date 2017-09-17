@@ -85,6 +85,8 @@
     "send" : "보내기",
     "receive" : "받기",
     "history" : "거래내역",
-    "open_secret_seed": "시크릿 시드 보기"
+    "open_secret_seed": "시크릿 시드 보기",
+    "you_just_received": "최근 {amount} BOS를 받았습니다",
+    "you_just_sended": "최근 {amount} BOS를 보냈습니다"
   }
 }

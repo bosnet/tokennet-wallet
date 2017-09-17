@@ -5,20 +5,41 @@ import * as actions from "actions/index";
 import './SendCoinForm.scss';
 import T from 'i18n-react';
 import { Redirect } from "react-router-dom";
+import { StellarTools } from 'stellar-toolkit';
 
 class SendCoinForm extends Component {
   constructor () {
     super();
 
+    this.checkPublicKey = this.checkPublicKey.bind(this);
     this.openTransactionConfirm = this.openTransactionConfirm.bind(this);
 
     const state = {
       sendingAmount: 0,
       transactionFee: 0,
-      addressValidated: false
+      addressValidated: false,
+      publicKey: null,
     };
 
     this.state = state;
+  }
+
+  checkPublicKey( $event ) {
+    const key = $event.currentTarget.value;
+
+    // 본인의 public key 일 경우 무조건 false
+    if( this.props.keypair.publicKey() === key ) {
+      this.setState( { addressValidated: false } );
+      return false;
+    }
+
+    StellarTools.resolveAddress( key )
+      .then( ( resolved ) => {
+        this.setState( { publicKey: key, addressValidated: true } );
+      } )
+      .catch( () => {
+        this.setState( { publicKey: null, addressValidated: false } );
+      } );
   }
 
   updateAmount ($event) {
@@ -28,8 +49,13 @@ class SendCoinForm extends Component {
   }
 
   openTransactionConfirm () {
-    this.props.showTransactionConfirm(true);
-    //StellarOperations.sendPayment(paymentData)
+    const paymentData = {};
+    paymentData.memo = { type: 'none' };
+    paymentData.asset = { code: 'XLM', uuid: 'native', shortName: 'XLM', asset_type: 'native' };
+    paymentData.destination = this.state.publicKey;
+    paymentData.amount = this.state.sendingAmount.toString();
+
+    this.props.showTransactionConfirm(true, paymentData);
   }
 
   renderRedirect() {
@@ -59,7 +85,7 @@ class SendCoinForm extends Component {
             <p className="input-label gt-md">
               {T.translate('send_coin.input_recipient_address')}
             </p>
-            <input className="input-public-address" type="text"/>
+            <input className="input-public-address" type="text" onKeyUp={ this.checkPublicKey }/>
             <span className={
               'public-address-validation ' +
               (this.state.addressValidated ? 'validated' : '')
@@ -89,8 +115,8 @@ class SendCoinForm extends Component {
 }
 
 const mapDispatchToProps = ( dispatch ) => ({
-  showTransactionConfirm: ( $isShow ) => {
-    dispatch( actions.showTransactionConfirm( $isShow ) );
+  showTransactionConfirm: ( $isShow, $paymentData ) => {
+    dispatch( actions.showTransactionConfirm( $isShow, $paymentData ) );
   }
 });
 

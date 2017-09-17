@@ -5,6 +5,7 @@ import './TransactionComplete.scss';
 import { connect } from "react-redux";
 import * as actions from "actions/index";
 import T from 'i18n-react';
+import numeral from 'numeral';
 
 class TransactionComplete extends Component {
   constructor () {
@@ -14,10 +15,14 @@ class TransactionComplete extends Component {
   }
 
   closeTransactionComplete () {
-    this.props.transactionComplete(false);
+    this.props.transactionComplete(false, null);
   }
 
   render () {
+    let amount = 0;
+    if( this.props.paymentData ) {
+      amount = numeral( this.props.paymentData.amount ).format( '0,0.0000' );
+    }
     return (
       <ModalContainer modalOpen={this.props.modalOpen} doClose={this.closeTransactionComplete}>
         <div className="transaction-complete-container">
@@ -29,7 +34,7 @@ class TransactionComplete extends Component {
             {T.translate('common.total_amount')}
           </p>
           <p className="transaction-amount">
-            7653.46 BOS
+            { amount } BOS
           </p>
           <p className="amount-text bold">
             {T.translate('transaction_complete.header')}
@@ -43,13 +48,17 @@ class TransactionComplete extends Component {
   }
 }
 
+const mapStoreToProps = ( store ) => ({
+  paymentData: store.transactionComplete.paymentData,
+});
+
 const mapDispatchToProps = ( dispatch ) => ({
-  transactionComplete: ( $isShow ) => {
-    dispatch( actions.showTransactionComplete( $isShow ) );
+  transactionComplete: ( $isShow, $paymentData ) => {
+    dispatch( actions.showTransactionComplete( $isShow, $paymentData ) );
   }
 });
 
-TransactionComplete = connect( null, mapDispatchToProps )( TransactionComplete );
+TransactionComplete = connect( mapStoreToProps, mapDispatchToProps )( TransactionComplete );
 
 
 export default TransactionComplete;
