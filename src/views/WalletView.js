@@ -8,6 +8,7 @@ import T from 'i18n-react';
 import './WalletView.scss';
 import {Redirect} from 'react-router-dom';
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class WalletView extends Component {
   renderRedirect() {
@@ -46,5 +47,11 @@ class WalletView extends Component {
     )
   }
 }
+
+const mapStateToProps = ( state ) => ({
+  keypair: state.keypair.keypair,
+});
+
+WalletView = connect( mapStateToProps )( WalletView );
 
 export default WalletView;

@@ -4,9 +4,10 @@ import RecentHistory from 'UiComponents/RecentHistory';
 import KeyDisplayer from 'UiComponents/KeyDisplayer';
 import BlueButton from 'UiComponents/BlueButton';
 import QRious from 'qrious';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import './ReceiveCoinView.scss';
 import T from 'i18n-react';
+import { connect } from "react-redux";
 
 class ReceiveCoinView extends Component {
   componentDidMount() {
@@ -16,9 +17,19 @@ class ReceiveCoinView extends Component {
     });
   }
 
+  renderRedirect() {
+    if (this.props.keypair === null) {
+      return <Redirect to={'/'}/>;
+    }
+    else {
+      return '';
+    }
+  }
+
   render () {
     return (
       <div className="receive-coin-view-container">
+        {this.renderRedirect()}
         <RecentHistory/>
         <MyBalance/>
 
@@ -41,5 +52,11 @@ class ReceiveCoinView extends Component {
     )
   }
 }
+
+const mapStateToProps = ( state ) => ({
+  keypair: state.keypair.keypair,
+});
+
+ReceiveCoinView = connect( mapStateToProps )( ReceiveCoinView );
 
 export default ReceiveCoinView;

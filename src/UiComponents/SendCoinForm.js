@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import * as actions from "actions/index";
 import './SendCoinForm.scss';
 import T from 'i18n-react';
+import { Redirect } from "react-router-dom";
 
 class SendCoinForm extends Component {
   constructor () {
@@ -14,7 +15,7 @@ class SendCoinForm extends Component {
     const state = {
       sendingAmount: 0,
       transactionFee: 0,
-      addressValidated: true
+      addressValidated: false
     };
 
     this.state = state;
@@ -28,11 +29,22 @@ class SendCoinForm extends Component {
 
   openTransactionConfirm () {
     this.props.showTransactionConfirm(true);
+    //StellarOperations.sendPayment(paymentData)
+  }
+
+  renderRedirect() {
+    if (this.props.keypair === null) {
+      return <Redirect to={'/'}/>;
+    }
+    else {
+      return '';
+    }
   }
 
   render () {
     return (
       <div className="send-coin-form-container">
+        {this.renderRedirect()}
         <p>{T.translate('common.send')}</p>
 
         <div className="input-group">
@@ -82,6 +94,10 @@ const mapDispatchToProps = ( dispatch ) => ({
   }
 });
 
-SendCoinForm = connect( null, mapDispatchToProps )( SendCoinForm );
+const mapStateToProps = ( state ) => ({
+  keypair: state.keypair.keypair,
+});
+
+SendCoinForm = connect( mapStateToProps, mapDispatchToProps )( SendCoinForm );
 
 export default SendCoinForm;
