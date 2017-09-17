@@ -13,7 +13,7 @@ class ReceiveCoinView extends Component {
   componentDidMount() {
     new QRious({
       element: document.getElementById('my-address-qrcode'),
-      value: 'some value'
+      value: this.props.keypair.publicKey(),
     });
   }
 
