@@ -31,12 +31,12 @@ class WalletView extends Component {
         <p className="button-wrapper">
           <Link to="/send">
             <BlueButton medium>
-             <T.span text="wallet_view.send"/>
+             <T.span text="wallet_view.sent"/>
             </BlueButton>
           </Link>
           <Link to="/receive">
             <BlueButton medium>
-             <T.span text="wallet_view.receive"/>
+             <T.span text="wallet_view.received"/>
             </BlueButton>
           </Link>
         </p>

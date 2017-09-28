@@ -6,6 +6,8 @@ import './SendCoinForm.scss';
 import T from 'i18n-react';
 import { Redirect } from "react-router-dom";
 import { StellarTools } from 'stellar-toolkit';
+import TextAlert from "./TextAlert";
+import AmountInput from "./AmountInput";
 
 class SendCoinForm extends Component {
   constructor () {
@@ -15,13 +17,16 @@ class SendCoinForm extends Component {
     this.openTransactionConfirm = this.openTransactionConfirm.bind(this);
 
     const state = {
-      sendingAmount: 0,
+      sendingAmount: null,
       transactionFee: 0,
       addressValidated: false,
       publicKey: null,
+      error: null,
     };
 
     this.state = state;
+
+    this.renderError = this.renderError.bind( this );
   }
 
   checkPublicKey( $event ) {
@@ -49,6 +54,26 @@ class SendCoinForm extends Component {
   }
 
   openTransactionConfirm () {
+    if( !this.state.publicKey ) {
+      this.setState( { error: "send_coin.error.public_address_null" } );
+      return false;
+    }
+    if( !this.state.addressValidated ) {
+      this.setState( { error: "send_coin.error.incorrect_public_address" } );
+      return false;
+    }
+    if( this.state.sendingAmount === null || this.state.sendingAmount <= 0 ) {
+      this.setState( { error: "send_coin.error.transaction_amount_null" } );
+      return false;
+    }
+    const balance = this.props.account.balances[ 0 ].balance;
+    if( this.state.sendingAmount > balance ) {
+      this.setState( { error: "send_coin.error.not_enough_balance" } );
+      return false;
+    }
+
+    this.setState( { error: null } );
+
     const paymentData = {};
     paymentData.memo = { type: 'none' };
     paymentData.asset = { code: 'XLM', uuid: 'native', shortName: 'XLM', asset_type: 'native' };
@@ -56,6 +81,9 @@ class SendCoinForm extends Component {
     paymentData.amount = this.state.sendingAmount.toString();
 
     this.props.showTransactionConfirm(true, paymentData);
+
+    document.querySelector( '.input-public-address' ).value = '';
+    document.querySelector( '.input-sending-amount' ).value = '';
   }
 
   renderRedirect() {
@@ -67,11 +95,20 @@ class SendCoinForm extends Component {
     }
   }
 
+  renderError() {
+    if( this.state.error ) {
+      return <TextAlert>{ T.translate( this.state.error ) }</TextAlert>;
+    }
+    else {
+      return '';
+    }
+  }
+
   render () {
     return (
       <div className="send-coin-form-container">
         {this.renderRedirect()}
-        <p>{T.translate('common.send')}</p>
+        <p data-lang={ this.props.language }>{T.translate('common.send')}</p>
 
         <div className="input-group">
           <div className="input-group-label-wrapper">
@@ -101,12 +138,13 @@ class SendCoinForm extends Component {
             <p className="input-label gt-md">
               {T.translate('send_coin.input_amount')}
             </p>
-            <input onChange={$event => {this.updateAmount($event)}} className="input-sending-amount" type="tel" defaultValue={this.state.sendingAmount} />
+            <AmountInput className={ 'input-sending-amount' } onChange={$event => {this.updateAmount($event)}}/>
             <p className="sending-amount">{T.translate('send_coin.total')} {this.state.sendingAmount < 0 ? 0 : this.state.sendingAmount - this.state.transactionFee} BOS {T.translate('send_coin.will_be_sent')}</p>
           </div>
         </div>
 
         <div className="button-wrapper">
+          { this.renderError() }
           <BlueButton onClick={this.openTransactionConfirm} medium>{T.translate('common.send')}</BlueButton>
         </div>
       </div>
@@ -120,10 +158,13 @@ const mapDispatchToProps = ( dispatch ) => ({
   }
 });
 
-const mapStateToProps = ( state ) => ({
-  keypair: state.keypair.keypair,
+const mapStoreToProps = ( store ) => ({
+  keypair: store.keypair.keypair,
+  language: store.language.language,
+  account: store.stream.account,
+  showTransactionComplete: store.transactionComplete.isShow,
 });
 
-SendCoinForm = connect( mapStateToProps, mapDispatchToProps )( SendCoinForm );
+SendCoinForm = connect( mapStoreToProps, mapDispatchToProps )( SendCoinForm );
 
 export default SendCoinForm;

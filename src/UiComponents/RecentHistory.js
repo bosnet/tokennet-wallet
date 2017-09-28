@@ -15,29 +15,24 @@ class RecentHistory extends Component {
     this.state = state;
   }
   render () {
-    console.log( this.props.history );
     let amount = 0;
     let DOM = <p data-length={ this.props.history.length } data-lang={ this.props.language } className="recent-history"/>;
     if( this.props.history && this.props.history.length > 0 ) {
       amount = numeral( this.props.history[ 0 ].amount ).format( '0,0.0000' );
 
-      if( this.props.history[ 0 ].action === 'wallet_view.receive' ) {
+      if( this.props.history[ 0 ].action === 'wallet_view.received' ) {
         DOM = <p data-lang={ this.props.language } className="recent-history">
           <T.span text={{ key: 'wallet_view.you_just_received', amount }}/>
         </p>;
       }
-      else if( this.props.history[ 0 ].action === 'wallet_view.send' ) {
+      else if( this.props.history[ 0 ].action === 'wallet_view.sent' ) {
         DOM = <p data-lang={ this.props.language } className="recent-history">
-          <T.span text={{ key: 'wallet_view.you_just_sended', amount }}/>
+          <T.span text={{ key: 'wallet_view.you_just_sent', amount }}/>
         </p>;
       }
     }
 
     return DOM;
-  }
-
-  componentWillUpdate( nextProps ) {
-    console.log( nextProps.history );
   }
 }
 

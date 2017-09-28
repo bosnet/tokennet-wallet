@@ -41,6 +41,7 @@
     "react": "^15.6.1",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
+    "react-bootstrap-sweetalert": "^4.0.0",
     "react-dev-utils": "^4.0.0",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",

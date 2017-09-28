@@ -48,8 +48,14 @@ class KeyDisplayer extends Component {
         (this.state.secretSeedOpen ? 'secret-seed-open' : '')
       }>
         <p className="open-seed-wrapper">
-          <button onClick={this.toggleSecretSeed} className="open-seed"><T.span text="wallet_view.open_secret_seed"/>
-            <img src={ArrowDown} alt="arrow"/></button>
+          <button onClick={this.toggleSecretSeed} className="open-seed" data-lang={ this.props.language }>
+            { this.state.secretSeedOpen ? (
+              <T.span text="wallet_view.hide_secret_seed"/>
+            ) : (
+              <T.span text="wallet_view.open_secret_seed"/>
+            ) }
+            <img src={ArrowDown} alt="arrow"/>
+          </button>
         </p>
         <p>{T.translate('common.account_address')}</p>
         <div className="keys-box">
@@ -102,10 +108,11 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-const mapStateToProps = ( state ) => ({
-  keypair: state.keypair.keypair,
+const mapStoreToProps = ( store ) => ({
+  keypair: store.keypair.keypair,
+  language: store.language.language,
 });
 
-KeyDisplayer = connect( mapStateToProps, mapDispatchToProps )( KeyDisplayer );
+KeyDisplayer = connect( mapStoreToProps, mapDispatchToProps )( KeyDisplayer );
 
 export default KeyDisplayer;

@@ -25,10 +25,10 @@ class TransactionConfirm extends Component {
         this.props.transactionComplete( true, this.props.paymentData );
         this.props.transactionConfirm( false, null );
       } )
-      .catch( () => {
+      .catch( ( $error ) => {
         this.props.showSpinner( false );
-        console.log( 'catch' );
-        console.log( arguments );
+        alert( '보내기에 실패했습니다.' );
+        this.props.transactionConfirm( false, null );
       } );
   }
 

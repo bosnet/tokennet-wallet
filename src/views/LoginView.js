@@ -85,7 +85,7 @@ class LoginView extends Component {
 
         <input type="text" placeholder={T.translate('login_view.header')} onChange={this.validateSeed} style={style}/>
         <p className="button-wrapper">
-          <BlueButton medium onClick={this.openWallet}><T.span text="common.open" /></BlueButton>
+          <BlueButton medium onClick={this.openWallet} disabled={ !this.state.isValid }><T.span text="common.open" /></BlueButton>
         </p>
       </div>
     )

@@ -14,6 +14,7 @@ class MainPageView extends Component {
 		this.state = {
 			redirect: null,
 			contentBottom: false,
+			show: true,
 		};
 
 		this.clickMakeNewKey = this.clickMakeNewKey.bind( this );

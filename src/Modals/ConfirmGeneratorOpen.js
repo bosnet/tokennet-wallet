@@ -6,11 +6,8 @@ import KeyGeneratorMessage from './KeyGeneratorMessage';
 import './ConfirmGeneratorOpen.scss';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
-import { StellarServer } from 'stellar-toolkit';
 import T from 'i18n-react';
-
-const { generateTestPair } = StellarServer;
-
+import { Keypair } from 'stellar-sdk';
 
 class ConfirmGeneratorOpen extends Component {
   constructor() {
@@ -21,14 +18,9 @@ class ConfirmGeneratorOpen extends Component {
   }
 
   openKeyGenerator() {
-    this.props.showSpinner( true );
-    generateTestPair()
-        .then((newPair) => {
-          this.props.showSpinner( false );
-          this.props.updateKeypair( newPair );
-          this.props.showGeneratorConfirm( false );
-          this.props.showKeyGenerator( true );
-        } );
+    this.props.updateKeypair( Keypair.random() );
+    this.props.showGeneratorConfirm( false );
+    this.props.showKeyGenerator( true );
   }
 
   doClose() {

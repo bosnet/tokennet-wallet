@@ -21,7 +21,7 @@
   "welcome_view": {
     "title": "BOScoin 웹지갑",
     "title_description": "시드를 만들고, 지갑을 관리하고, BOScoin을 보내고 받으세요.",
-    "button_make": "새로운 키 생성",
+    "button_make": "지갑 만들기",
     "button_open": "지갑 열기",
     "guide_title": "계정을 만들고 BOScoin을 보내는 법",
     "guide": {
@@ -34,7 +34,7 @@
       "step5_1": "",
       "step5_2": " 버튼을 눌러서 당신의 계정을 여세요",
       "step6_1": "",
-      "step6_2": " 버튼을 누르고 받을 공개 주소를 변칸에 입력하세요"
+      "step6_2": " 버튼을 누르고 받을 공개 주소를 빈 칸에 입력하세요"
     }
   },
   "login_view": {
@@ -47,7 +47,14 @@
     "input_amount": "보내고자하는 금액을 입력하세요",
     "transaction_fee": "이체 수수료",
     "total": "총합 ",
-    "will_be_sent": " 를 보냅니다"
+    "will_be_sent": " 를 보냅니다",
+    "error": {
+      "public_address_null": "받는 사람의 공개주소를 입력하세요",
+      "transaction_amount_null": "보내고자하는 금액을 입력하세요",
+      "transaction_amount_zero": "보내고자하는 금액을 입력하세요",
+      "not_enough_balance": "잔액이 부족하여 이체할 수 없습니다",
+      "incorrect_public_address": "입력한 받는사람의 공개주소가 정확하지 않습니다"
+    }
   },
   "key_generator": {
     "header": "생성하기 버튼을 눌러 새로운 키를 만드세요",
@@ -73,7 +80,7 @@
     "warn_text3_3": "마지막 경고입니다."
   },
   "transaction_confirm": {
-    "header": "이체 내용 확인",
+    "header": "이체 확인",
     "text": "이체 내용을 다시한번 확인하세요"
   },
   "transaction_complete": {
@@ -82,11 +89,12 @@
   },
   "wallet_view": {
     "balance" : "잔고",
-    "send" : "보내기",
-    "receive" : "받기",
+    "sent" : "보내기",
+    "received" : "받기",
     "history" : "거래내역",
-    "open_secret_seed": "시크릿 시드 보기",
-    "you_just_received": "최근 {amount} BOS를 받았습니다",
-    "you_just_sended": "최근 {amount} BOS를 보냈습니다"
+    "open_secret_seed": "비밀 시드 보기",
+    "hide_secret_seed": "비밀 시드 숨기기",
+    "you_just_received": "최근 {amount} BOS를 받았습니다.",
+    "you_just_sent": "최근 {amount} BOS를 보냈습니다."
   }
 }

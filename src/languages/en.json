@@ -21,7 +21,7 @@
   "welcome_view": {
     "title": "BOScoin wallet",
     "title_description": "Make your Seed, manage your Wallet, Send and receive BOScoins.",
-    "button_make": "Make a new key",
+    "button_make": "Create new Wallet",
     "button_open": "Open your wallet",
     "guide_title": "Step to make your account send BOScoin",
     "guide": {
@@ -47,7 +47,14 @@
     "input_amount": "Input the amount you want to send",
     "transaction_fee": "Transaction fee",
     "total": "Total ",
-    "will_be_sent": " will be sent to Recipient"
+    "will_be_sent": " will be sent to Recipient",
+    "error": {
+      "public_address_null": "Input Recipient's Public Address",
+      "transaction_amount_null": "Input Transaction Amount",
+      "transaction_amount_zero": "Input Transaction Amount",
+      "not_enough_balance": "Insufficient Balance",
+      "incorrect_public_address": "Incorrect Public Address"
+    }
   },
   "key_generator": {
     "header": "Click on generate to get a new keypair",
@@ -73,7 +80,7 @@
     "warn_text3_3": "Final warning."
   },
   "transaction_confirm": {
-    "header": "Confirm your Transaction",
+    "header": "Confirm Transaction",
     "text": "Please confirm your Transaction once again."
   },
   "transaction_complete": {
@@ -82,11 +89,12 @@
   },
   "wallet_view": {
     "balance" : "Balance",
-    "send" : "Send",
-    "receive" : "Receive",
+    "sent" : "Sent",
+    "received" : "Received",
     "history" : "History",
     "open_secret_seed": "Open Secret Seed",
+    "hide_secret_seed": "Close Secret Seed",
     "you_just_received": "You just received {amount} BOS",
-    "you_just_sended": "You just received {amount} BOS"
+    "you_just_sent": "You just sent {amount} BOS"
   }
 }

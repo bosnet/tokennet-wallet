@@ -123,9 +123,9 @@ class App extends Component {
       const payment = nextProps.payment;
       const id = payment.id;
       const transaction = payment.transaction;
-      let action = 'wallet_view.send';
+      let action = 'wallet_view.sent';
       if( transaction.source_account !== this.props.keypair.publicKey() ) {
-        action = 'wallet_view.receive';
+        action = 'wallet_view.received';
       }
       const amount = payment.amount;
       const created_at = moment( transaction.created_at );
