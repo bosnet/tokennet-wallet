@@ -21,7 +21,7 @@ class TransactionComplete extends Component {
   render () {
     let amount = 0;
     if( this.props.paymentData ) {
-      amount = numeral( this.props.paymentData.amount ).format( '0,0.0000[00000000]' );
+      amount = numeral( this.props.paymentData.transactionTotal ).format( '0,0.0000[00000000]' );
     }
     return (
       <ModalContainer modalOpen={this.props.modalOpen} doClose={this.closeTransactionComplete}>

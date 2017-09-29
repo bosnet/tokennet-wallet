@@ -8,6 +8,7 @@ import { Redirect } from "react-router-dom";
 import { StellarTools } from 'stellar-toolkit';
 import TextAlert from "./TextAlert";
 import AmountInput from "./AmountInput";
+import Decimal from 'decimal.js';
 
 class SendCoinForm extends Component {
   constructor () {
@@ -18,7 +19,7 @@ class SendCoinForm extends Component {
 
     const state = {
       sendingAmount: null,
-      transactionFee: 0,
+      transactionFee: 0.00001,
       addressValidated: false,
       publicKey: null,
       error: null,
@@ -79,6 +80,8 @@ class SendCoinForm extends Component {
     paymentData.asset = { code: 'XLM', uuid: 'native', shortName: 'XLM', asset_type: 'native' };
     paymentData.destination = this.state.publicKey;
     paymentData.amount = this.state.sendingAmount.toString();
+    paymentData.transactionFee = this.state.transactionFee;
+    paymentData.transactionTotal = new Decimal( this.state.sendingAmount ).plus( this.state.transactionFee );
 
     this.props.showTransactionConfirm(true, paymentData);
 
@@ -139,7 +142,7 @@ class SendCoinForm extends Component {
               {T.translate('send_coin.input_amount')}
             </p>
             <AmountInput className={ 'input-sending-amount' } onChange={$event => {this.updateAmount($event)}}/>
-            <p className="sending-amount">{T.translate('send_coin.total')} {this.state.sendingAmount < 0 ? 0 : this.state.sendingAmount - this.state.transactionFee} BOS {T.translate('send_coin.will_be_sent')}</p>
+            <p className="sending-amount">{T.translate('send_coin.total')} {this.state.sendingAmount < 0 ? 0 : this.state.sendingAmount + this.state.transactionFee} BOS {T.translate('send_coin.will_be_sent')}</p>
           </div>
         </div>
 

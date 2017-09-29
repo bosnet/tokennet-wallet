@@ -81,7 +81,7 @@ class MainPageView extends Component {
 				<T.p text="welcome_view.title_description" />
 
 				<div className="button-container">
-					<BlueButton big onClick={ this.clickMakeNewKey }><T.span text="welcome_view.button_make"/></BlueButton> <br/>
+					{/*<BlueButton big onClick={ this.clickMakeNewKey }><T.span text="welcome_view.button_make"/></BlueButton> <br/>*/}
 					<BlueButton big onClick={ () => this.createAccount() }><T.span text="welcome_view.create_account"/></BlueButton> <br/>
 					<BlueButton big onClick={ this.clickOpenYourWallet }><T.span text="welcome_view.button_open"/></BlueButton>
 				</div>
