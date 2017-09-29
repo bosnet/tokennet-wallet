@@ -26,7 +26,7 @@ class TransactionConfirm extends Component {
     queue.push( $callback => {
       StellarOperations.sendPayment( this.props.paymentData )( this.props.keypair )
         .then( () => {
-          $callback( null, {} );
+          $callback( null, false );
         } )
         .catch( ( $error ) => {
           const noDestination = find( $error.extras.result_codes.operations, $item => 'op_no_destination' );
@@ -37,7 +37,7 @@ class TransactionConfirm extends Component {
         } );
     } );
     queue.push( ( $extras, $callback ) => {
-      if( $extras.result_codes ) {
+      if( $extras ) {
         StellarOperations.createAccount( this.props.paymentData )( this.props.keypair )
           .then( () => {
             $callback();
