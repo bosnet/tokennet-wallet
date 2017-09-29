@@ -21,7 +21,8 @@
   "welcome_view": {
     "title": "BOScoin 웹지갑",
     "title_description": "시드를 만들고, 지갑을 관리하고, BOScoin을 보내고 받으세요.",
-    "button_make": "지갑 만들기",
+    "button_make": "지갑 주소 만들기",
+    "create_account": "Create new account on testnet",
     "button_open": "지갑 열기",
     "guide_title": "계정을 만들고 BOScoin을 보내는 법",
     "guide": {

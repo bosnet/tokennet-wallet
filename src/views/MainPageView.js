@@ -7,6 +7,9 @@ import * as actions from "actions/index";
 import { Redirect } from "react-router-dom";
 import T from 'i18n-react';
 
+import { StellarServer } from 'stellar-toolkit';
+const { generateTestPair } = StellarServer;
+
 class MainPageView extends Component {
 	constructor() {
 		super();
@@ -51,6 +54,17 @@ class MainPageView extends Component {
 		});
 	}
 
+	createAccount() {
+    this.props.showSpinner( true );
+    generateTestPair()
+      .then( ( newPair ) => {
+        this.props.showSpinner( false );
+        this.props.updateKeypair( newPair );
+        this.props.showGeneratorConfirm( false );
+        this.props.showKeyGenerator( true );
+      } );
+	}
+
   componentDidMount () {
 		this.resizing();
 		window.addEventListener('resize', this.resizing);
@@ -68,6 +82,7 @@ class MainPageView extends Component {
 
 				<div className="button-container">
 					<BlueButton big onClick={ this.clickMakeNewKey }><T.span text="welcome_view.button_make"/></BlueButton> <br/>
+					<BlueButton big onClick={ () => this.createAccount() }><T.span text="welcome_view.create_account"/></BlueButton> <br/>
 					<BlueButton big onClick={ this.clickOpenYourWallet }><T.span text="welcome_view.button_open"/></BlueButton>
 				</div>
 
@@ -94,7 +109,16 @@ class MainPageView extends Component {
 const mapDispatchToProps = ( dispatch ) => ({
   showGeneratorConfirm: ( $isShow ) => {
     dispatch( actions.showGeneratorConfirm( $isShow ) );
-  }
+  },
+  showSpinner: ( $isShow ) => {
+    dispatch( actions.showSpinner( $isShow ) );
+  },
+  showKeyGenerator: ( $isShow ) => {
+    dispatch( actions.showKeyGenerator( $isShow ) );
+  },
+  updateKeypair: ( $keypair ) => {
+    dispatch( actions.updateKeypair( $keypair ) );
+  },
 });
 
 MainPageView = connect( null, mapDispatchToProps )( MainPageView );
