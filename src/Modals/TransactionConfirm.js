@@ -7,6 +7,8 @@ import * as actions from "actions/index";
 import T from 'i18n-react';
 import numeral from 'numeral';
 import * as StellarToolkit from 'libs/stellar-toolkit/index';
+import async from 'async';
+import { find } from 'underscore';
 const { StellarOperations } = StellarToolkit;
 
 class TransactionConfirm extends Component {
@@ -19,17 +21,49 @@ class TransactionConfirm extends Component {
 
   showSendComplete () {
     this.props.showSpinner( true );
-    StellarOperations.sendPayment( this.props.paymentData )( this.props.keypair )
-      .then( () => {
+
+    const queue = [];
+    queue.push( $callback => {
+      StellarOperations.sendPayment( this.props.paymentData )( this.props.keypair )
+        .then( () => {
+          $callback();
+        } )
+        .catch( ( $error ) => {
+          const noDestination = find( $error.extras.result_codes.operations, $item => 'op_no_destination' );
+          if( noDestination ) {
+            $callback( null, $error.extras );
+          }
+          $callback( '보내기에 실패했습니다.' );
+        } );
+    } );
+    queue.push( ( $extras, $callback ) => {
+      if( $extras ) {
+        StellarOperations.createAccount( this.props.paymentData )( this.props.keypair )
+          .then( () => {
+            $callback();
+          } )
+          .catch( ( $error ) => {
+            $callback( '보내기에 실패했습니다. (받는 계좌 개설 실패)' );
+          } );
+      }
+      else {
+        $callback();
+      }
+    } );
+
+    async.waterfall( queue, ( $error, $result ) => {
+      if( $error ) {
+        this.props.showSpinner( false );
+        this.props.transactionConfirm( false, null );
+        alert( $error );
+      }
+      else {
         this.props.showSpinner( false );
         this.props.transactionComplete( true, this.props.paymentData );
         this.props.transactionConfirm( false, null );
-      } )
-      .catch( ( $error ) => {
-        this.props.showSpinner( false );
-        alert( '보내기에 실패했습니다.' );
-        this.props.transactionConfirm( false, null );
-      } );
+      }
+    } );
+
   }
 
   hideTransactionConfirm () {
