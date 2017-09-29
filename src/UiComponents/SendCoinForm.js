@@ -9,6 +9,7 @@ import { StellarTools } from 'stellar-toolkit';
 import TextAlert from "./TextAlert";
 import AmountInput from "./AmountInput";
 import Decimal from 'decimal.js';
+import numeral from 'numeral';
 
 class SendCoinForm extends Component {
   constructor () {
@@ -108,6 +109,10 @@ class SendCoinForm extends Component {
   }
 
   render () {
+    let total = 0;
+    if( this.state.sendingAmount ) {
+      total = numeral( new Decimal( this.state.sendingAmount ).plus( this.state.transactionFee ) ).format( '0,0.0000[00000000]');
+    }
     return (
       <div className="send-coin-form-container">
         {this.renderRedirect()}
@@ -142,7 +147,7 @@ class SendCoinForm extends Component {
               {T.translate('send_coin.input_amount')}
             </p>
             <AmountInput className={ 'input-sending-amount' } onChange={$event => {this.updateAmount($event)}}/>
-            <p className="sending-amount">{T.translate('send_coin.total')} {this.state.sendingAmount < 0 ? 0 : this.state.sendingAmount + this.state.transactionFee} BOS {T.translate('send_coin.will_be_sent')}</p>
+            <p className="sending-amount">{T.translate('send_coin.total')} { total } BOS {T.translate('send_coin.will_be_sent')}</p>
           </div>
         </div>
 
