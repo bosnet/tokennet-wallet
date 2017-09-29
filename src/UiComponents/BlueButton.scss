@@ -1,19 +1,19 @@
 @import '../assets/sass/vendors/response';
 
 .blue-button {
-  width: 60px;
+  min-width: 60px;
   height: 20px;
   border-radius: 20px;
   border: 2px solid #039cbf;
   transition: all 0.3s ease-in-out;
 
   &.big {
-    width: 156px;
+    min-width: 156px;
     height: 32px;
     border-radius: 32px;
 
     @include response(md) {
-      width: 233px;
+      min-width: 233px;
       height: 45px;
       border-radius: 45px;
       font-size: 17px;
@@ -21,13 +21,13 @@
   }
 
   &.medium {
-    width: 85px;
+    min-width: 85px;
     height: 27px;
     font-size: 10px;
     border-radius: 27px;
 
     @include response(md) {
-      width: 159px;
+      min-width: 159px;
       height: 45px;
       font-size: 17px;
       border-radius: 45px;
@@ -36,23 +36,23 @@
 
   &.small {
     font-size: 10px;
-    width: 100px;
+    min-width: 100px;
     height: 20px;
     border-radius: 20px;
     margin: 0 0.5em;
-    border-width: 1px;
+    border-min-width: 1px;
   }
 
   &.tiny {
     font-size: 10px;
-    width: 46px;
+    min-width: 46px;
     height: 20px;
     border-radius: 14px;
-    border-width: 1px;
+    border-min-width: 1px;
 
 
     @include response(md) {
-      width: 72px;
+      min-width: 72px;
       height: 30px;
       border-radius: 30px;
       font-size: 14px;

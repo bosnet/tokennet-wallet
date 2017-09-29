@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as actions from 'actions';
 import { connect } from 'react-redux';
 import './LanguageSelector.scss';
+import { find, indexOf } from 'underscore';
 
 class LanguageSelector extends Component {
 	constructor() {
@@ -62,7 +63,14 @@ class LanguageSelector extends Component {
 	}
 
 	componentDidMount() {
-		const userLang = navigator.language || navigator.userLanguage;
+		const userLang = ( navigator.language || navigator.userLanguage ).substr( 0, 2 );
+		let index = indexOf( this.state.languageList, find( this.state.languageList, $element => $element[ 1 ] === userLang ) );
+		if( index < 0 ) {
+			index = 0;
+		}
+    this.setState( {
+      currentLanguageIndex: index,
+    } );
 		this.props.changeLanguage( userLang );
 	}
 }

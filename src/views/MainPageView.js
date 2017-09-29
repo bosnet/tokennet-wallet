@@ -89,7 +89,7 @@ class MainPageView extends Component {
 				<div id="step-to-make-account" className={this.state.contentBottom ? 'content-bottom' : ''}>
 					<h2><T.span text="welcome_view.guide_title" /></h2>
 					<ol>
-						<li><T.span text="welcome_view.guide.step1_1" /><BlueButton small nonAction><T.span text="welcome_view.button_make" /></BlueButton><T.span text="welcome_view.guide.step1_2" /></li>
+						<li><T.span text="welcome_view.guide.step1_1" /><BlueButton small nonAction><T.span text="welcome_view.create_account" /></BlueButton><T.span text="welcome_view.guide.step1_2" /></li>
 						<li><T.span text="welcome_view.guide.step2" /></li>
 						<li><T.span text="welcome_view.guide.step3_1" /><BlueButton small nonAction><T.span text="welcome_view.button_open" /></BlueButton><T.span text="welcome_view.guide.step3_2" /></li>
 						<li><T.span text="welcome_view.guide.step4" /></li>

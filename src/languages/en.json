@@ -22,7 +22,7 @@
     "title": "BOScoin wallet",
     "title_description": "Make your Seed, manage your Wallet, Send and receive BOScoins.",
     "button_make": "Key Generator",
-    "create_account": "Create new account on testnet",
+    "create_account": "Create new account on TestNet",
     "button_open": "Open your wallet",
     "guide_title": "Step to make your account send BOScoin",
     "guide": {
