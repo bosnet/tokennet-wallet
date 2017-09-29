@@ -39,7 +39,7 @@ class HistoryTable extends Component {
     }
 
     for (let i = 0; i < length; i++) {
-      data[i].amount = numeral( data[i].amount ).format( '0,0.0000' );
+      data[i].amount = numeral( data[i].amount ).format( '0,0.0000[00000000]' );
       const DOM = <tr key={ i }>
         <td data-lang={ this.props.language }><T.span text={data[i].action}/></td>
         <td>{data[i].amount}</td><td>{data[i].date}</td>

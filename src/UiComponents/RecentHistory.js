@@ -18,7 +18,7 @@ class RecentHistory extends Component {
     let amount = 0;
     let DOM = <p data-length={ this.props.history.length } data-lang={ this.props.language } className="recent-history"/>;
     if( this.props.history && this.props.history.length > 0 ) {
-      amount = numeral( this.props.history[ 0 ].amount ).format( '0,0.0000' );
+      amount = numeral( this.props.history[ 0 ].amount ).format( '0,0.0000[00000000]' );
 
       if( this.props.history[ 0 ].action === 'wallet_view.received' ) {
         DOM = <p data-lang={ this.props.language } className="recent-history">
