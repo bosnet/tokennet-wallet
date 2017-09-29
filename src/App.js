@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from "actions/index";
-import { StellarStreamers } from 'stellar-toolkit';
+import { StellarStreamers } from 'libs/stellar-toolkit';
 
 /*
 	Libraries

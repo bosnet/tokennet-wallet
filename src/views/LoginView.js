@@ -3,7 +3,7 @@ import wallet from 'assets/imgs/boscoin-symbol-image-blue.png';
 import BlueButton from 'UiComponents/BlueButton';
 import './LoginView.scss';
 import { Redirect } from "react-router-dom";
-import { StellarServer, StellarTools } from 'stellar-toolkit';
+import { StellarServer, StellarTools } from 'libs/stellar-toolkit';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
 import T from 'i18n-react';

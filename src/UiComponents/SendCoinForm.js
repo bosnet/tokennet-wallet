@@ -5,7 +5,7 @@ import * as actions from "actions/index";
 import './SendCoinForm.scss';
 import T from 'i18n-react';
 import { Redirect } from "react-router-dom";
-import { StellarTools } from 'stellar-toolkit';
+import { StellarTools } from 'libs/stellar-toolkit';
 import TextAlert from "./TextAlert";
 import AmountInput from "./AmountInput";
 import Decimal from 'decimal.js';

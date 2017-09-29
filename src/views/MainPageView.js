@@ -7,7 +7,7 @@ import * as actions from "actions/index";
 import { Redirect } from "react-router-dom";
 import T from 'i18n-react';
 
-import { StellarServer } from 'stellar-toolkit';
+import { StellarServer } from 'libs/stellar-toolkit';
 const { generateTestPair } = StellarServer;
 
 class MainPageView extends Component {
