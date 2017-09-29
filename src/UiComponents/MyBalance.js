@@ -3,7 +3,6 @@ import numeral from 'numeral';
 import T from 'i18n-react';
 import './MyBalance.scss';
 import {connect} from 'react-redux';
-import Decimal from 'decimal.js';
 
 class MyBalance extends Component {
   render() {
