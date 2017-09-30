@@ -21,6 +21,7 @@ class SendCoinForm extends Component {
     const state = {
       sendingAmount: null,
       transactionFee: 0.00001,
+      transactionTotal: 0.0001,
       addressValidated: false,
       publicKey: null,
       error: null,
@@ -50,8 +51,11 @@ class SendCoinForm extends Component {
   }
 
   updateAmount ($event) {
+    const sendingAmount = Number( $event.currentTarget.value );
+    const transactionTotal = sendingAmount + this.state.transactionFee;
     this.setState({
-      sendingAmount: $event.currentTarget.value
+      sendingAmount,
+      transactionTotal,
     });
   }
 
@@ -69,7 +73,7 @@ class SendCoinForm extends Component {
       return false;
     }
     const balance = this.props.account.balances[ 0 ].balance;
-    if( this.state.sendingAmount > balance ) {
+    if( this.state.transactionTotal > Number( balance ) ) {
       this.setState( { error: "send_coin.error.not_enough_balance" } );
       return false;
     }
@@ -109,10 +113,6 @@ class SendCoinForm extends Component {
   }
 
   render () {
-    let total = 0;
-    if( this.state.sendingAmount ) {
-      total = numeral( new Decimal( this.state.sendingAmount ).plus( this.state.transactionFee ) ).format( '0,0.0000[00000000]');
-    }
     return (
       <div className="send-coin-form-container">
         {this.renderRedirect()}
@@ -130,7 +130,7 @@ class SendCoinForm extends Component {
             <p className="input-label gt-md">
               {T.translate('send_coin.input_recipient_address')}
             </p>
-            <input className="input-public-address" type="text" onKeyUp={ this.checkPublicKey }/>
+            <input className="input-public-address" type="text" onChange={ this.checkPublicKey }/>
             <span className={
               'public-address-validation ' +
               (this.state.addressValidated ? 'validated' : '')
@@ -147,7 +147,7 @@ class SendCoinForm extends Component {
               {T.translate('send_coin.input_amount')}
             </p>
             <AmountInput className={ 'input-sending-amount' } onChange={$event => {this.updateAmount($event)}}/>
-            <p className="sending-amount">{T.translate('send_coin.total')} { total } BOS {T.translate('send_coin.will_be_sent')}</p>
+            <p className="sending-amount">{T.translate('send_coin.total')} { numeral( this.state.transactionTotal ).format( '0,0.0000[00000000]' ) } BOS {T.translate('send_coin.will_be_sent')}</p>
           </div>
         </div>
 
