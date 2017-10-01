@@ -25,9 +25,8 @@ class AmountInput extends Component {
   }
   render() {
     return (
-      <input onKeyDown={ this.onKeyDown }
-             onChange={ this.props.onChange }
-             className={ this.props.className }
+      <input { ...this.props }
+             onKeyDown={ this.onKeyDown }
              type="tel"
              placeholder="0.0001" />
     )

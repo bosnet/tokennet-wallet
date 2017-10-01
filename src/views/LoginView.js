@@ -39,7 +39,7 @@ class LoginView extends Component {
   }
 
   validateSeed( $event ) {
-    const value = $event.currentTarget.value;
+    const value = $event.currentTarget.value.trim();
     const isValid = StellarTools.validSeed( value );
     if( isValid ) {
       const keypair = StellarTools.KeypairInstance( { secretSeed: value } );
