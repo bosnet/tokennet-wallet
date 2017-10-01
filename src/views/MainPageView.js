@@ -8,6 +8,7 @@ import { Redirect } from "react-router-dom";
 import T from 'i18n-react';
 
 import { StellarServer } from 'libs/stellar-toolkit';
+import StreamManager from "../StreamManager";
 
 const { generateTestPair } = StellarServer;
 
@@ -70,6 +71,9 @@ class MainPageView extends Component {
 	componentDidMount() {
 		this.resizing();
 		window.addEventListener( 'resize', this.resizing );
+		StreamManager.stopAllStream();
+		this.props.resetHistory();
+		this.props.updateKeypair( null );
 	}
 
 	render() {
@@ -128,6 +132,9 @@ const mapDispatchToProps = ( dispatch ) => ({
 	},
 	updateKeypair: ( $keypair ) => {
 		dispatch( actions.updateKeypair( $keypair ) );
+	},
+	resetHistory: () => {
+		dispatch( actions.resetHistory() );
 	},
 });
 

@@ -95,6 +95,7 @@
 		"balance": "Balance",
 		"sent": "Sent",
 		"received": "Received",
+		"created_account": "Created Account",
 		"history": "History",
 		"open_secret_seed": "Open Secret Seed",
 		"hide_secret_seed": "Close Secret Seed",

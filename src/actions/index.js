@@ -67,11 +67,6 @@ export const streamPayment = ( $payment ) => ( {
   payment: $payment,
 } );
 
-export const unshiftHistory = ( $historyItem ) => ( {
-  type: types.UNSHIFT_HISTORY,
-  historyItem: $historyItem,
-} );
-
 export const resetHistory = () => ( {
   type: types.RESET_HISTORY,
 } );

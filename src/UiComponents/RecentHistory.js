@@ -1,44 +1,48 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import numeral from 'numeral';
 import './RecentHistory.scss';
 import { connect } from "react-redux";
 import T from 'i18n-react';
 
 class RecentHistory extends Component {
-  constructor () {
-    super();
+	constructor() {
+		super();
 
-    const state = {
-      recent: ['received', 765000.0072]
-    }
+		const state = {
+			recent: [ 'received', 765000.0072 ]
+		}
 
-    this.state = state;
-  }
-  render () {
-    let amount = 0;
-    let DOM = <p data-length={ this.props.history.length } data-lang={ this.props.language } className="recent-history"/>;
-    if( this.props.history && this.props.history.length > 0 ) {
-      amount = numeral( this.props.history[ 0 ].amount ).format( '0,0.0000[00000000]' );
+		this.state = state;
+	}
 
-      if( this.props.history[ 0 ].action === 'wallet_view.received' ) {
-        DOM = <p data-lang={ this.props.language } className="recent-history">
-          <T.span text={{ key: 'wallet_view.you_just_received', amount }}/>
-        </p>;
-      }
-      else if( this.props.history[ 0 ].action === 'wallet_view.sent' ) {
-        DOM = <p data-lang={ this.props.language } className="recent-history">
-          <T.span text={{ key: 'wallet_view.you_just_sent', amount }}/>
-        </p>;
-      }
-    }
+	render() {
+		let amount = 0;
+		let DOM = <p data-length={this.props.paymentHistory.length} data-lang={this.props.language}
+					 className="recent-history"/>;
+		if ( this.props.paymentHistory && this.props.paymentHistory.length > 0 ) {
+			const me = this.props.keypair.publicKey();
+			const payment = this.props.paymentHistory[ 0 ];
+			if ( payment.type === 'payment' ) {
+				amount = numeral( this.props.paymentHistory[ 0 ].amount ).format( '0,0.0000[00000000]' );
+				let label = 'wallet_view.you_just_received';
 
-    return DOM;
-  }
+				if ( payment.from === me ) {
+					label = 'wallet_view.you_just_sent'
+				}
+
+				DOM = <p data-lang={this.props.language} className="recent-history">
+					<T.span text={{ key: label, amount }}/>
+				</p>;
+			}
+		}
+		return DOM;
+	}
 }
 
 const mapStoreToProps = ( store ) => ( {
-  history: store.stream.history,
-  language: store.language.language,
+	keypair: store.keypair.keypair,
+	paymentHistory: store.stream.paymentHistory,
+	language: store.language.language,
 } );
 
 RecentHistory = connect( mapStoreToProps )( RecentHistory );

@@ -95,6 +95,7 @@
 		"balance": "잔고",
 		"sent": "보내기",
 		"received": "받기",
+		"created_account": "계좌 생성",
 		"history": "거래내역",
 		"open_secret_seed": "비밀 시드 보기",
 		"hide_secret_seed": "비밀 시드 숨기기",

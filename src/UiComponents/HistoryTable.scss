@@ -1,62 +1,71 @@
 @import '../assets/sass/vendors/response';
 
 .history-table-container {
-  width: 100%;
-  font-size: 12px;
-  color: #ffffff;
-  padding: 0 2.7em;
+	width: 100%;
+	font-size: 12px;
+	color: #ffffff;
+	padding: 0 2.7em;
 
-  @include response(md) {
-    padding: 0 0 0 2.7em;
-  }
+	@include response(md) {
+		padding: 0 0 0 2.7em;
+	}
 
-  p {
-    color: #039cbf;
-    margin: 0.5em 0;
-  }
+	p {
+		color: #039cbf;
+		margin: 0.5em 0;
+	}
 
-  table {
-    width: 100%;
-    text-align: right;
+	table {
+		width: 100%;
+		text-align: right;
 
-    tr {
-      td:first-child {
-        text-align: left;
-      }
-    }
-  }
+		tr {
+			td:first-child {
+				text-align: left;
+			}
+		}
 
-  .more-wrapper {
-    display: none;
-    text-align: right;
-    color: #5c5c74;
-    font-size: 10px;
+		.target-cell {
+			display: none;
+			text-align: left;
 
-    &.is-more {
-      display: block;
-    }
+			@include response(md) {
+				display: table-cell;
+			}
+		}
+	}
 
-    span {
-      cursor: pointer;
-    }
+	.more-wrapper {
+		display: none;
+		text-align: right;
+		color: #5c5c74;
+		font-size: 10px;
 
-    @include response(md) {
-      font-size: 14px;
-    }
+		&.is-more {
+			display: block;
+		}
 
-    &:after {
-      content: '';
-      display: inline-block;
-      background-image: url('../assets/imgs/gray-arrow-down-head.png');
-      background-size: cover;
-      width: 6px;
-      height: 3px;
-      margin-bottom: 1px;
+		span {
+			cursor: pointer;
+		}
 
-      @include response(md) {
-        width: 11px;
-        height: 6px;
-      }
-    }
-  }
+		@include response(md) {
+			font-size: 14px;
+		}
+
+		&:after {
+			content: '';
+			display: inline-block;
+			background-image: url('../assets/imgs/gray-arrow-down-head.png');
+			background-size: cover;
+			width: 6px;
+			height: 3px;
+			margin-bottom: 1px;
+
+			@include response(md) {
+				width: 11px;
+				height: 6px;
+			}
+		}
+	}
 }
