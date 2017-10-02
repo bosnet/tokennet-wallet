@@ -60,7 +60,6 @@ class MainPageView extends Component {
 		this.props.showSpinner( true );
 		generateTestPair()
 			.then( ( newPair ) => {
-				console.log( newPair );
 				this.props.showSpinner( false );
 				this.props.updateKeypair( newPair );
 				this.props.showGeneratorConfirm( false );

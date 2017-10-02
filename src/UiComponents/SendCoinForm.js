@@ -96,6 +96,11 @@ class SendCoinForm extends Component {
 
 		document.querySelector( '.input-public-address' ).value = '';
 		document.querySelector( '.input-sending-amount' ).value = '';
+		this.setState( {
+			publicKey: null,
+			sendingAmount: null,
+			addressValidated: false,
+		} );
 	}
 
 	renderRedirect() {
