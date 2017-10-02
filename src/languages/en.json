@@ -57,7 +57,8 @@
 			"transaction_amount_null": "Input Transaction Amount",
 			"transaction_amount_zero": "Input Transaction Amount",
 			"not_enough_balance": "Insufficient Balance",
-			"incorrect_public_address": "Incorrect Public Address"
+			"incorrect_public_address": "Incorrect Public Address",
+			"minimum_balance": "Minimum balance after transfer must be at least 20 BOS."
 		}
 	},
 	"key_generator": {

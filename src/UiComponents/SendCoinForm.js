@@ -72,9 +72,13 @@ class SendCoinForm extends Component {
 			this.setState( { error: "send_coin.error.transaction_amount_null" } );
 			return false;
 		}
-		const balance = this.props.account.balances[ 0 ].balance;
-		if ( this.state.transactionTotal > Number( balance ) ) {
+		const balance = Number( this.props.account.balances[ 0 ].balance );
+		if ( this.state.transactionTotal > balance ) {
 			this.setState( { error: "send_coin.error.not_enough_balance" } );
+			return false;
+		}
+		if ( balance - this.state.transactionTotal < 20 ) {
+			this.setState( { error: "send_coin.error.minimum_balance" } );
 			return false;
 		}
 

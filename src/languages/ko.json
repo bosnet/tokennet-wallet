@@ -57,7 +57,8 @@
 			"transaction_amount_null": "보내고자하는 금액을 입력하세요",
 			"transaction_amount_zero": "보내고자하는 금액을 입력하세요",
 			"not_enough_balance": "잔액이 부족하여 이체할 수 없습니다",
-			"incorrect_public_address": "받는 사람의 공개주소가 정확하지 않습니다"
+			"incorrect_public_address": "받는 사람의 공개주소가 정확하지 않습니다",
+			"minimum_balance": "전송 후 최소 잔액은 20BOS 이상이어야 합니다."
 		}
 	},
 	"key_generator": {
