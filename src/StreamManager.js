@@ -8,7 +8,6 @@ class StreamManager {
 		if( $stream ) {
 			try {
 				$stream();
-				console.log( 'stop stream' );
 			}
 			catch( $error ) {}
 		}
