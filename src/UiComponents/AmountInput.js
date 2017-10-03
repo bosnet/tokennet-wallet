@@ -27,7 +27,7 @@ class AmountInput extends Component {
     return (
       <input { ...this.props }
              onKeyDown={ this.onKeyDown }
-             type="tel"
+             type="number"
              placeholder="0.0001" />
     )
   }
