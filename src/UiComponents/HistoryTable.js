@@ -36,8 +36,6 @@ class HistoryTable extends Component {
 		let data = this.props.paymentHistory;
 		let length = data.length;
 
-		console.log( data.length );
-
 		if ( (this.state.historyPage + 1) * this.RENDER_ITEM_PER < length ) {
 			length = (this.state.historyPage + 1) * this.RENDER_ITEM_PER;
 		}
