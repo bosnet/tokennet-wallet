@@ -52,9 +52,8 @@ class LanguageSelector extends Component {
 
 	render() {
 		return (
-			<div className="select-box-styled">
-				<div
-					onClick={this.selectBoxToggle}>{this.state.languageList[ this.state.currentLanguageIndex ][ 0 ]}</div>
+			<div className="select-box-styled" onClick={this.selectBoxToggle}>
+				<div>{this.state.languageList[ this.state.currentLanguageIndex ][ 0 ]}</div>
 				<div className={this.state.selectBoxOpen ? 'select-box-list  select-box-open' : 'select-box-list'}>
 					{this.renderLanguageList()}
 				</div>

@@ -26,31 +26,29 @@ class RecordSeeds extends Component {
 		this.props.showRecordSeed( false );
 	}
 
-	warningMessages = [
-		[
-			<span>{T.translate( "record_seed.warn_header1" )}</span>,
-			<span>{T.translate( "record_seed.warn_text1_1" )}<br/>{T.translate( "record_seed.warn_text1_2" )}</span>
-		],
-		[
-			<span>{T.translate( "record_seed.warn_header2_1" )}<span
-				className="red-and-bold">{T.translate( "record_seed.warn_header2_2" )}</span></span>,
-			<span>{T.translate( "record_seed.warn_text2_1" )}<br/>{T.translate( "record_seed.warn_text2_2" )}</span>
-		],
-		[
-			<span className="red-and-bold">{T.translate( "record_seed.warn_header3" )}</span>,
-			<span>{T.translate( "record_seed.warn_text3_1" )}<br/>{T.translate( "record_seed.warn_text3_2" )}<span
-				className="red-and-bold">{T.translate( "record_seed.warn_text3_3" )}</span></span>
-		]
-	];
-
 	renderWarningMessage() {
-		let message = <div>
+		this.warningMessages = [
+			[
+				<span>{T.translate( "record_seed.warn_header1" )}</span>,
+				<span>{T.translate( "record_seed.warn_text1_1" )}<br/>{T.translate( "record_seed.warn_text1_2" )}</span>
+			],
+			[
+				<span>{T.translate( "record_seed.warn_header2_1" )}<span
+					className="red-and-bold">{T.translate( "record_seed.warn_header2_2" )}</span></span>,
+				<span>{T.translate( "record_seed.warn_text2_1" )}<br/>{T.translate( "record_seed.warn_text2_2" )}</span>
+			],
+			[
+				<span className="red-and-bold">{T.translate( "record_seed.warn_header3" )}</span>,
+				<span>{T.translate( "record_seed.warn_text3_1" )}<br/>{T.translate( "record_seed.warn_text3_2" )}<span
+					className="red-and-bold">{T.translate( "record_seed.warn_text3_3" )}</span></span>
+			]
+		];
+
+		return <div>
 			<h1 className="warn-header">{this.warningMessages[ this.state.step ][ 0 ]}</h1>
 			<span className="under-line"> </span>
 			<p className="warn-body">{this.warningMessages[ this.state.step ][ 1 ]}</p>
 		</div>;
-
-		return message;
 	}
 
 	nextStep() {
