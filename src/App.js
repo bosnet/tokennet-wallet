@@ -107,19 +107,6 @@ class App extends Component {
 					this.props.streamAccount( streamAccount );
 				} );
 				StreamManager.effectsStream = EffectsStream( keypair.publicKey(), ( effects ) => {
-					// console.log( effects );
-					// effects.operation().then( function() {
-					// 	console.log( 'operation' );
-					// 	console.log(arguments);
-					// });
-					// effects.precedes().then( function() {
-					// 	console.log( 'precedes' );
-					// 	console.log(arguments);
-					// });
-					// effects.succeeds().then( function() {
-					// 	console.log( 'succeeds' );
-					// 	console.log(arguments);
-					// });
 					this.props.streamEffects( effects );
 				} );
 				StreamManager.offersStream = OffersStream( keypair.publicKey(), ( offers ) => {

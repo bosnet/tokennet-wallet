@@ -1,4 +1,5 @@
 import * as types from 'actions/ActionTypes';
+import { find } from 'underscore';
 
 const initialState = {
 	list: [],
@@ -27,20 +28,28 @@ function stream( state = initialState, action ) {
 				offers: action.offers,
 			};
 		case types.STREAM_PAYMENT:
-			let paymentHistory = [ action.payment, ...state.paymentHistory ];
-			paymentHistory = paymentHistory.sort( ( $x, $y ) => {
-				if( $x.transaction.created_at > $y.transaction.created_at ) {
-					return -1;
-				}
-				else {
-					return 1;
-				}
-			} );
-			return {
+			const exist = find( state.paymentHistory, $item => $item.id === action.payment.id );
+			let returnState = {
 				...state,
-				payment: action.payment,
-				paymentHistory,
 			};
+			if( !exist ) {
+				let paymentHistory = [ action.payment, ...state.paymentHistory ];
+				paymentHistory = paymentHistory.sort( ( $x, $y ) => {
+					if( $x.transaction.created_at > $y.transaction.created_at ) {
+						return -1;
+					}
+					else {
+						return 1;
+					}
+				} );
+
+				returnState = {
+					...state,
+					payment: action.payment,
+					paymentHistory,
+				}
+			}
+			return returnState;
 		case types.RESET_HISTORY :
 			return {
 				...state,

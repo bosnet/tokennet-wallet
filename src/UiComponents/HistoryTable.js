@@ -75,7 +75,7 @@ class HistoryTable extends Component {
 					break;
 			}
 			if ( label !== '' ) {
-				const DOM = <tr key={ i + '-' + data[ i ].id}>
+				const DOM = <tr key={data[ i ].id}>
 					<td><T.span text={label}/></td>
 					<td className={ 'target-cell' }>{target}</td>
 					<td>{numeral( amount ).format( '0,0.0000[00000000]' )}</td>

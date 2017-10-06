@@ -1,188 +1,188 @@
 @import '../assets/sass/vendors/response';
 
-
 .seed-container {
-  text-align: center;
+	text-align: center;
 
-  .gt-md-label {
-    @include response(md) {
-      display: inline-block;
-      p {
-        margin: 0;
-      }
-    }
-  }
+	.gt-md-label {
+		@include response(md) {
+			display: inline-block;
+			p {
+				margin: 0;
+			}
+		}
+	}
 
-  .blue-button.filled {
-    @include response(md) {
-      background-color: transparent;
-      color: #039cbf;
-      font-size: 12px;
+	.blue-button.filled {
+		@include response(md) {
+			background-color: transparent;
+			color: #039cbf;
+			font-size: 12px;
 
-      &:hover {
-        background-color: #039cbf;
-        color: #ffffff;
+			&:hover {
+				background-color: #039cbf;
+				color: #ffffff;
 
-        &.non-action {
-          background-color: transparent;;
-          color: #039cbf;
-        }
-      }
-    }
-  }
+				&.non-action {
+					background-color: transparent;;
+					color: #039cbf;
+				}
+			}
+		}
+	}
 }
 
 .open-seed-wrapper {
-  text-align: right;
-  margin: 0;
+	text-align: right;
+	margin: 0;
 
-  .open-seed {
-    color: #039cbf;
-    border: none;
-    background: none;
-    font-size: 10px;
+	.open-seed {
+		color: #039cbf;
+		border: none;
+		background: none;
+		font-size: 10px;
 
-    @include response(md) {
-      font-size: 17px;
-    }
+		@include response(md) {
+			font-size: 17px;
+		}
 
-    img {
-      width: 8px;
-      vertical-align: middle;
-      margin-left: 0.5em;
+		img {
+			width: 8px;
+			vertical-align: middle;
+			margin-left: 0.5em;
 
-      @include response(md) {
-        width: 16px;
-        margin-bottom: 2px;
-      }
-    }
-  }
+			@include response(md) {
+				width: 16px;
+				margin-bottom: 2px;
+			}
+		}
+	}
 
-  & + p {
-    position: relative;
-    display: inline-block;
-    color: #5c5c74;
-    font-size: 12px;
-    padding: 0 1em;
-    margin: 0;
-    z-index: 999;
+	& + p {
+		position: relative;
+		display: inline-block;
+		color: #5c5c74;
+		font-size: 12px;
+		padding: 0 1em;
+		background: #20202e;
+		margin: 0;
+		z-index: 999;
 
-    @include response(md) {
-      font-size: 17px;
-    }
-  }
+		@include response(md) {
+			font-size: 17px;
+		}
+	}
 }
 
 .keys-box {
-  position: relative;
-  top: -10px;
-  border: 2px solid #5c5c74;
-  border-radius: 5px;
-  padding: 20px 30px;
+	position: relative;
+	top: -10px;
+	border: 2px solid #5c5c74;
+	border-radius: 5px;
+	padding: 20px 30px;
 }
 
 .public-key-box,
-.secret-key-box{
-  > p {
-    text-align: left;
-    color: #039cbf;
-    font-size: 12px;
-    margin: 0;
+.secret-key-box {
+	> p {
+		text-align: left;
+		color: #039cbf;
+		font-size: 12px;
+		margin: 0;
 
-    @include response(md) {
-      display: none;
-    }
-  }
+		@include response(md) {
+			display: none;
+		}
+	}
 
-  .public-key,
-  .secret-key {
-    word-wrap: break-word;
-    font-style: italic;
-    color: #ffffff;
-    text-align: left;
-    font-weight: 100;
-    line-height: 1.5em;
-    margin: 0.5em 0;
-    width: 100%;
-    font-size: 1em;
-    border: none;
-  }
+	.public-key,
+	.secret-key {
+		word-wrap: break-word;
+		font-style: italic;
+		color: #ffffff;
+		text-align: left;
+		font-weight: 100;
+		line-height: 1.5em;
+		margin: 0.5em 0;
+		width: 100%;
+		font-size: 1em;
+		border: none;
+	}
 }
 
 .secret-key-box {
-  display: none;
+	display: none;
 }
 
 .secret-seed-open {
-  .secret-key-box {
-    display: block;
-  }
+	.secret-key-box {
+		display: block;
+	}
 
-  .public-key-box {
-    margin-bottom: 1em;
-    border-bottom: 1px solid #5c5c74;
+	.public-key-box {
+		margin-bottom: 1em;
+		border-bottom: 1px solid #5c5c74;
 
-    @include response(md) {
-      margin-bottom: 0;
-      border: none;
-    }
-  }
+		@include response(md) {
+			margin-bottom: 0;
+			border: none;
+		}
+	}
 
-  .public-key {
-    margin-bottom: 1.5em;
+	.public-key {
+		margin-bottom: 1.5em;
 
-    @include response(md) {
-      margin: 0;
-    }
-  }
+		@include response(md) {
+			margin: 0;
+		}
+	}
 
-  .open-seed {
-    img {
-      transform: rotate(180deg);
-    }
-  }
+	.open-seed {
+		img {
+			transform: rotate(180deg);
+		}
+	}
 }
 
 .public-key-wrapper,
 .secret-key-wrapper {
-  div:first-child {
-    display: none;
+	div:first-child {
+		display: none;
 
-    @include response(md) {
-      display: inline-block;
-      font-size: 17px;
-      width: 20%;
-      text-align: left;
-    }
+		@include response(md) {
+			display: inline-block;
+			font-size: 17px;
+			width: 20%;
+			text-align: left;
+		}
 
-    & + div {
-      width: 80%;
-      display: inline-block;
-      font-size: 10px;
+		& + div {
+			width: 80%;
+			display: inline-block;
+			font-size: 10px;
 
-      @include response(md) {
-        width: 68%;
-        font-size: 16px;
-      }
-    }
-  }
+			@include response(md) {
+				width: 68%;
+				font-size: 16px;
+			}
+		}
+	}
 
-  div:last-child {
-    width: 20%;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: right;
+	div:last-child {
+		width: 20%;
+		display: inline-block;
+		vertical-align: middle;
+		text-align: right;
 
-    @include response(md) {
-      width: 12%;
-    }
-  }
-  
-  @include response(md) {
-    > div {
-      display: inline-block;
-      color: #039cbf;
-    }
-  }
+		@include response(md) {
+			width: 12%;
+		}
+	}
+
+	@include response(md) {
+		> div {
+			display: inline-block;
+			color: #039cbf;
+		}
+	}
 }
 
