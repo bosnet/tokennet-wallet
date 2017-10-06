@@ -82,6 +82,10 @@ class App extends Component {
 				<Route path="/login" component={LoginView}/>
 				<Route path="/send" component={SendCoinView}/>
 				<Route path="/receive" component={ReceiveCoinView}/>
+
+				<div className="copyright">
+					&lt;BOS Platform Foundation 2017&gt;
+				</div>
 			</div>
 		);
 	}

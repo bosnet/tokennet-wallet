@@ -45,15 +45,8 @@ class MainPageView extends Component {
 	}
 
 	resizing() {
-		let upper = 302;
-		let under = 0;
-		if ( document.getElementById( 'step-to-make-account' ) ) {
-			under = document.getElementById( 'step-to-make-account' ).clientHeight;
-		}
-
-		this.setState( {
-			contentBottom: upper + under <= window.innerHeight && window.innerWidth < 640
-		} );
+		const bottomHeight = document.querySelector( '#step-to-make-account' ).clientHeight;
+		document.querySelector( '#main-page-container .tablize' ).style.minHeight = `calc( 100vh - 110px - ${bottomHeight}px )`;
 	}
 
 	createAccount() {
@@ -79,20 +72,30 @@ class MainPageView extends Component {
 		return (
 			<div id="main-page-container" className="main-page-container">
 				{this.renderRedirect()}
-				<div className="symbol-image-container">
-					<img src={symbolImage} alt="BOSCoin symbol"/>
-				</div>
-				<T.p text="welcome_view.title"/>
-				<T.p text="welcome_view.title_description"/>
+				<div className="tablize">
+					<div className="table-row">
+						<div className="cell vertical-middle text-center">
+							<img className={ 'main-logo'} src={symbolImage} alt="BOSCoin symbol"/>
 
-				<div className="button-container">
-					{/*<BlueButton big onClick={ this.clickMakeNewKey }><T.span text="welcome_view.button_make"/></BlueButton> <br/>*/}
-					<BlueButton big onClick={() => this.createAccount()}><T.span
-						text="welcome_view.create_account"/></BlueButton> <br/>
-					<BlueButton big onClick={this.clickOpenYourWallet}><T.span
-						text="welcome_view.button_open"/></BlueButton>
-				</div>
+							<T.p className={ 'title' } text="welcome_view.title"/>
+							<T.p text="welcome_view.title_description"/>
 
+							<div className={ 'button-group' }>
+								{/*<BlueButton big onClick={this.clickMakeNewKey}>*/}
+									{/*<T.span text="welcome_view.button_make"/>*/}
+								{/*</BlueButton>*/}
+								{/*<br/>*/}
+								<BlueButton big onClick={() => this.createAccount()}>
+									<T.span text="welcome_view.create_account"/>
+								</BlueButton>
+								<br/>
+								<BlueButton big onClick={this.clickOpenYourWallet}>
+									<T.span text="welcome_view.button_open"/>
+								</BlueButton>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div id="step-to-make-account" className={this.state.contentBottom ? 'content-bottom' : ''}>
 					<h2><T.span text="welcome_view.guide_title"/></h2>
 					<ol>

@@ -1,57 +1,56 @@
 @import './assets/sass/vendors/response';
 
 .header-container {
-  width: 100%;
-  position: relative;
-  margin: auto;
-  background-color: #1b182a;
+	width: 100%;
+	position: relative;
+	margin: auto;
 }
 
 .logo-image {
-  width: 122px;
-  position: relative;
-  top: 33px;
-  margin-bottom: 32px;
+	width: 122px;
+	position: relative;
+	top: 33px;
+	margin-bottom: 32px;
 
-  @include response(md) {
-    top: 0;
-    width: 244px;
-  }
+	@include response(md) {
+		top: 0;
+		width: 244px;
+	}
 }
 
 .see-the-full-manual {
-  padding-top: 30px;
-  font-size: 0.5em;
-  color: #ffffff;
-  text-align: right;
+	padding-top: 30px;
+	font-size: 0.5em;
+	color: #ffffff;
+	text-align: right;
 
-  @include response(md) {
-    padding: 0 190px 0 0;
-    font-size: 16px;
-    color: #039cbf;
+	@include response(md) {
+		padding: 0 190px 0 0;
+		font-size: 16px;
+		color: #039cbf;
 
-    &:after {
-      content: '';
-      display: block;
-      background-color: #039cbf;
-      width: 36px;
-      height: 36px;
-      position: absolute;
-      border-radius: 18px;
-      top: 7px;
-      right: 180px;
-    }
-  }
+		&:after {
+			content: '';
+			display: block;
+			background-color: #039cbf;
+			width: 36px;
+			height: 36px;
+			position: absolute;
+			border-radius: 18px;
+			top: 7px;
+			right: 180px;
+		}
+	}
 }
 
 .download-icon {
-  width: 14px;
-  margin-left : 14px;
-  position: relative;
-  z-index: 999;
+	width: 14px;
+	margin-left: 14px;
+	position: relative;
+	z-index: 999;
 
-  @include response(md) {
-    width: 16px;
-    margin-left: 24px;
-  }
+	@include response(md) {
+		width: 16px;
+		margin-left: 24px;
+	}
 }

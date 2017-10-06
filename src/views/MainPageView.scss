@@ -1,124 +1,134 @@
 @import '../assets/sass/vendors/response';
 
 .main-page-container {
-  text-align: center;
-  position: relative;
-  font-family: 'Exo 2', sans-serif;
-  height: 100%;
-  margin-top: -74px;
-  padding-top: 74px;
+	text-align: center;
+	position: relative;
+	font-family: 'Exo 2', sans-serif;
+	color: #ffffff;
 
-  .symbol-image-container {
-    text-align: center;
-    position: relative;
-    width: 75%;
-    left: 0;
-    margin: 20% auto 0;
+	.main-logo {
+		width: 245px;
+		margin-bottom: 19px;
 
-    @include response(md) {
-      margin: calc(25% - 122px) auto 0;
-    }
-  }
+		@include response( md ) {
+			width: auto;
+		}
+	}
 
-  img {
-    width: 100%;
-    max-width: 489px;
+	.tablize {
+		min-height: calc( 100vh - 110px );
 
-    @include response(md) {
-      width: 489px;
-    }
-  }
+		.cell {
+			padding: 38px 0 28px;
 
-  p {
-    font-size: 20px;
-    color: #ffffff;
-    font-weight: 300;
-    white-space: nowrap;
-    margin: 20px 0 10px;
+			@include response( md ) {
+				padding: 114px 0 84px;
+			}
+		}
+	}
 
-    @include response(md) {
-      font-size: 36px;
-      margin: 36px 0 18px;
-    }
-  }
+	.symbol-image-container {
+		text-align: center;
+		position: relative;
+		width: 75%;
+		left: 0;
+		margin: auto;
+		padding: 20% 0 10%;
+	}
 
-  p + p {
-    font-size: 8px;
-    font-weight: 200;
-    font-style: italic;
-    margin: 0 0 20px 0;
+	.title {
+		font-size: 20px;
+		margin: 0 0 10px;
 
-    @include response(md) {
-      font-size: 17px;
-      margin: 0 0 36px 0;
-    }
-  }
+		@include response( md ) {
+			font-size: 36px;
+		}
+	}
 
-  .button-container {
-    @include response(md) {
-      margin-bottom: 20%;
-    }
-     button {
-       margin-bottom: 10px;
-     }
-  }
+	.title + p {
+		font-size: 10px;
+		font-style: italic;
+		margin: 0 0 20px;
 
-  #step-to-make-account {
-    text-align: left;
+		@include response( md ) {
+			font-size: 17px;
+		}
+	}
 
-    &.content-bottom {
-      position: absolute;
-      bottom: -20px;
-    }
-  }
+	.button-group {
+		line-height: 40px;
 
-  li {
-    font-size: 12px;
-    color: #ffffff;
-    margin-bottom: 1em;
+		@include response( md ) {
+			line-height: 60px;
+		}
+	}
 
-    @include response(md) {
-      font-size: 18px;
+	.button-container {
+		@include response(md) {
+			margin-bottom: 20%;
+		}
+		button {
+			margin-bottom: 10px;
+		}
+	}
 
-      .blue-button.small {
-        width: 150px;
-        height: 40px;
-        font-size: 14px;
-      }
-    }
-  }
+	#step-to-make-account {
+		text-align: left;
 
-  ol {
-    width: 100%;
-    padding: 10px;
-    text-align: left
-  }
+		&.content-bottom {
+			position: absolute;
+			bottom: -20px;
+		}
+	}
 
-  h2 {
-    font-size: 14px;
-    color: #039cbf;
-    text-align: left;
-    position: relative;
-    display: inline-block;
+	li {
+		font-size: 12px;
+		color: #ffffff;
+		margin-bottom: 1em;
 
-    @include response(md) {
-      display: block;
-      font-size: 18px;
-    }
+		@include response(md) {
+			font-size: 18px;
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 10px;
-      right: -110%;
-      width: 100%;
-      height: 2px;
-      background-color: rgba(3, 156, 191, 0.25);
+			.blue-button.small {
+				width: 150px;
+				height: 40px;
+				font-size: 14px;
+			}
+		}
+	}
 
-      @include response(md) {
-        top: 12px;
-        right: -40%;
-      }
-    }
-  }
+	ol {
+		width: 100%;
+		padding: 10px;
+		text-align: left
+	}
+
+	h2 {
+		font-size: 14px;
+		color: #039cbf;
+		text-align: left;
+		position: relative;
+		display: inline-block;
+		margin: 0;
+
+		@include response(md) {
+			display: block;
+			font-size: 18px;
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 10px;
+			right: -110%;
+			width: 100%;
+			height: 2px;
+			background-color: rgba(3, 156, 191, 0.25);
+
+			@include response(md) {
+				top: 12px;
+				right: -40%;
+			}
+		}
+	}
 }
