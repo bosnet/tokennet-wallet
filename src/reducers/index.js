@@ -8,6 +8,7 @@ import copyComplete from './copyComplete';
 import transactionConfirm from './transactionConfirm';
 import transactionComplete from './transactionComplete';
 import stream from './stream';
+import maintenance from './maintenance';
 
 import { combineReducers } from 'redux';
 
@@ -22,6 +23,7 @@ const reducers = combineReducers( {
 	transactionConfirm,
 	transactionComplete,
 	stream,
+	maintenance,
 } );
 
 export default reducers;

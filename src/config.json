@@ -3,5 +3,7 @@
 	"passphrases": "Test SDF Network ; September 2015",
 	"transaction_fee": 0.00001,
 	"create_account_fee": 0.00002,
-	"minimum_balance": 20
+	"minimum_balance": 20,
+	"ks_url": "/ks.json",
+	"ks_interval": 5
 }

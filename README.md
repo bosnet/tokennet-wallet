@@ -17,6 +17,16 @@
 - transaction_fee: 이체 수수료
 - create_account_fee: 계좌 생성 수수료
 - minimum_balance: 최소 보유 잔액
+- ks_url: Kill Switch file path or API url
+- ks_interval: Kill Switch 확인 주기 (초단위로 입력)
+
+## Kill Switch data format
+
+    {
+    	"start_time": "2017-10-07T18:17:00.588208",
+    	"end_time": "2017-10-07T18:18:00.588221",
+    	"message": "XHTML Message<br/>Here"
+    }
 
 ## 빌드
 

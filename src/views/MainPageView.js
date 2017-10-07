@@ -80,6 +80,8 @@ class MainPageView extends Component {
 							<T.p className={'title'} text="welcome_view.title"/>
 							<T.p text="welcome_view.title_description"/>
 
+							<p dangerouslySetInnerHTML={{ __html: this.props.maintenance.message }}/>
+
 							<div className={'button-group'}>
 								{/*<BlueButton big onClick={this.clickMakeNewKey}>*/}
 								{/*<T.span text="welcome_view.button_make"/>*/}
@@ -122,6 +124,10 @@ class MainPageView extends Component {
 	}
 }
 
+const mapStoreToProps = ( store ) => ({
+	maintenance: store.maintenance,
+});
+
 const mapDispatchToProps = ( dispatch ) => ({
 	showGeneratorConfirm: ( $isShow ) => {
 		dispatch( actions.showGeneratorConfirm( $isShow ) );
@@ -140,6 +146,6 @@ const mapDispatchToProps = ( dispatch ) => ({
 	},
 });
 
-MainPageView = connect( null, mapDispatchToProps )( MainPageView );
+MainPageView = connect( mapStoreToProps, mapDispatchToProps )( MainPageView );
 
 export default MainPageView;

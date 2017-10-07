@@ -10,6 +10,9 @@ import { StellarStreamers } from 'libs/stellar-toolkit';
 /*
 	Libraries
  */
+import async from 'async';
+import axios from 'axios';
+import moment from 'moment';
 import T from 'i18n-react';
 
 /*
@@ -38,6 +41,8 @@ import StreamManager from "./StreamManager";
 
 const { OffersStream, EffectsStream, AccountStream, PaymentStream } = StellarStreamers;
 
+const config = require( 'config.json' );
+
 class App extends Component {
 	constructor() {
 		super();
@@ -46,10 +51,12 @@ class App extends Component {
 			publicKey: null,
 		};
 
-		this.streams = [];
-
 		const userLang = navigator.language || navigator.userLanguage;
 		this.selectLang( userLang );
+
+		this.checkKillSwitch = this.checkKillSwitch.bind( this );
+
+		this.checkKillSwitch();
 	}
 
 	selectLang( $lang ) {
@@ -62,6 +69,68 @@ class App extends Component {
 				lang = 'en';
 		}
 		T.setTexts( require( './languages/' + lang + '.json' ) );
+	}
+
+	checkKillSwitch() {
+		const queue = [];
+		queue.push( callback => {
+			axios.get( config.ks_url + '?' + Math.random() )
+				.then( response => {
+					if ( response.data !== undefined ) {
+						callback( null, response.data );
+					}
+				} )
+				.catch( error => {
+					console.error( error );
+					callback( 'Kill Switch data load fail.' );
+				} );
+		} );
+		queue.push( ( killSwitch, callback ) => {
+			if ( killSwitch.start_time === undefined ) {
+				callback( 'start_time required.' );
+				return;
+			}
+			if ( killSwitch.end_time === undefined ) {
+				callback( 'end_time required.' );
+				return;
+			}
+			const now = moment();
+			const start = killSwitch.start_time;
+			const end = killSwitch.end_time;
+			const result = {
+				onMaintenance: false,
+				message: null,
+			};
+
+			if ( 0 <= now.diff( start ) && now.diff( end ) < 0 ) {
+				result.onMaintenance = true;
+				result.message = killSwitch.message;
+			}
+
+			callback( null, result );
+		} );
+
+		async.waterfall( queue, ( error, result ) => {
+			if ( error ) {
+				this.props.setMaintenance( {
+					onMaintenance: false,
+					message: null,
+				} );
+			}
+			else if ( result ) {
+				this.props.setMaintenance( result );
+
+				if ( result.onMaintenance ) {
+					if ( window.location.pathname !== '/' ) {
+						window.location.href = '/';
+					}
+				}
+
+				setTimeout( () => {
+					this.checkKillSwitch();
+				}, config.ks_interval * 1000 );
+			}
+		} );
 	}
 
 	render() {
@@ -154,6 +223,9 @@ const mapDispatchToStore = ( dispatch ) => ( {
 	},
 	resetHistory: () => {
 		dispatch( actions.resetHistory() );
+	},
+	setMaintenance: ( maintenanceData ) => {
+		dispatch( actions.setMaintenance( maintenanceData ) );
 	},
 } );
 

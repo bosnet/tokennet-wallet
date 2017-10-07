@@ -70,3 +70,8 @@ export const streamPayment = ( $payment ) => ( {
 export const resetHistory = () => ( {
 	type: types.RESET_HISTORY,
 } );
+
+export const setMaintenance = ( maintenanceData ) => ( {
+	type: types.SET_MAINTENANCE,
+	maintenanceData,
+} );
