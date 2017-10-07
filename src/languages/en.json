@@ -100,7 +100,7 @@
 		"history": "History",
 		"open_secret_seed": "Open Secret Seed",
 		"hide_secret_seed": "Close Secret Seed",
-		"you_just_received": "You just received {amount} BOS",
-		"you_just_sent": "You just sent {amount} BOS"
+		"you_just_received": "You have received {amount} BOS for your last transaction",
+		"you_just_sent": "You have sent {amount} BOS for your last transaction"
 	}
 }
