@@ -10,7 +10,7 @@ function _interopRequireDefault( obj ) {
 	return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var _require = require( 'stellar-sdk' ),
+var _require = require( 'libs/stellar-sdk' ),
 	Asset = _require.Asset,
 	FederationServer = _require.FederationServer,
 	StrKey = _require.StrKey,

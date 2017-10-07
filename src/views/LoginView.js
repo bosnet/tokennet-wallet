@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import wallet from 'assets/imgs/boscoin-symbol-image-blue.png';
-import BlueButton from 'UiComponents/BlueButton';
+import BlueButton from 'components/BlueButton';
 import './LoginView.scss';
 import { Redirect } from "react-router-dom";
 import { StellarServer, StellarTools } from 'libs/stellar-toolkit';

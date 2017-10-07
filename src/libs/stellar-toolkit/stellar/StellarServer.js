@@ -1,14 +1,16 @@
-var _regenerator = require( 'babel-runtime/regenerator' );
+const config = require( 'config.json' );
 
-var _regenerator2 = _interopRequireDefault( _regenerator );
+let _regenerator = require( 'babel-runtime/regenerator' );
 
-var _asyncToGenerator2 = require( 'babel-runtime/helpers/asyncToGenerator' );
+let _regenerator2 = _interopRequireDefault( _regenerator );
 
-var _asyncToGenerator3 = _interopRequireDefault( _asyncToGenerator2 );
+let _asyncToGenerator2 = require( 'babel-runtime/helpers/asyncToGenerator' );
 
-var generateTestPair = function () {
-	var _ref2 = (0, _asyncToGenerator3.default)( _regenerator2.default.mark( function _callee() {
-		var pair;
+let _asyncToGenerator3 = _interopRequireDefault( _asyncToGenerator2 );
+
+let generateTestPair = function () {
+	let _ref2 = (0, _asyncToGenerator3.default)( _regenerator2.default.mark( function _callee() {
+		let pair;
 		return _regenerator2.default.wrap( function _callee$( _context ) {
 			while ( 1 ) {
 				switch ( _context.prev = _context.next ) {
@@ -44,38 +46,38 @@ function _interopRequireDefault( obj ) {
 	return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var Stellar = require( 'stellar-sdk' );
-var fetch = require( 'isomorphic-fetch' );
+let Stellar = require( 'libs/stellar-sdk' );
+let fetch = require( 'isomorphic-fetch' );
 
-var _require = require( './StellarTools' ),
+let _require = require( './StellarTools' ),
 	augmentAccount = _require.augmentAccount;
 
-var Server = void 0;
+let Server = void 0;
 
-var getServerInstance = function getServerInstance() {
+let getServerInstance = function getServerInstance() {
 	return Server;
 };
 
-var getAccount = function getAccount( accountId ) {
+let getAccount = function getAccount( accountId ) {
 	return getServerInstance().loadAccount( accountId ).then( augmentAccount );
 };
 
-var switchNetwork = function switchNetwork( network ) {
+let switchNetwork = function switchNetwork( network ) {
 	switch ( network ) {
 		case 'public':
-			Server = new Stellar.Server( 'https://horizon.stellar.org' );
+			Server = new Stellar.Server( config.api_url );
 			Stellar.Network.usePublicNetwork();
 			break;
 		default:
 		case 'test':
-			Server = new Stellar.Server( 'https://horizon-testnet.stellar.org' );
+			Server = new Stellar.Server( config.api_url );
 			Stellar.Network.useTestNetwork();
 			break;
 	}
 };
 
 function setServer( _ref ) {
-	var url = _ref.url,
+	let url = _ref.url,
 		_ref$type = _ref.type,
 		type = _ref$type === undefined ? 'test' : _ref$type,
 		_ref$options = _ref.options,

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import BlueButton from 'UiComponents/BlueButton';
-import KeyDisplayer from 'UiComponents/KeyDisplayer';
-import HistoryTable from 'UiComponents/HistoryTable';
-import MyBalance from 'UiComponents/MyBalance'
-import RecentHistory from 'UiComponents/RecentHistory';
+import BlueButton from 'components/BlueButton';
+import KeyDisplayer from 'components/KeyDisplayer';
+import HistoryTable from 'components/HistoryTable';
+import MyBalance from 'components/MyBalance'
+import RecentHistory from 'components/RecentHistory';
 import T from 'i18n-react';
 import './WalletView.scss';
 import { Redirect } from 'react-router-dom';

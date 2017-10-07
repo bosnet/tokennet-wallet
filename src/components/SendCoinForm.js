@@ -11,6 +11,8 @@ import AmountInput from "./AmountInput";
 import Decimal from 'decimal.js';
 import numeral from 'numeral';
 
+const config = require( 'config.json' );
+
 class SendCoinForm extends Component {
 	constructor() {
 		super();
@@ -20,8 +22,8 @@ class SendCoinForm extends Component {
 
 		const state = {
 			sendingAmount: null,
-			transactionFee: 0.00001,
-			transactionTotal: 0.0001,
+			transactionFee: config.transaction_fee,
+			transactionTotal: config.transaction_fee,
 			addressValidated: false,
 			publicKey: null,
 			error: null,
@@ -77,7 +79,7 @@ class SendCoinForm extends Component {
 			this.setState( { error: "send_coin.error.not_enough_balance" } );
 			return false;
 		}
-		if ( balance - this.state.transactionTotal < 20 ) {
+		if ( balance - this.state.transactionTotal < config.minimum_balance ) {
 			this.setState( { error: "send_coin.error.minimum_balance" } );
 			return false;
 		}

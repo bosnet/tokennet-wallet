@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import ModalContainer from './ModalContainer';
-import BlueButton from '../UiComponents/BlueButton';
-import SymbolWhiteBack from '../assets/imgs/boscoin-symbol-image-white.png';
+import BlueButton from 'components/BlueButton';
+import SymbolWhiteBack from 'assets/imgs/boscoin-symbol-image-white.png';
 import KeyGeneratorMessage from './KeyGeneratorMessage';
 import './ConfirmGeneratorOpen.scss';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
 import T from 'i18n-react';
-import { Keypair } from 'stellar-sdk';
+import { Keypair } from 'libs/stellar-sdk';
 
 class ConfirmGeneratorOpen extends Component {
 	constructor() {

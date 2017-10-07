@@ -20,20 +20,20 @@ import WalletView from './views/WalletView';
 import LoginView from './views/LoginView';
 import SendCoinView from './views/SendCoinView';
 import ReceiveCoinView from './views/ReceiveCoinView';
-import Header from './Header';
-import Spinner from './UiComponents/Spinner';
-import CopyComplete from './UiComponents/CopyComplete';
-import ConfirmGeneratorOpen from './Modals/ConfirmGeneratorOpen';
-import KeyGenerator from './Modals/KeyGenerator'
-import TransactionConfirm from './Modals/TransactionConfirm';
-import TransactionComplete from './Modals/TransactionComplete';
-import RecordSeeds from './Modals/RecordSeeds';
+import Header from 'components/Header';
+import Spinner from 'components/Spinner';
+import CopyComplete from 'components/CopyComplete';
+import ConfirmGeneratorOpen from 'modal-popups/ConfirmGeneratorOpen';
+import KeyGenerator from 'modal-popups/KeyGenerator'
+import TransactionConfirm from 'modal-popups/TransactionConfirm';
+import TransactionComplete from 'modal-popups/TransactionComplete';
+import RecordSeeds from 'modal-popups/RecordSeeds';
 
 /*
 	Styles
  */
 import './App.scss';
-import './assets/sass/App.scss';
+import 'assets/sass/App.scss';
 import StreamManager from "./StreamManager";
 
 const { OffersStream, EffectsStream, AccountStream, PaymentStream } = StellarStreamers;

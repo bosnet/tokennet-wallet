@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import LanguageSelector from './UiComponents/LanguageSelector';
-import 'Header.scss';
-import logo from './assets/imgs/boscoin-wallet-logo.png';
-import downloadIcon from './assets/imgs/download-icon.png';
+import LanguageSelector from 'components/LanguageSelector';
+import './Header.scss';
+import logo from 'assets/imgs/boscoin-wallet-logo.png';
+import downloadIcon from 'assets/imgs/download-icon.png';
 import { Link } from "react-router-dom";
 import T from 'i18n-react';
 

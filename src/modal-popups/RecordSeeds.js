@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ModalContainer from './ModalContainer';
-import KeyDisplayer from '../UiComponents/KeyDisplayer';
-import BlueButton from '../UiComponents/BlueButton';
+import KeyDisplayer from 'components/KeyDisplayer';
+import BlueButton from 'components/BlueButton';
 import './RecordSeeds.scss';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ModalContainer from './ModalContainer';
-import BlueButton from '../UiComponents/BlueButton';
+import BlueButton from 'components/BlueButton';
 import './TransactionConfirm.scss';
 import { connect } from "react-redux";
 import * as actions from "actions/index";

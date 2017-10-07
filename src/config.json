@@ -1,0 +1,7 @@
+{
+	"api_url": "https://horizon-testnet.stellar.org",
+	"passphrases": "Test SDF Network ; September 2015",
+	"transaction_fee": 0.00001,
+	"create_account_fee": 0.00002,
+	"minimum_balance": 20
+}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ModalContainer from './ModalContainer';
 import KeyGeneratorMessage from './KeyGeneratorMessage';
-import KeyDisplayer from '../UiComponents/KeyDisplayer'
-import BlueButton from '../UiComponents/BlueButton';
+import KeyDisplayer from 'components/KeyDisplayer'
+import BlueButton from 'components/BlueButton';
 import './KeyGenerator.scss';
 import { connect } from "react-redux";
 import * as actions from "../actions/index";

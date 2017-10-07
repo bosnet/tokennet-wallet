@@ -18,7 +18,7 @@ function _interopRequireDefault( obj ) {
 	return obj && obj.__esModule ? obj : { default: obj };
 }
 
-var _require = require( 'stellar-sdk' ),
+var _require = require( 'libs/stellar-sdk' ),
 	Keypair = _require.Keypair;
 
 var _require2 = require( '../helpers/errors' ),

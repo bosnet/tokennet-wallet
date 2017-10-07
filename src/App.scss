@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Exo+2:200,400');
-@import './assets/sass/vendors/response';
+@import 'assets/sass/vendors/response';
 
 @font-face {
 	font-family: "San Francisco Display Ultralight";
@@ -45,6 +45,8 @@ html {
 }
 
 body {
+	margin: 0;
+	padding: 0;
 	background-size: 100%;
 	background-position: center bottom;
 	background-image: url('assets/imgs/background-gradation.png');

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import symbolImage from 'assets/imgs/boscoin-symbol-image.png';
-import BlueButton from 'UiComponents/BlueButton';
+import BlueButton from 'components/BlueButton';
 import './MainPageView.scss';
 import { connect } from "react-redux";
 import * as actions from "actions/index";

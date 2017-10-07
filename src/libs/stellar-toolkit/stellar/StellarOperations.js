@@ -11,7 +11,7 @@ var _require = require( 'lodash' ),
 	isNumber = _require.isNumber,
 	isFunction = _require.isFunction;
 
-var _require2 = require( 'stellar-sdk' ),
+var _require2 = require( 'libs/stellar-sdk' ),
 	Account = _require2.Account,
 	Memo = _require2.Memo,
 	Operation = _require2.Operation,

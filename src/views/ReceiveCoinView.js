@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import MyBalance from 'UiComponents/MyBalance'
-import RecentHistory from 'UiComponents/RecentHistory';
-import KeyDisplayer from 'UiComponents/KeyDisplayer';
-import BlueButton from 'UiComponents/BlueButton';
+import MyBalance from 'components/MyBalance'
+import RecentHistory from 'components/RecentHistory';
+import KeyDisplayer from 'components/KeyDisplayer';
+import BlueButton from 'components/BlueButton';
 import QRious from 'qrious';
 import { Link, Redirect } from "react-router-dom";
 import './ReceiveCoinView.scss';

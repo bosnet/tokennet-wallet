@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import copyComplete from '../assets/imgs/copy-complete.png';
+import copyComplete from 'assets/imgs/copy-complete.png';
 import './CopyComplete.scss';
 
 class CopyComplete extends Component {

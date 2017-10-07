@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import MyBalance from 'UiComponents/MyBalance'
-import RecentHistory from 'UiComponents/RecentHistory';
-import KeyDisplayer from 'UiComponents/KeyDisplayer';
-import SendCoinForm from 'UiComponents/SendCoinForm';
-import BlueButton from 'UiComponents/BlueButton';
+import MyBalance from 'components/MyBalance'
+import RecentHistory from 'components/RecentHistory';
+import KeyDisplayer from 'components/KeyDisplayer';
+import SendCoinForm from 'components/SendCoinForm';
+import BlueButton from 'components/BlueButton';
 import { Link } from "react-router-dom";
 import './SendCoinView.scss';
 import T from 'i18n-react';
