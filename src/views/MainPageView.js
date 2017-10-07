@@ -75,14 +75,14 @@ class MainPageView extends Component {
 				<div className="tablize">
 					<div className="table-row">
 						<div className="cell vertical-middle text-center">
-							<img className={ 'main-logo'} src={symbolImage} alt="BOSCoin symbol"/>
+							<img className={'main-logo'} src={symbolImage} alt="BOSCoin symbol"/>
 
-							<T.p className={ 'title' } text="welcome_view.title"/>
+							<T.p className={'title'} text="welcome_view.title"/>
 							<T.p text="welcome_view.title_description"/>
 
-							<div className={ 'button-group' }>
+							<div className={'button-group'}>
 								{/*<BlueButton big onClick={this.clickMakeNewKey}>*/}
-									{/*<T.span text="welcome_view.button_make"/>*/}
+								{/*<T.span text="welcome_view.button_make"/>*/}
 								{/*</BlueButton>*/}
 								{/*<br/>*/}
 								<BlueButton big onClick={() => this.createAccount()}>

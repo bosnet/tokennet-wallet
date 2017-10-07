@@ -1,47 +1,47 @@
 @import '../assets/sass/vendors/response';
 
 .key-displayer-wrapper {
-  .seed-container {
-    padding: 0 15px;
-  }
+	.seed-container {
+		padding: 0 15px;
+	}
 
-  .keys-box {
-    border-color: #039cbf;
-  }
+	.keys-box {
+		border-color: #039cbf;
+	}
 
-  .open-seed-wrapper + p {
-    color: #039cbf;
-    background-color: #ffffff;
-  }
+	.open-seed-wrapper + p {
+		color: #039cbf;
+		background-color: #ffffff;
+	}
 
-  .public-key-box {
-    .public-key {
-      color: #000000;
-    }
-  }
+	.public-key-box {
+		.public-key {
+			color: #000000;
+		}
+	}
 
-  .secret-key-box {
-    .secret-key {
-      color: #000000;
-    }
-  }
+	.secret-key-box {
+		.secret-key {
+			color: #000000;
+		}
+	}
 
-  .secret-seed-open .public-key-box {
-    border-color: #039cbf;
-  }
+	.secret-seed-open .public-key-box {
+		border-color: #039cbf;
+	}
 }
 
 .warn-message {
-  color: #f40b20;
-  font-size: 10px;
+	color: #f40b20;
+	font-size: 10px;
 
-  @include response(md) {
-    font-size: 14px;
-  }
+	@include response(md) {
+		font-size: 14px;
+	}
 
-  .only-mobile {
-    @include response(md) {
-      display: none;
-    }
-  }
+	.only-mobile {
+		@include response(md) {
+			display: none;
+		}
+	}
 }

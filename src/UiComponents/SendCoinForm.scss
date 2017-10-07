@@ -1,164 +1,164 @@
 @import '../assets/sass/vendors/response';
 
 .send-coin-view-container {
-  .gt-md {
-    display: none;
-  }
+	.gt-md {
+		display: none;
+	}
 
-  @include response(md) {
-    max-width: 860px;
-    margin: auto;
+	@include response(md) {
+		max-width: 860px;
+		margin: auto;
 
-    .only-mobile {
-      display: none;
-    }
+		.only-mobile {
+			display: none;
+		}
 
-    .gt-md {
-      display: inline-block;
-    }
-  }
+		.gt-md {
+			display: inline-block;
+		}
+	}
 
-  .button-wrapper {
-    margin-top: 0;
-  }
+	.button-wrapper {
+		margin-top: 0;
+	}
 }
 
 .seed-container + .button-wrapper {
-  padding-bottom: 2em;
+	padding-bottom: 2em;
 }
 
 .send-coin-form-container {
-  > p {
-    text-align: center;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: 200;
-    margin: 0;
-  }
+	> p {
+		text-align: center;
+		color: #ffffff;
+		font-size: 20px;
+		font-weight: 200;
+		margin: 0;
+	}
 
-  .button-wrapper {
-    margin-top: 45px;
+	.button-wrapper {
+		margin-top: 45px;
 
-    @include response(md) {
-      padding-bottom: 2em;
-      border-bottom: 2px solid #5c5c74;
-      margin-bottom: 2em;
-    }
-  }
+		@include response(md) {
+			padding-bottom: 2em;
+			border-bottom: 2px solid #5c5c74;
+			margin-bottom: 2em;
+		}
+	}
 }
 
 .input-group-label-wrapper {
-  p {
-    display: inline-block;
-    font-size: 12px;
-    color: #ffffff;
-    font-weight: 200;
-    margin-bottom: 0.5em;
+	p {
+		display: inline-block;
+		font-size: 12px;
+		color: #ffffff;
+		font-weight: 200;
+		margin-bottom: 0.5em;
 
-    @include response(md) {
-      &.gt-md {
-        width: 30%;
-        font-size: 15px;
-      }
-    }
-  }
+		@include response(md) {
+			&.gt-md {
+				width: 30%;
+				font-size: 15px;
+			}
+		}
+	}
 }
 
 .input-label {
-  color: #ffffff;
-  font-size: 12px;
+	color: #ffffff;
+	font-size: 12px;
 }
 
 .transaction-fee {
-  float: right;
+	float: right;
 
-  @include response(md) {
-    width: 100%;
-    text-align: right;
-  }
+	@include response(md) {
+		width: 100%;
+		text-align: right;
+	}
 
-  span {
-    color: #039cbf;
-  }
+	span {
+		color: #039cbf;
+	}
 
-  &:after {
-    clear: both;
-  }
+	&:after {
+		clear: both;
+	}
 }
 
 .input-group {
-  @include response(md) {
-    height: 64px;
-  }
+	@include response(md) {
+		height: 64px;
+	}
 
-  input {
-    background-color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    height: 38px;
-  }
+	input {
+		background-color: #ffffff;
+		border: none;
+		border-radius: 5px;
+		height: 38px;
+	}
 
-  .input-public-address {
-    width: calc(100% - 41px);
-    padding-left: 1.5em;
+	.input-public-address {
+		width: calc(100% - 41px);
+		padding-left: 1.5em;
 
-    @include response(md) {
-      display: inline-block;
-      width: 70%;
-    }
-  }
+		@include response(md) {
+			display: inline-block;
+			width: 70%;
+		}
+	}
 
-  .input-sending-amount {
-    width: 100%;
-    text-align: right;
-    color: #000000;
-    font-weight: 400;
-    padding: 10px;
-    font-size: 22px;
+	.input-sending-amount {
+		width: 100%;
+		text-align: right;
+		color: #000000;
+		font-weight: 400;
+		padding: 10px;
+		font-size: 22px;
 
-    @include response(md) {
-      display: inline-block;
-      width: 70%;
-    }
-  }
+		@include response(md) {
+			display: inline-block;
+			width: 70%;
+		}
+	}
 
-  .sending-amount {
-    color: #5c5c74;
-    float: right;
+	.sending-amount {
+		color: #5c5c74;
+		float: right;
 
-    &:after {
-      clear: both;
-    }
-  }
+		&:after {
+			clear: both;
+		}
+	}
 }
 
 .button-wrapper {
-  text-align: center;
-  margin: 35px 0 18px;
+	text-align: center;
+	margin: 35px 0 18px;
 }
 
 .public-address-validation {
-  display: inline-block;
-  width: 38px;
-  height: 38px;
-  background: #b3c9d1 url('../assets/imgs/check-mark-white.png') no-repeat;
-  background-size: 19px;
-  background-position: center;
-  vertical-align: middle;
-  margin-left: 3px;
-  border-radius: 5px;
-  position: relative;
+	display: inline-block;
+	width: 38px;
+	height: 38px;
+	background: #b3c9d1 url('../assets/imgs/check-mark-white.png') no-repeat;
+	background-size: 19px;
+	background-position: center;
+	vertical-align: middle;
+	margin-left: 3px;
+	border-radius: 5px;
+	position: relative;
 
-  @include response(md) {
-    top: -37px;
-    left: calc(100% - 40px);
-    width: 36px;
-    height: 36px;
-  }
+	@include response(md) {
+		top: -37px;
+		left: calc(100% - 40px);
+		width: 36px;
+		height: 36px;
+	}
 
-  &.validated {
-    background: #039cbf url('../assets/imgs/check-mark-white.png') no-repeat;
-    background-size: 19px;
-    background-position: center;
-  }
+	&.validated {
+		background: #039cbf url('../assets/imgs/check-mark-white.png') no-repeat;
+		background-size: 19px;
+		background-position: center;
+	}
 }

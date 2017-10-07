@@ -1,26 +1,25 @@
 @import '../assets/sass/vendors/response';
 
 .confirm-open-container {
-  padding: 28px;
+	padding: 28px;
 
-  .button-wrapper {
-    margin: 20px;
-    padding: 0;
+	.button-wrapper {
+		margin: 20px;
+		padding: 0;
 
-    @include response(md) {
-      margin-top: 0;
-      padding-top: 20px;
-    }
-  }
+		@include response(md) {
+			margin-top: 0;
+			padding-top: 20px;
+		}
+	}
 
+	img {
+		width: 50px;
 
-  img {
-    width: 50px;
-
-    @include response(md) {
-      width: 100px;
-      margin-top: 20px;
-    }
-  }
+		@include response(md) {
+			width: 100px;
+			margin-top: 20px;
+		}
+	}
 
 }

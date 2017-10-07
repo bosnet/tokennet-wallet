@@ -9,49 +9,49 @@ import * as actions from "../actions/index";
 import T from 'i18n-react';
 
 class KeyGenerator extends Component {
-  constructor() {
-    super();
+	constructor() {
+		super();
 
-    this.closeKeyGenerator = this.closeKeyGenerator.bind( this );
-  }
+		this.closeKeyGenerator = this.closeKeyGenerator.bind( this );
+	}
 
-  closeKeyGenerator() {
-    this.props.showKeyGenerator( false );
-    this.props.showRecordSeed( true );
-  }
+	closeKeyGenerator() {
+		this.props.showKeyGenerator( false );
+		this.props.showRecordSeed( true );
+	}
 
-  render() {
-    return (
-        <ModalContainer doClose={ this.closeKeyGenerator } modalOpen={this.props.modalOpen}>
-          <KeyGeneratorMessage/>
+	render() {
+		return (
+			<ModalContainer doClose={this.closeKeyGenerator} modalOpen={this.props.modalOpen}>
+				<KeyGeneratorMessage/>
 
-          <div className="key-displayer-wrapper">
-            <KeyDisplayer setOpenSecretKey={true}/>
-          </div>
+				<div className="key-displayer-wrapper">
+					<KeyDisplayer setOpenSecretKey={true}/>
+				</div>
 
-          <p className="warn-message">
-            {T.translate('key_generator.warn_line1')}<br/>
-            {T.translate('key_generator.warn_line2')}<br className="only-mobile"/>
-            {T.translate('key_generator.warn_line3')}
-          </p>
-          <p className="button-wrapper">
-            <BlueButton onClick={ () => this.closeKeyGenerator() } medium>
-              {T.translate('common.close')}
-            </BlueButton>
-          </p>
-        </ModalContainer>
-    )
-  }
+				<p className="warn-message">
+					{T.translate( 'key_generator.warn_line1' )}<br/>
+					{T.translate( 'key_generator.warn_line2' )}<br className="only-mobile"/>
+					{T.translate( 'key_generator.warn_line3' )}
+				</p>
+				<p className="button-wrapper">
+					<BlueButton onClick={() => this.closeKeyGenerator()} medium>
+						{T.translate( 'common.close' )}
+					</BlueButton>
+				</p>
+			</ModalContainer>
+		)
+	}
 }
 
 // 리덕스 연결
 const mapDispatchToProps = ( dispatch ) => ({
-  showKeyGenerator: ( $isShow ) => {
-    dispatch( actions.showKeyGenerator( $isShow ) );
-  },
-  showRecordSeed: ( $isShow ) => {
-    dispatch( actions.showRecordSeed( $isShow ) )
-  }
+	showKeyGenerator: ( $isShow ) => {
+		dispatch( actions.showKeyGenerator( $isShow ) );
+	},
+	showRecordSeed: ( $isShow ) => {
+		dispatch( actions.showRecordSeed( $isShow ) )
+	}
 });
 
 KeyGenerator = connect( null, mapDispatchToProps )( KeyGenerator );

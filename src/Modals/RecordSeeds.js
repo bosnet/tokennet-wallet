@@ -66,7 +66,7 @@ class RecordSeeds extends Component {
 
 	render() {
 		return (
-			<ModalContainer data-lang={ this.props.language } doClose={this.nextStep} modalOpen={this.props.modalOpen}>
+			<ModalContainer data-lang={this.props.language} doClose={this.nextStep} modalOpen={this.props.modalOpen}>
 				<div className="record-seed-container">
 					{this.renderWarningMessage()}
 					<KeyDisplayer/>

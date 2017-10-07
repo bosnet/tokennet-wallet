@@ -1,66 +1,66 @@
 @import '../assets/sass/vendors/response';
 
 .transaction-complete-container {
-  padding: 18px;
+	padding: 18px;
 
-  h1 {
-    font-size: 1.5em;
-    margin-bottom: 0;
+	h1 {
+		font-size: 1.5em;
+		margin-bottom: 0;
 
-    @include response(md) {
-      font-size: 2em;
-    }
-  }
+		@include response(md) {
+			font-size: 2em;
+		}
+	}
 
-  .under-line {
-    position: relative;
-    display: inline-block;
-    width: 3em;
-    height: 2px;
-    background-color: #000000;
+	.under-line {
+		position: relative;
+		display: inline-block;
+		width: 3em;
+		height: 2px;
+		background-color: #000000;
 
-    @include response(md) {
-      width: 5em;
-    }
-  }
+		@include response(md) {
+			width: 5em;
+		}
+	}
 
-  p {
-    color: #f40b20;
-    font-style: italic;
-    font-size: 11px;
-  }
+	p {
+		color: #f40b20;
+		font-style: italic;
+		font-size: 11px;
+	}
 
-  .amount-text {
-    font-size: 12px;
-    font-style: italic;
-    font-weight: 100;
-    color: #000000;
-    margin: 1em 0 0;
+	.amount-text {
+		font-size: 12px;
+		font-style: italic;
+		font-weight: 100;
+		color: #000000;
+		margin: 1em 0 0;
 
-    @include response(md) {
-      font-size: 17px;
-    }
+		@include response(md) {
+			font-size: 17px;
+		}
 
-    &.bold {
-      margin-top: 0;
-      font-weight: bold;
-    }
-  }
+		&.bold {
+			margin-top: 0;
+			font-weight: bold;
+		}
+	}
 
-  .transaction-amount {
-    font-size: 40px;
-    font-weight: 100;
-    font-style: normal;
-    margin: 0;
-    font-family: 'San Francisco Display Ultralight', sans-serif;
-    color: #039cbf;
+	.transaction-amount {
+		font-size: 40px;
+		font-weight: 100;
+		font-style: normal;
+		margin: 0;
+		font-family: 'San Francisco Display Ultralight', sans-serif;
+		color: #039cbf;
 
-    @include response(md) {
-      margin: 10px 0;
-    }
-  }
+		@include response(md) {
+			margin: 10px 0;
+		}
+	}
 
-  .button-wrapper button.blue-button {
-    margin-right: 0;
-  }
+	.button-wrapper button.blue-button {
+		margin-right: 0;
+	}
 }

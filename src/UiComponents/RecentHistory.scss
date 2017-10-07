@@ -1,49 +1,49 @@
 @import '../assets/sass/vendors/response';
 
 .recent-history {
-  display: inline-block;
-  position: relative;
-  padding-right: 1em;
-  color: #ffffff;
-  font-size: 12px;
-  font-family: 'Exo 2', sans-serif;
-  font-style: italic;
-  font-weight: 200;
-  text-align: left;
-  margin-top: 20px;
-  margin-bottom: 0;
-  width: 100%;
+	display: inline-block;
+	position: relative;
+	padding-right: 1em;
+	color: #ffffff;
+	font-size: 12px;
+	font-family: 'Exo 2', sans-serif;
+	font-style: italic;
+	font-weight: 200;
+	text-align: left;
+	margin-top: 20px;
+	margin-bottom: 0;
+	width: 100%;
 
-  @include response(md) {
-    font-size: 15px;
-  }
+	@include response(md) {
+		font-size: 15px;
+	}
 
-  &:before {
-    content: '';
-    width: 33px;
-    height: 26px;
-    background-image: url('../assets/imgs/recent-history-icon.png');
-    background-size: cover;
-    vertical-align: middle;
-    margin-right: 15px;
+	&:before {
+		content: '';
+		width: 33px;
+		height: 26px;
+		background-image: url('../assets/imgs/recent-history-icon.png');
+		background-size: cover;
+		vertical-align: middle;
+		margin-right: 15px;
 
-    @include response(md) {
-      display: inline-block;
-    }
-  }
+		@include response(md) {
+			display: inline-block;
+		}
+	}
 
-  &:after {
-    content: '';
-    position: relative;
-    width: 100%;
-    height: 2px;
-    background-color: #5c5c74;
-    top: -8px;
-    left: 220px;
-    display: block;
-    
-    @include response(md) {
-      display: none;
-    }
-  }
+	&:after {
+		content: '';
+		position: relative;
+		width: 100%;
+		height: 2px;
+		background-color: #5c5c74;
+		top: -8px;
+		left: 220px;
+		display: block;
+
+		@include response(md) {
+			display: none;
+		}
+	}
 }

@@ -12,15 +12,16 @@ class Header extends Component {
 			<div className="header-container">
 				<div className="h-group">
 					<div className="col">
-						<Link to={ '/' }>
+						<Link to={'/'}>
 							<img className="logo-image" src={logo} alt="BOSCoin logo"/>
 						</Link>
 					</div>
 					<div className="col right">
 						<LanguageSelector/>
 						<p className="see-the-full-manual">
-							<T.span text="header.see_manual" />
-							<img className="download-icon" src={downloadIcon} style={this.downloadIconStyle} alt="Download full menual"/>
+							<T.span text="header.see_manual"/>
+							<img className="download-icon" src={downloadIcon} style={this.downloadIconStyle}
+								 alt="Download full menual"/>
 						</p>
 					</div>
 				</div>

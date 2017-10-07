@@ -1,38 +1,38 @@
 @import '../assets/sass/vendors/response';
 
 h1 {
-  font-family: 'Exo 2', sans-serif;
-  font-size: 30px;
-  font-weight: 100;
+	font-family: 'Exo 2', sans-serif;
+	font-size: 30px;
+	font-weight: 100;
 
-  @include response(md) {
-    font-size: 36px;
-  }
+	@include response(md) {
+		font-size: 36px;
+	}
 }
 
 .black-line {
-  width: 36px;
-  height: 2px;
-  background-color: #000000;
-  display: inline-block;
+	width: 36px;
+	height: 2px;
+	background-color: #000000;
+	display: inline-block;
 
-  @include response(md) {
-    width: 72px;
-  }
+	@include response(md) {
+		width: 72px;
+	}
 
-  & + p {
-    font-family: 'Exo 2', sans-serif;
-    font-size: 12px;
-    font-weight: 100;
-    margin-bottom: 12px;
-    line-height: 1.4em;
+	& + p {
+		font-family: 'Exo 2', sans-serif;
+		font-size: 12px;
+		font-weight: 100;
+		margin-bottom: 12px;
+		line-height: 1.4em;
 
-    @include response(md) {
-      font-size: 17px;
-    }
+		@include response(md) {
+			font-size: 17px;
+		}
 
-    & > span {
-      font-weight: bold;
-    }
-  }
+		& > span {
+			font-weight: bold;
+		}
+	}
 }

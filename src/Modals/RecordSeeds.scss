@@ -1,86 +1,86 @@
 .record-seed-container {
-  padding: 18px;
+	padding: 18px;
 
-  .seed-container {
-    .public-key-box,
-    .secret-key-box {
-      >p {
-        color: #000000;
-      }
-      .public-key-wrapper,
-      .secret-key-wrapper {
-        .public-key,
-        .secret-key {
-          color: #000000;
-        }
-      }
-    }
+	.seed-container {
+		.public-key-box,
+		.secret-key-box {
+			> p {
+				color: #000000;
+			}
+			.public-key-wrapper,
+			.secret-key-wrapper {
+				.public-key,
+				.secret-key {
+					color: #000000;
+				}
+			}
+		}
 
-    .modal-wrapper {
-      padding: 18px;
+		.modal-wrapper {
+			padding: 18px;
 
-      .close-modal-button-x {
-        display: none;
-      }
-    }
+			.close-modal-button-x {
+				display: none;
+			}
+		}
 
-    .secret-key-box {
-      display: block;
-    }
-  }
+		.secret-key-box {
+			display: block;
+		}
+	}
 
-  .keys-box {
-    border-color: #039cbf;
-  }
+	.keys-box {
+		border-color: #039cbf;
+	}
 
-  .open-seed-wrapper {
-    + p {
-      background-color: #ffffff;
-      color: #039cbf;
-    }
-    .open-seed {
-      display: none;
-    }
-  }
+	.open-seed-wrapper {
+		+ p {
+			background-color: #ffffff;
+			color: #039cbf;
+		}
+		.open-seed {
+			display: none;
+		}
+	}
 
-  .warn-header {
-    font-size: 1.5em;
-    margin-bottom: 0.2em;
+	.warn-header {
+		font-size: 1.5em;
+		margin-bottom: 0.2em;
 
-    .red-and-bold {
-      animation: blink 500ms 3;
-    }
-  }
+		.red-and-bold {
+			animation: blink 500ms 3;
+		}
+	}
 
-  .red-and-bold {
-    color: #f40b20;
-    font-weight: bold;
-  }
+	.red-and-bold {
+		color: #f40b20;
+		font-weight: bold;
+	}
 
-  .under-line {
-    position: relative;
-    display: inline-block;
-    width: 3em;
-    height: 2px;
-    background-color: #f40b20;
-  }
+	.under-line {
+		position: relative;
+		display: inline-block;
+		width: 3em;
+		height: 2px;
+		background-color: #f40b20;
+	}
 
-  .warn-body {
-    font-size: 1em;
-    color: #f40b20;
-  }
+	.warn-body {
+		font-size: 1em;
+		color: #f40b20;
+	}
 }
 
 @keyframes blink {
-  0% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 1;
+	}
 
-  50% {
-    opacity: 0;
-  }
+	50% {
+		opacity: 0;
+	}
 
-  100% {
-    opacity: 1;
-  }
+	100% {
+		opacity: 1;
+	}
 }

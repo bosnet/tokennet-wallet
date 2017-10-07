@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import MyBalance from 'UiComponents/MyBalance'
 import RecentHistory from 'UiComponents/RecentHistory';
 import KeyDisplayer from 'UiComponents/KeyDisplayer';
@@ -10,51 +10,51 @@ import T from 'i18n-react';
 import { connect } from "react-redux";
 
 class ReceiveCoinView extends Component {
-  componentDidMount() {
-    new QRious({
-      element: document.getElementById('my-address-qrcode'),
-      value: this.props.keypair.publicKey(),
-    });
-  }
+	componentDidMount() {
+		new QRious( {
+			element: document.getElementById( 'my-address-qrcode' ),
+			value: this.props.keypair.publicKey(),
+		} );
+	}
 
-  renderRedirect() {
-    if (this.props.keypair === null) {
-      return <Redirect to={'/'}/>;
-    }
-    else {
-      return '';
-    }
-  }
+	renderRedirect() {
+		if ( this.props.keypair === null ) {
+			return <Redirect to={'/'}/>;
+		}
+		else {
+			return '';
+		}
+	}
 
-  render () {
-    return (
-      <div className="receive-coin-view-container">
-        {this.renderRedirect()}
-        <RecentHistory/>
-        <MyBalance/>
+	render() {
+		return (
+			<div className="receive-coin-view-container">
+				{this.renderRedirect()}
+				<RecentHistory/>
+				<MyBalance/>
 
-        <div className="receive-wrapper">
-          <p>{T.translate('common.receive')}</p>
-          <canvas width="90" height="90" id="my-address-qrcode"> </canvas>
-        </div>
+				<div className="receive-wrapper">
+					<p>{T.translate( 'common.receive' )}</p>
+					<canvas width="90" height="90" id="my-address-qrcode"></canvas>
+				</div>
 
-        <KeyDisplayer/>
-        <div className="button-wrapper">
-          <Link to="/wallet">
-            <BlueButton medium>{T.translate('common.account')}</BlueButton>
-          </Link>
+				<KeyDisplayer/>
+				<div className="button-wrapper">
+					<Link to="/wallet">
+						<BlueButton medium>{T.translate( 'common.account' )}</BlueButton>
+					</Link>
 
-          <Link to="/send">
-            <BlueButton medium>{T.translate('common.send')}</BlueButton>
-          </Link>
-        </div>
-      </div>
-    )
-  }
+					<Link to="/send">
+						<BlueButton medium>{T.translate( 'common.send' )}</BlueButton>
+					</Link>
+				</div>
+			</div>
+		)
+	}
 }
 
 const mapStateToProps = ( state ) => ({
-  keypair: state.keypair.keypair,
+	keypair: state.keypair.keypair,
 });
 
 ReceiveCoinView = connect( mapStateToProps )( ReceiveCoinView );

@@ -1,31 +1,31 @@
 @import '../assets/sass/vendors/response';
 
 .receive-wrapper {
-  text-align: center;
-  p {
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 100;
-    margin: 0 0 1.5em;
-  }
-  #my-address-qrcode {
-    display: block;
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 1.5em;
+	text-align: center;
+	p {
+		color: #ffffff;
+		font-size: 18px;
+		font-weight: 100;
+		margin: 0 0 1.5em;
+	}
+	#my-address-qrcode {
+		display: block;
+		width: 90px;
+		height: 90px;
+		margin: 0 auto 1.5em;
 
-    @include response(md) {
-      width: 180px;
-      height: 180px;
-    }
-  }
+		@include response(md) {
+			width: 180px;
+			height: 180px;
+		}
+	}
 }
 
 .receive-coin-view-container {
-  @include response(md) {
-    width: 860px;
-    margin: auto;
-  }
+	@include response(md) {
+		width: 860px;
+		margin: auto;
+	}
 }
 
 

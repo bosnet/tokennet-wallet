@@ -1,20 +1,20 @@
 @import '../assets/sass/vendors/response';
 
 .wallet-view-container {
-  text-align: left;
+	text-align: left;
 
-  @include response(md) {
-    max-width: 860px;
-    margin: auto;
-  }
+	@include response(md) {
+		max-width: 860px;
+		margin: auto;
+	}
 }
 
 .your-account {
-  text-align: center;
-  color: #ffffff;
-  font-family: 'Exo 2', sans-serif;
-  font-size: 25px;
-  font-weight: 200;
-  margin: 0;
-  line-height: 0.5em;
+	text-align: center;
+	color: #ffffff;
+	font-family: 'Exo 2', sans-serif;
+	font-size: 25px;
+	font-weight: 200;
+	margin: 0;
+	line-height: 0.5em;
 }

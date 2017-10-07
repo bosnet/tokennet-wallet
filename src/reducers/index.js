@@ -12,16 +12,16 @@ import stream from './stream';
 import { combineReducers } from 'redux';
 
 const reducers = combineReducers( {
-  language,
-  keypair,
-  spinner,
-  keyGenerator,
-  generatorConfirm,
-  recordSeed,
-  copyComplete,
-  transactionConfirm,
-  transactionComplete,
-  stream,
+	language,
+	keypair,
+	spinner,
+	keyGenerator,
+	generatorConfirm,
+	recordSeed,
+	copyComplete,
+	transactionConfirm,
+	transactionComplete,
+	stream,
 } );
 
 export default reducers;

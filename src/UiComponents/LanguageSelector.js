@@ -64,12 +64,12 @@ class LanguageSelector extends Component {
 	componentDidMount() {
 		const userLang = ( navigator.language || navigator.userLanguage ).substr( 0, 2 );
 		let index = indexOf( this.state.languageList, find( this.state.languageList, $element => $element[ 1 ] === userLang ) );
-		if( index < 0 ) {
+		if ( index < 0 ) {
 			index = 0;
 		}
-    this.setState( {
-      currentLanguageIndex: index,
-    } );
+		this.setState( {
+			currentLanguageIndex: index,
+		} );
 		this.props.changeLanguage( userLang );
 	}
 }

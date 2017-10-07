@@ -32,10 +32,10 @@ function stream( state = initialState, action ) {
 			let returnState = {
 				...state,
 			};
-			if( !exist ) {
+			if ( !exist ) {
 				let paymentHistory = [ action.payment, ...state.paymentHistory ];
 				paymentHistory = paymentHistory.sort( ( $x, $y ) => {
-					if( $x.transaction.created_at > $y.transaction.created_at ) {
+					if ( $x.transaction.created_at > $y.transaction.created_at ) {
 						return -1;
 					}
 					else {

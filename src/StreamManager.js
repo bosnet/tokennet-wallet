@@ -5,11 +5,12 @@ class StreamManager {
 	}
 
 	static stopStream( $stream ) {
-		if( $stream ) {
+		if ( $stream ) {
 			try {
 				$stream();
 			}
-			catch( $error ) {}
+			catch ( $error ) {
+			}
 		}
 	}
 
