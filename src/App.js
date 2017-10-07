@@ -84,7 +84,7 @@ class App extends Component {
 				<Route path="/receive" component={ReceiveCoinView}/>
 
 				<div className="copyright">
-					&lt;BOS Platform Foundation 2017&gt;
+					BOS Platform Foundation 2017
 				</div>
 			</div>
 		);
