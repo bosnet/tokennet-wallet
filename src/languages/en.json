@@ -50,8 +50,7 @@
 		"input_recipient_address": "Input the public address of recipient",
 		"input_amount": "Input the amount you want to send",
 		"transaction_fee": "Transaction fee",
-		"total": "Total ",
-		"will_be_sent": " will be sent to Recipient",
+		"total_will_be_sent": "A total of {amount} BOS will be sent to Recipient",
 		"error": {
 			"public_address_null": "Input Recipient's Public Address",
 			"transaction_amount_null": "Input Transaction Amount",

@@ -158,8 +158,9 @@ class SendCoinForm extends Component {
 						<AmountInput className={'input-sending-amount'} onChange={$event => {
 							this.updateAmount( $event )
 						}}/>
-						<p className="sending-amount">{T.translate( 'send_coin.total' )} {numeral( this.state.transactionTotal ).format( '0,0.0000[00000000]' )}
-							BOS {T.translate( 'send_coin.will_be_sent' )}</p>
+						<p className="sending-amount">
+							{T.translate( 'send_coin.total_will_be_sent', { amount: numeral( this.state.transactionTotal ).format( '0,0.0000[00000000]' ) } )}
+						</p>
 					</div>
 				</div>
 

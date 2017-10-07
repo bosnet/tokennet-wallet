@@ -50,8 +50,7 @@
 		"input_recipient_address": "받는 사람의 공개주소를 입력하세요",
 		"input_amount": "보내고자 하는 금액을 입력하세요",
 		"transaction_fee": "이체 수수료",
-		"total": "총합 ",
-		"will_be_sent": " 를 보냅니다",
+		"total_will_be_sent": "총합 {amount} BOS를 보냅니다",
 		"error": {
 			"public_address_null": "받는 사람의 공개주소를 입력하세요",
 			"transaction_amount_null": "보내고자 하는 금액을 입력하세요",
