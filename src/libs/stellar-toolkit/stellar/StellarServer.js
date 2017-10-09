@@ -18,7 +18,7 @@ let generateTestPair = function () {
 						pair = Stellar.Keypair.random();
 						_context.prev = 1;
 						_context.next = 4;
-						return fetch( 'https://horizon-testnet.stellar.org/friendbot?addr=' + pair.publicKey() );
+						return fetch( config.api_url + '/friendbot?addr=' + pair.publicKey() );
 
 					case 4:
 						return _context.abrupt( 'return', pair );
