@@ -1,0 +1,105 @@
+{
+	"common": {
+		"copy": "复制",
+		"open": "打开",
+		"send": "发送",
+		"cancel": "取消",
+		"account": "账户",
+		"amount": "数量",
+		"total_amount": "总数",
+		"your_account": "你的账户",
+		"public_address": "公共地址",
+		"secret_seed": "私钥种子",
+		"receive": "接收",
+		"account_address": "账户地址",
+		"generator": "生成器",
+		"close": "关闭"
+	},
+	"header": {
+		"see_manual": "请参阅完整手册"
+	},
+	"welcome_view": {
+		"title": "BOScoin wallet",
+		"title_description": "生成种子, 管理你的钱包, 发送和接收BOScoin.",
+		"button_make": "生成密钥",
+		"create_account": "在测试网络上创建账户",
+		"button_open": "打开你的钱包",
+		"guide_title": "如何让你的账户发送BOScoin",
+		"guide": {
+			"step1_1": "生成新的密钥，按 ",
+			"step1_2": " 按钮",
+			"step2": "记下两个密钥并保持安全（非常重要!!）",
+			"step3_1": "打开你的账户，按 ",
+			"step3_2": " 按钮",
+			"step4": "在空白处输入你的种子地址",
+			"step5_1": "按 ",
+			"step5_2": " 按钮，您将看到您的帐户",
+			"step6_1": "按 ",
+			"step6_2": " 按钮，并将收件人的公共地址输入空白处"
+		},
+		"error": {
+			"fail_create_account": "无法创建账户."
+		}
+	},
+	"login_view": {
+		"header": "输入你的种子",
+		"guide_line_1": "请输入你的私钥种子打开您的账户.",
+		"guide_line_2": "请在安全的地方写下您的公共地址和私钥种子。确保您不要忘记或泄漏您的种子。您可能丢失你的所有硬币！"
+	},
+	"send_coin": {
+		"input_recipient_address": "请输入收款人的公共地址",
+		"input_amount": "输入您想发送的数量",
+		"transaction_fee": "交易费",
+		"total_will_be_sent": "总共 {amount} BOS 将会发送给收款人",
+		"error": {
+			"public_address_null": "输入收款人的公共地址",
+			"transaction_amount_null": "输入交易金额",
+			"transaction_amount_zero": "输入交易金额",
+			"not_enough_balance": "余额不足",
+			"incorrect_public_address": "公共地址不正确",
+			"minimum_balance": "M转出后地址保证最少余额为 20 BOS."
+		}
+	},
+	"key_generator": {
+		"header": "点击生成新的密钥对",
+		"description_line1": "此工具不会创建一个帐户.",
+		"description_line2": "您必须将创建账户操作发送到有以下内容",
+		"description_line3": "具有起始余额的地址，因此它可以存在. ",
+		"description_line4": "确保种子的安全.",
+		"warn_line1": "请在记下您的公共地址和私钥种子并保管在安全的地方.",
+		"warn_line2": "确保您不会遗忘或泄漏您的种子.",
+		"warn_line3": "您可能丢失您的所有硬币!"
+	},
+	"record_seed": {
+		"warn_header1": "记下您的种子",
+		"warn_header2_1": "记下您的种子",
+		"warn_header2_2": "现在!",
+		"warn_header3": "不要丢失您的种子!!!",
+		"warn_text1_1": "请务必牢牢记下您的公共地址和私钥种子.",
+		"warn_text1_2": "确保不要丢失或分享私钥种子，这是您钱包的私钥.",
+		"warn_text2_1": "请您仔细检查种子是否正确.",
+		"warn_text2_2": "您对您的种子负全责.",
+		"warn_text3_1": "请您再次检查种子是否正确，如果您丢失了种子",
+		"warn_text3_2": "您将会丢失所有的资金.",
+		"warn_text3_3": "最后警告."
+	},
+	"transaction_confirm": {
+		"header": "确认交易",
+		"text": "请再次确认您的交易."
+	},
+	"transaction_complete": {
+		"header": "交易完成!",
+		"send_success": "已成功发送"
+	},
+	"wallet_view": {
+		"balance": "余额",
+		"sent": "发送",
+		"received": "接收",
+		"created_account": "创建账户",
+		"history": "交易记录",
+		"open_secret_seed": "显示种子",
+		"hide_secret_seed": "隐藏种子",
+		"you_just_received": "您收到上次交易的 {amount} BOS ",
+		"you_just_sent": "您已发送最后一次交易的 {amount} BOS "
+	}
+}

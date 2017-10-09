@@ -65,6 +65,9 @@ class App extends Component {
 			case 'ko' :
 				lang = 'ko';
 				break;
+			case 'cn' :
+				lang = 'cn';
+				break;
 			default:
 				lang = 'en';
 		}
