@@ -26,3 +26,6 @@ yarn-error.log*
 # lock fils
 package-lock.json
 yarn.lock
+
+# custom config files
+src/config.*.json

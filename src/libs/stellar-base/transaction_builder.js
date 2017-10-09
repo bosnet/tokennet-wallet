@@ -7,7 +7,13 @@ import BigNumber from 'bignumber.js';
 import clone from "lodash/clone";
 import isUndefined from "lodash/isUndefined";
 
+const config = require( 'config.json' );
+
 let BASE_FEE = 100; // Stroops
+
+if( config.transaction_fee ) {
+	BASE_FEE = config.transaction_fee * 10000000;
+}
 
 export class TransactionBuilder {
 	/**
