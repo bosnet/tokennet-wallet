@@ -6,13 +6,14 @@ import { Memo } from "./memo";
 import BigNumber from 'bignumber.js';
 import clone from "lodash/clone";
 import isUndefined from "lodash/isUndefined";
+import Decimal from 'decimal.js';
 
 const config = require( 'config.json' );
 
 let BASE_FEE = 100; // Stroops
 
 if( config.transaction_fee ) {
-	BASE_FEE = config.transaction_fee * 10000000;
+	BASE_FEE = new Decimal( config.transaction_fee ).times( 10000000 ).toNumber();
 }
 
 export class TransactionBuilder {
