@@ -24,6 +24,7 @@ class RecordSeeds extends Component {
 
 	closeRecordSeed() {
 		this.props.showRecordSeed( false );
+		this.props.updateKeypair( null );
 	}
 
 	renderWarningMessage() {
@@ -84,7 +85,10 @@ const mapStoreToProps = ( store ) => ( {
 const mapDispatchToProps = ( dispatch ) => ({
 	showRecordSeed: ( $isShow ) => {
 		dispatch( actions.showRecordSeed( $isShow ) );
-	}
+	},
+	updateKeypair: ( $keypair ) => {
+		dispatch( actions.updateKeypair( $keypair ) );
+	},
 });
 
 RecordSeeds = connect( mapStoreToProps, mapDispatchToProps )( RecordSeeds );

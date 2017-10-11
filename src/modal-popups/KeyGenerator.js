@@ -51,7 +51,7 @@ const mapDispatchToProps = ( dispatch ) => ({
 	},
 	showRecordSeed: ( $isShow ) => {
 		dispatch( actions.showRecordSeed( $isShow ) )
-	}
+	},
 });
 
 KeyGenerator = connect( null, mapDispatchToProps )( KeyGenerator );
