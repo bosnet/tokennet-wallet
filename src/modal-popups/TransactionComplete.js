@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import * as actions from "actions/index";
 import T from 'i18n-react';
 import numeral from 'numeral';
+import AmountSpan from "components/AmountSpan";
 
 class TransactionComplete extends Component {
 	constructor() {
@@ -34,10 +35,7 @@ class TransactionComplete extends Component {
 						{T.translate( 'common.total_amount' )}
 					</p>
 					<p className="transaction-amount">
-						{amount} BOS
-					</p>
-					<p className="amount-text bold">
-						{T.translate( 'transaction_complete.header' )}
+						<AmountSpan value={ amount }/> BOS
 					</p>
 					<p className="button-wrapper">
 						<BlueButton medium

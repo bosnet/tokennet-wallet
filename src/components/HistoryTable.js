@@ -4,6 +4,7 @@ import T from 'i18n-react';
 import './HistoryTable.scss';
 import { connect } from "react-redux";
 import moment from 'moment';
+import AmountSpan from "./AmountSpan";
 
 class HistoryTable extends Component {
 	RENDER_ITEM_PER = 5;
@@ -78,7 +79,9 @@ class HistoryTable extends Component {
 				const DOM = <tr key={data[ i ].id}>
 					<td><T.span text={label}/></td>
 					<td className={'target-cell'}>{target}</td>
-					<td>{numeral( amount ).format( '0,0.0000[00000000]' )}</td>
+					<td>
+						<AmountSpan value={ numeral( amount ).format( '0,0.0000[00000000]' ) }/>
+					</td>
 					<td>{date}</td>
 				</tr>;
 				history.push( DOM );

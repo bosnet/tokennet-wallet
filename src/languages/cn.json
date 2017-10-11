@@ -13,7 +13,8 @@
 		"receive": "接收",
 		"account_address": "账户地址",
 		"generator": "生成器",
-		"close": "关闭"
+		"close": "关闭",
+		"transaction_fee": "Transaction Fee"
 	},
 	"header": {
 		"see_manual": "请参阅完整手册"

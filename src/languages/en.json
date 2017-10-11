@@ -13,7 +13,8 @@
 		"receive": "Receive",
 		"account_address": "Account address",
 		"generator": "Generator",
-		"close": "Close"
+		"close": "Close",
+		"transaction_fee": "Transaction Fee"
 	},
 	"header": {
 		"see_manual": "see the full manual"

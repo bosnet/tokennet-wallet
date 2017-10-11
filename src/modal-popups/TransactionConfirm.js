@@ -9,8 +9,10 @@ import numeral from 'numeral';
 import * as StellarToolkit from 'libs/stellar-toolkit/index';
 import async from 'async';
 import { find } from 'underscore';
+import AmountSpan from "components/AmountSpan";
 
 const { StellarOperations } = StellarToolkit;
+const config = require( 'config.json' );
 
 class TransactionConfirm extends Component {
 	constructor() {
@@ -102,7 +104,13 @@ class TransactionConfirm extends Component {
 							<tr>
 								<td>{T.translate( "common.amount" )}</td>
 								<td>
-									{amount} BOS
+									<AmountSpan value={ amount }/> BOS
+								</td>
+							</tr>
+							<tr>
+								<td>{T.translate( "common.transaction_fee" )}</td>
+								<td>
+									<AmountSpan value={ config.transaction_fee }/> BOS
 								</td>
 							</tr>
 							<tr>
@@ -110,7 +118,7 @@ class TransactionConfirm extends Component {
 									{T.translate( "common.total_amount" )}
 								</td>
 								<td>
-									{total} BOS
+									<AmountSpan value={ total }/> BOS
 								</td>
 							</tr>
 							</tbody>
