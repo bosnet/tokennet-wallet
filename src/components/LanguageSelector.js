@@ -30,6 +30,10 @@ class LanguageSelector extends Component {
 			currentLanguageIndex: $language
 		} );
 
+		const html = document.querySelector( 'html' );
+		if( html ) {
+			html.lang = this.state.languageList[ $language ][ 1 ];
+		}
 		this.props.changeLanguage( this.state.languageList[ $language ][ 1 ] );
 		this.selectBoxToggle();
 	}
