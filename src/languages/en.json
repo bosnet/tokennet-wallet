@@ -82,7 +82,8 @@
 		"warn_text2_2": "You are solely responsible for the security of your Seeds.",
 		"warn_text3_1": "Please confirm your seeds again. You may lose all of your fund",
 		"warn_text3_2": "funds if you lose your Seeds.",
-		"warn_text3_3": "Final warning."
+		"warn_text3_3": "Final warning.",
+		"yes": "Yes"
 	},
 	"transaction_confirm": {
 		"header": "Confirm Transaction",

@@ -82,7 +82,8 @@
 		"warn_text2_2": "您对您的种子负全责.",
 		"warn_text3_1": "请您再次检查种子是否正确，如果您丢失了种子",
 		"warn_text3_2": "您将会丢失所有的资金.",
-		"warn_text3_3": "最后警告."
+		"warn_text3_3": "最后警告.",
+		"yes": "确认"
 	},
 	"transaction_confirm": {
 		"header": "确认交易",

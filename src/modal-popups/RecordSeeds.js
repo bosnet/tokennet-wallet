@@ -71,7 +71,7 @@ class RecordSeeds extends Component {
 				<div className="record-seed-container">
 					{this.renderWarningMessage()}
 					<KeyDisplayer/>
-					<BlueButton medium onClick={this.nextStep}>Yes</BlueButton>
+					<BlueButton medium onClick={this.nextStep}>{ T.translate( 'record_seed.yes' ) }</BlueButton>
 				</div>
 			</ModalContainer>
 		)
