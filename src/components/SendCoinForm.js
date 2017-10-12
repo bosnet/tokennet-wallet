@@ -54,7 +54,7 @@ class SendCoinForm extends Component {
 
 	updateAmount( $event ) {
 		const sendingAmount = Number( $event.currentTarget.value );
-		const transactionTotal = sendingAmount + this.state.transactionFee;
+		const transactionTotal = new Decimal( sendingAmount ).plus( this.state.transactionFee ).toNumber();
 		this.setState( {
 			sendingAmount,
 			transactionTotal,

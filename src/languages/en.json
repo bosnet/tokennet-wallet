@@ -99,8 +99,8 @@
 		"received": "Received",
 		"created_account": "Created Account",
 		"history": "History",
-		"open_secret_seed": "Open Secret Seed",
-		"hide_secret_seed": "Close Secret Seed",
+		"open_secret_seed": "Show Secret Seed",
+		"hide_secret_seed": "Hide Secret Seed",
 		"you_just_received": "You have received {amount} BOS for your last transaction",
 		"you_just_sent": "You have sent {amount} BOS for your last transaction"
 	}
