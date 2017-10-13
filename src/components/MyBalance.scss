@@ -20,7 +20,7 @@
 	margin: 0;
 
 	span {
-		display: none;
+		//display: none;
 
 		@include response(md) {
 			display: inline-block;
