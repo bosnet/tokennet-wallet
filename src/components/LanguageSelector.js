@@ -17,7 +17,7 @@ class LanguageSelector extends Component {
 			languageList: [
 				[ '한국어', 'ko' ],
 				[ 'English', 'en' ],
-				[ '中文', 'cn' ]
+				[ '中文', 'zh' ]
 			],
 			selectBoxOpen: false
 		};
@@ -30,6 +30,10 @@ class LanguageSelector extends Component {
 			currentLanguageIndex: $language
 		} );
 
+		const html = document.querySelector( 'html' );
+		if( html ) {
+			html.lang = this.state.languageList[ $language ][ 1 ];
+		}
 		this.props.changeLanguage( this.state.languageList[ $language ][ 1 ] );
 		this.selectBoxToggle();
 	}
