@@ -8,20 +8,20 @@
 		"amount": "Amount",
 		"total_amount": "Total Amount",
 		"your_account": "Your Account",
-		"public_address": "Public address",
-		"secret_seed": "Secret seed",
+		"public_address": "Public Address",
+		"secret_seed": "Secret Seed",
 		"receive": "Receive",
-		"account_address": "Account address",
+		"account_address": "Account Address",
 		"generator": "Generator",
 		"close": "Close",
 		"transaction_fee": "Transaction Fee"
 	},
 	"header": {
-		"see_manual": "see the full manual"
+		"see_manual": "See the full manual"
 	},
 	"welcome_view": {
 		"title": "BOScoin wallet",
-		"title_description": "Make your Seed, manage your Wallet, Send and receive BOScoins.",
+		"title_description": "Create your Seed, Manage your Wallet, Send and receive BOScoins.",
 		"button_make": "Key Generator",
 		"create_account": "Create new account on TestNet",
 		"button_open": "Open your wallet",
@@ -44,11 +44,11 @@
 	},
 	"login_view": {
 		"header": "Input your seed",
-		"guide_line_1": "Please input your Secret Seed to open your account.",
-		"guide_line_2": "Make sure that you don't forget or leak your Seed. You can lose your whole coins."
+		"guide_line_1": "Please input your Secret Seed to access your account.",
+		"guide_line_2": "Please keep the Secret Seed to yourself, otherwise access to your wallet could be compromised."
 	},
 	"send_coin": {
-		"input_recipient_address": "Input the public address of recipient",
+		"input_recipient_address": "Input the Public Address of recipient",
 		"input_amount": "Input the amount you want to send",
 		"transaction_fee": "Transaction fee",
 		"total_will_be_sent": "A total of {amount} BOS will be sent to Recipient",
@@ -67,22 +67,22 @@
 		"description_line2": "You have to send create_account operation to the following",
 		"description_line3": "address with a starting balance so it can exist. ",
 		"description_line4": "Keep your seed safe.",
-		"warn_line1": "Please write down your Public Address and Secret Seed at safe place.",
-		"warn_line2": "Make sure that you don't forget or leak your Seed.",
-		"warn_line3": "You can lose your whole coins!"
+		"warn_line1": "Please copy your Public Address and Secret Seed to somewhere safe.",
+		"warn_line2": "Make sure you don't lose or reveal your Secret Seed to anyone.",
+		"warn_line3": "You may lose all of your coins!"
 	},
 	"record_seed": {
 		"warn_header1": "Record your Seeds",
 		"warn_header2_1": "Record your Seeds",
-		"warn_header2_2": "NOW!",
+		"warn_header2_2": " NOW!",
 		"warn_header3": "DO NOT LOSE YOUR SEEDS!!!",
 		"warn_text1_1": "Be sure to record your Public Address and Secret Seeds securely.",
 		"warn_text1_2": "Be sure not to lose or share your Secret Seed. This is the key to your Wallet.",
 		"warn_text2_1": "PLEASE double check if you have the right Seeds.",
 		"warn_text2_2": "You are solely responsible for the security of your Seeds.",
-		"warn_text3_1": "Please confirm your seeds again. You may lose all of your fund",
-		"warn_text3_2": "funds if you lose your Seeds.",
-		"warn_text3_3": "Final warning.",
+		"warn_text3_1": "Please confirm your Seeds again. You may lose all of your funds",
+		"warn_text3_2": "if you lose your Seeds.",
+		"warn_text3_3": " Final warning!",
 		"yes": "Yes"
 	},
 	"transaction_confirm": {
