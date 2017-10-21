@@ -29,3 +29,5 @@ yarn.lock
 
 # custom config files
 src/config.*.json
+
+/stat.json
