@@ -11,10 +11,6 @@ class RecordSeeds extends Component {
 	constructor() {
 		super();
 
-		this.renderWarningMessage = this.renderWarningMessage.bind( this );
-		this.closeRecordSeed = this.closeRecordSeed.bind( this );
-		this.nextStep = this.nextStep.bind( this );
-
 		const state = {
 			step: 0
 		};
@@ -22,12 +18,12 @@ class RecordSeeds extends Component {
 		this.state = state;
 	}
 
-	closeRecordSeed() {
+	closeRecordSeed = () => {
 		this.props.showRecordSeed( false );
 		this.props.updateKeypair( null );
-	}
+	};
 
-	renderWarningMessage() {
+	renderWarningMessage = () => {
 		this.warningMessages = [
 			[
 				<span>{T.translate( "record_seed.warn_header1" )}</span>,
@@ -50,9 +46,9 @@ class RecordSeeds extends Component {
 			<span className="under-line"> </span>
 			<p className="warn-body">{this.warningMessages[ this.state.step ][ 1 ]}</p>
 		</div>;
-	}
+	};
 
-	nextStep() {
+	nextStep = () => {
 		if ( this.state.step === this.warningMessages.length - 1 ) {
 			this.closeRecordSeed();
 			this.setState( {
@@ -63,7 +59,7 @@ class RecordSeeds extends Component {
 				step: this.state.step + 1
 			} );
 		}
-	}
+	};
 
 	render() {
 		return (

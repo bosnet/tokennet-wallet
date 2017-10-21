@@ -10,22 +10,15 @@ import T from 'i18n-react';
 import { Keypair } from 'libs/stellar-sdk';
 
 class ConfirmGeneratorOpen extends Component {
-	constructor() {
-		super();
-
-		this.openKeyGenerator = this.openKeyGenerator.bind( this );
-		this.doClose = this.doClose.bind( this );
-	}
-
-	openKeyGenerator() {
+	openKeyGenerator = () => {
 		this.props.updateKeypair( Keypair.random() );
 		this.props.showGeneratorConfirm( false );
 		this.props.showKeyGenerator( true );
-	}
+	};
 
-	doClose() {
+	doClose = () => {
 		this.props.showGeneratorConfirm( false );
-	}
+	};
 
 	render() {
 		return (

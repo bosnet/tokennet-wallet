@@ -9,16 +9,10 @@ import * as actions from "../actions/index";
 import T from 'i18n-react';
 
 class KeyGenerator extends Component {
-	constructor() {
-		super();
-
-		this.closeKeyGenerator = this.closeKeyGenerator.bind( this );
-	}
-
-	closeKeyGenerator() {
+	closeKeyGenerator = () => {
 		this.props.showKeyGenerator( false );
 		this.props.showRecordSeed( true );
-	}
+	};
 
 	render() {
 		return (

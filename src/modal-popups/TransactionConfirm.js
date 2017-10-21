@@ -15,14 +15,7 @@ const { StellarOperations } = StellarToolkit;
 const config = require( 'config.json' );
 
 class TransactionConfirm extends Component {
-	constructor() {
-		super();
-
-		this.showSendComplete = this.showSendComplete.bind( this );
-		this.hideTransactionConfirm = this.hideTransactionConfirm.bind( this );
-	}
-
-	showSendComplete() {
+	showSendComplete = () => {
 		this.props.showSpinner( true );
 
 		const queue = [];
@@ -67,11 +60,11 @@ class TransactionConfirm extends Component {
 			}
 		} );
 
-	}
+	};
 
-	hideTransactionConfirm() {
+	hideTransactionConfirm = () => {
 		this.props.transactionConfirm( false, null );
-	}
+	};
 
 	render() {
 		let amount = 0;

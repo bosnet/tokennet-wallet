@@ -7,6 +7,7 @@ import { StellarServer, StellarTools } from 'libs/stellar-toolkit';
 import * as actions from "actions/index";
 import { connect } from "react-redux";
 import T from 'i18n-react';
+import StreamManager from "../StreamManager";
 
 const { getAccount } = StellarServer;
 
@@ -18,16 +19,13 @@ class LoginView extends Component {
 			redirect: null,
 			isValid: null,
 		};
-
-		this.openWallet = this.openWallet.bind( this );
-		this.validateSeed = this.validateSeed.bind( this );
 	}
 
-	openWallet() {
+	openWallet = () => {
 		if ( this.state.isValid ) {
 			this.setState( { redirect: '/wallet' } );
 		}
-	}
+	};
 
 	renderRedirect() {
 		if ( this.state.redirect === null ) {
@@ -38,30 +36,47 @@ class LoginView extends Component {
 		}
 	}
 
-	validateSeed( $event ) {
+	requestAccount = ( keypair ) => {
+		getAccount( keypair.publicKey() )
+			.then( account => {
+				// to redux
+				this.props.updateKeypair( keypair );
+
+				// state 바인딩
+				this.setState( { isValid: true } );
+			} )
+			.catch( error => {
+				this.props.updateKeypair( null );
+				this.setState( { isValid: false } );
+			} );
+	};
+
+	validateSeed = ( $event ) => {
 		const value = $event.currentTarget.value.trim();
 		const isValid = StellarTools.validSeed( value );
 		if ( isValid ) {
 			const keypair = StellarTools.KeypairInstance( { secretSeed: value } );
-			// this.props.updateKeypair( keypair );
 
-			getAccount( keypair.publicKey() )
-				.then( account => {
-					// to redux
-					this.props.updateKeypair( keypair );
-
-					// state 바인딩
+			if( this.props.keypair ) {
+				if( this.props.keypair.publicKey() !== keypair.publicKey() ) {
+					StreamManager.stopAllStream();
+					this.props.resetHistory();
+					this.requestAccount( keypair );
+				}
+				else {
 					this.setState( { isValid: true } );
-				} )
-				.catch( error => {
-					this.props.updateKeypair( null );
-					this.setState( { isValid: false } );
-				} );
+				}
+			}
+			else {
+				this.requestAccount( keypair );
+			}
+
+
 		}
 		else {
 			this.setState( { isValid: false } );
 		}
-	}
+	};
 
 	render() {
 		const style = {
@@ -94,13 +109,20 @@ class LoginView extends Component {
 	}
 }
 
+const mapStoreToProps = ( store ) => ({
+	keypair: store.keypair.keypair,
+});
+
 // 리덕스 연결
 const mapDispatchToStore = ( dispatch ) => ( {
 	updateKeypair: ( $keypair ) => {
 		dispatch( actions.updateKeypair( $keypair ) );
 	},
+	resetHistory: () => {
+		dispatch( actions.resetHistory() );
+	},
 } );
 
-LoginView = connect( null, mapDispatchToStore )( LoginView );
+LoginView = connect( mapStoreToProps, mapDispatchToStore )( LoginView );
 
 export default LoginView;

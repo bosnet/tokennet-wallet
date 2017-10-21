@@ -9,15 +9,9 @@ import numeral from 'numeral';
 import AmountSpan from "components/AmountSpan";
 
 class TransactionComplete extends Component {
-	constructor() {
-		super();
-
-		this.closeTransactionComplete = this.closeTransactionComplete.bind( this );
-	}
-
-	closeTransactionComplete() {
+	closeTransactionComplete = () => {
 		this.props.transactionComplete( false, null );
-	}
+	};
 
 	render() {
 		let amount = 0;

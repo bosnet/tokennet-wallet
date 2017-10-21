@@ -8,7 +8,6 @@ import { Redirect } from "react-router-dom";
 import T from 'i18n-react';
 
 import { StellarServer } from 'libs/stellar-toolkit';
-import StreamManager from "../StreamManager";
 
 const { generateTestPair } = StellarServer;
 
@@ -21,19 +20,15 @@ class MainPageView extends Component {
 			contentBottom: false,
 			show: true,
 		};
-
-		this.clickMakeNewKey = this.clickMakeNewKey.bind( this );
-		this.clickOpenYourWallet = this.clickOpenYourWallet.bind( this );
-		this.resizing = this.resizing.bind( this );
 	}
 
-	clickMakeNewKey() {
+	clickMakeNewKey = () => {
 		this.props.showGeneratorConfirm( true );
-	}
+	};
 
-	clickOpenYourWallet() {
+	clickOpenYourWallet = () => {
 		this.setState( { redirect: '/login' } );
-	}
+	};
 
 	renderRedirect() {
 		if ( this.state.redirect === null ) {
@@ -44,10 +39,10 @@ class MainPageView extends Component {
 		}
 	}
 
-	resizing() {
+	resizing = () => {
 		const bottomHeight = document.querySelector( '#step-to-make-account' ).clientHeight;
 		document.querySelector( '#main-page-container .tablize' ).style.minHeight = `calc( 100vh - 110px - ${bottomHeight}px )`;
-	}
+	};
 
 	createAccount() {
 		this.props.showSpinner( true );
@@ -63,9 +58,6 @@ class MainPageView extends Component {
 	componentDidMount() {
 		this.resizing();
 		window.addEventListener( 'resize', this.resizing );
-		StreamManager.stopAllStream();
-		this.props.resetHistory();
-		this.props.updateKeypair( null );
 	}
 
 	render() {
