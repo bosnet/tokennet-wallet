@@ -4,5 +4,7 @@
 	"transaction_fee": 0.00001,
 	"minimum_balance": 20,
 	"ks_url": "/ks.json",
-	"ks_interval": 5
+	"ks_interval": 5,
+	"active_make_a_new_key": false,
+	"active_create_test_account": true
 }

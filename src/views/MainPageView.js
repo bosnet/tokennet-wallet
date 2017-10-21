@@ -10,6 +10,7 @@ import T from 'i18n-react';
 import { StellarServer } from 'libs/stellar-toolkit';
 
 const { generateTestPair } = StellarServer;
+const config = require( 'config.json' );
 
 class MainPageView extends Component {
 	constructor() {
@@ -78,17 +79,30 @@ class MainPageView extends Component {
 							<p dangerouslySetInnerHTML={{ __html: this.props.maintenance.message }}/>
 
 							<div className={'button-group'}>
-								{/*<BlueButton big onClick={this.clickMakeNewKey}>*/}
-								{/*<T.span text="welcome_view.button_make"/>*/}
-								{/*</BlueButton>*/}
-								{/*<br/>*/}
-								<BlueButton big disabled={ this.props.maintenance.onMaintenance } onClick={() => this.createAccount()}>
-									<T.span text="welcome_view.create_account"/>
-								</BlueButton>
-								<br/>
-								<BlueButton big disabled={ this.props.maintenance.onMaintenance } onClick={this.clickOpenYourWallet}>
-									<T.span text="welcome_view.button_open"/>
-								</BlueButton>
+								{config.active_make_a_new_key&&
+								<div>
+									<BlueButton big disabled={ this.props.maintenance.onMaintenance }
+												onClick={this.clickMakeNewKey}>
+										<T.span text="welcome_view.button_make"/>
+									</BlueButton>
+								</div>
+								}
+
+								{config.active_create_test_account&&
+								<div>
+									<BlueButton big disabled={ this.props.maintenance.onMaintenance }
+												onClick={() => this.createAccount()}>
+										<T.span text="welcome_view.create_account"/>
+									</BlueButton>
+								</div>
+								}
+
+								<div>
+									<BlueButton big disabled={ this.props.maintenance.onMaintenance }
+												onClick={this.clickOpenYourWallet}>
+										<T.span text="welcome_view.button_open"/>
+									</BlueButton>
+								</div>
 							</div>
 						</div>
 					</div>
