@@ -17,9 +17,6 @@ class SendCoinForm extends Component {
 	constructor() {
 		super();
 
-		this.checkPublicKey = this.checkPublicKey.bind( this );
-		this.openTransactionConfirm = this.openTransactionConfirm.bind( this );
-
 		const state = {
 			sendingAmount: null,
 			transactionFee: config.transaction_fee,
@@ -30,11 +27,9 @@ class SendCoinForm extends Component {
 		};
 
 		this.state = state;
-
-		this.renderError = this.renderError.bind( this );
 	}
 
-	checkPublicKey( $event ) {
+	checkPublicKey = ( $event ) => {
 		const key = $event.currentTarget.value.trim();
 
 		// 본인의 public key 일 경우 무조건 false
@@ -50,7 +45,7 @@ class SendCoinForm extends Component {
 			.catch( () => {
 				this.setState( { publicKey: null, addressValidated: false } );
 			} );
-	}
+	};
 
 	updateAmount( $event ) {
 		const sendingAmount = Number( $event.currentTarget.value );
@@ -61,7 +56,7 @@ class SendCoinForm extends Component {
 		} );
 	}
 
-	openTransactionConfirm() {
+	openTransactionConfirm = () => {
 		if ( !this.state.publicKey ) {
 			this.setState( { error: "send_coin.error.public_address_null" } );
 			return false;
@@ -103,7 +98,7 @@ class SendCoinForm extends Component {
 			sendingAmount: null,
 			addressValidated: false,
 		} );
-	}
+	};
 
 	renderRedirect() {
 		if ( this.props.keypair === null ) {
@@ -114,14 +109,14 @@ class SendCoinForm extends Component {
 		}
 	}
 
-	renderError() {
+	renderError = () => {
 		if ( this.state.error ) {
 			return <TextAlert>{T.translate( this.state.error )}</TextAlert>;
 		}
 		else {
 			return '';
 		}
-	}
+	};
 
 	render() {
 		return (

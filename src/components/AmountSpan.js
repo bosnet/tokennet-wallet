@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './AmountSpan.scss';
 
 class AmountSpan extends Component {
 	render() {
