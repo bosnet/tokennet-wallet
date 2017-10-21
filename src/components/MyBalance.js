@@ -14,7 +14,7 @@ class MyBalance extends Component {
 
 		return (
 			<div className="balance-container">
-				<p id="balance-label"><T.span text="wallet_view.balance"/></p>
+				<p id="balance-label" data-lang={ this.props.language }><T.span text="wallet_view.balance"/></p>
 				<p id="balance">
 					<AmountSpan value={ numeral( balance ).format( '0,0.0000[00000000]' ) }/>
 					{ ' ' }
@@ -28,6 +28,7 @@ class MyBalance extends Component {
 
 const mapStoreToProps = ( store ) => ( {
 	account: store.stream.account,
+	language: store.language.language,
 } );
 
 MyBalance = connect( mapStoreToProps )( MyBalance );
