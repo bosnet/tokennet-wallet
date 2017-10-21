@@ -40,7 +40,10 @@ class MainPageView extends Component {
 	}
 
 	resizing = () => {
-		const bottomHeight = document.querySelector( '#step-to-make-account' ).clientHeight;
+		let bottomHeight =  0;
+		if( document.querySelector( '#step-to-make-account' ) ) {
+			bottomHeight = document.querySelector( '#step-to-make-account' ).clientHeight;
+		}
 		document.querySelector( '#main-page-container .tablize' ).style.minHeight = `calc( 100vh - 110px - ${bottomHeight}px )`;
 	};
 
@@ -90,23 +93,23 @@ class MainPageView extends Component {
 						</div>
 					</div>
 				</div>
-				<div id="step-to-make-account" className={this.state.contentBottom ? 'content-bottom' : ''}>
-					<h2><T.span text="welcome_view.guide_title"/></h2>
-					<ol>
-						<li><T.span text="welcome_view.guide.step1_1"/><BlueButton small nonAction><T.span
-							text="welcome_view.create_account"/></BlueButton><T.span text="welcome_view.guide.step1_2"/>
-						</li>
-						<li><T.span text="welcome_view.guide.step2"/></li>
-						<li><T.span text="welcome_view.guide.step3_1"/><BlueButton small nonAction><T.span
-							text="welcome_view.button_open"/></BlueButton><T.span text="welcome_view.guide.step3_2"/>
-						</li>
-						<li><T.span text="welcome_view.guide.step4"/></li>
-						<li><T.span text="welcome_view.guide.step5_1"/><BlueButton tiny nonAction><T.span
-							text="common.open"/></BlueButton><T.span text="welcome_view.guide.step5_2"/></li>
-						<li><T.span text="welcome_view.guide.step6_1"/><BlueButton tiny nonAction><T.span
-							text="common.send"/></BlueButton><T.span text="welcome_view.guide.step6_2"/></li>
-					</ol>
-				</div>
+				{/*<div id="step-to-make-account" className={this.state.contentBottom ? 'content-bottom' : ''}>*/}
+					{/*<h2><T.span text="welcome_view.guide_title"/></h2>*/}
+					{/*<ol>*/}
+						{/*<li><T.span text="welcome_view.guide.step1_1"/><BlueButton small nonAction><T.span*/}
+							{/*text="welcome_view.create_account"/></BlueButton><T.span text="welcome_view.guide.step1_2"/>*/}
+						{/*</li>*/}
+						{/*<li><T.span text="welcome_view.guide.step2"/></li>*/}
+						{/*<li><T.span text="welcome_view.guide.step3_1"/><BlueButton small nonAction><T.span*/}
+							{/*text="welcome_view.button_open"/></BlueButton><T.span text="welcome_view.guide.step3_2"/>*/}
+						{/*</li>*/}
+						{/*<li><T.span text="welcome_view.guide.step4"/></li>*/}
+						{/*<li><T.span text="welcome_view.guide.step5_1"/><BlueButton tiny nonAction><T.span*/}
+							{/*text="common.open"/></BlueButton><T.span text="welcome_view.guide.step5_2"/></li>*/}
+						{/*<li><T.span text="welcome_view.guide.step6_1"/><BlueButton tiny nonAction><T.span*/}
+							{/*text="common.send"/></BlueButton><T.span text="welcome_view.guide.step6_2"/></li>*/}
+					{/*</ol>*/}
+				{/*</div>*/}
 			</div>
 		)
 	}

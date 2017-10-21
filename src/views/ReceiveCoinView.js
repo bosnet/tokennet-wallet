@@ -11,10 +11,12 @@ import { connect } from "react-redux";
 
 class ReceiveCoinView extends Component {
 	componentDidMount() {
-		new QRious( {
-			element: document.getElementById( 'my-address-qrcode' ),
-			value: this.props.keypair.publicKey(),
-		} );
+		if( this.props.keypair ) {
+			new QRious( {
+				element: document.getElementById( 'my-address-qrcode' ),
+				value: this.props.keypair.publicKey(),
+			} );
+		}
 	}
 
 	renderRedirect() {
