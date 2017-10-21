@@ -20,14 +20,18 @@
 	margin: 0;
 
 	span {
-		//display: none;
-
 		@include response(md) {
-			display: inline-block;
-			color: #039cbf;
 			font-family: 'San Francisco Display Ultralight', sans-serif;
 			font-size: 42px;
 			margin: 0;
+		}
+	}
+
+	.unit {
+		display: none;
+
+		@include response(md) {
+			display: inline-block;
 		}
 	}
 

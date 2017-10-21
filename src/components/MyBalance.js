@@ -17,8 +17,8 @@ class MyBalance extends Component {
 				<p id="balance-label"><T.span text="wallet_view.balance"/></p>
 				<p id="balance">
 					<AmountSpan value={ numeral( balance ).format( '0,0.0000[00000000]' ) }/>
-					<span> </span>
-					<span>BOS</span>
+					{ ' ' }
+					<span className={ 'unit' }>BOS</span>
 				</p>
 				<p id="bos-unit">BOS</p>
 			</div>
