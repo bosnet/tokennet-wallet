@@ -7,7 +7,7 @@
 		"account": "계정",
 		"amount": "금액",
 		"total_amount": "총계",
-		"your_account": "귀하의 계정",
+		"your_account": "나의 계정",
 		"public_address": "공개 주소",
 		"secret_seed": "보안키",
 		"receive": "받기",
@@ -94,7 +94,7 @@
 		"send_success": "성공적으로 이체하였습니다."
 	},
 	"wallet_view": {
-		"balance": "잔고",
+		"balance": "잔액",
 		"sent": "보내기",
 		"received": "받기",
 		"created_account": "계좌 생성",
