@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MyBalance from 'components/MyBalance'
-import RecentHistory from 'components/RecentHistory';
+// import RecentHistory from 'components/RecentHistory';
 import KeyDisplayer from 'components/KeyDisplayer';
 import SendCoinForm from 'components/SendCoinForm';
 import BlueButton from 'components/BlueButton';

@@ -3,7 +3,7 @@ import BlueButton from 'components/BlueButton';
 import KeyDisplayer from 'components/KeyDisplayer';
 import HistoryTable from 'components/HistoryTable';
 import MyBalance from 'components/MyBalance'
-import RecentHistory from 'components/RecentHistory';
+// import RecentHistory from 'components/RecentHistory';
 import T from 'i18n-react';
 import './WalletView.scss';
 import { Redirect } from 'react-router-dom';

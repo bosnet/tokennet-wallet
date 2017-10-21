@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class AmountInput extends Component {
-	onKeyDown( $event ) {
+	onKeyDown = ( $event ) => {
 		const keyCode = $event.keyCode;
 		const BACKSPACE = 8;
 		const HOME = 36;
@@ -22,12 +22,28 @@ class AmountInput extends Component {
 		if ( map.indexOf( keyCode ) === -1 ) {
 			$event.preventDefault();
 		}
-	}
+
+		this.storeValue = $event.currentTarget.value;
+	};
+
+	onKeyUp = ( $event ) => {
+		const value = $event.currentTarget.value;
+		if( value.indexOf( '.' ) > -1 ) {
+			const decimal = value.split( '.' ).pop().toString();
+			if( decimal.length > 7 ) {
+				$event.currentTarget.value = this.storeValue;
+				$event.preventDefault();
+			}
+		}
+
+		this.storeValue = null;
+	};
 
 	render() {
 		return (
 			<input {...this.props}
 				   onKeyDown={this.onKeyDown}
+				   onKeyUp={this.onKeyUp}
 				   type="number"
 				   placeholder="0.0001"/>
 		)
