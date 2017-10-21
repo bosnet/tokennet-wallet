@@ -30,7 +30,7 @@ class ReceiveCoinView extends Component {
 		return (
 			<div className="receive-coin-view-container">
 				{this.renderRedirect()}
-				<RecentHistory/>
+				{/*<RecentHistory/>*/}
 				<MyBalance/>
 
 				<div className="receive-wrapper">

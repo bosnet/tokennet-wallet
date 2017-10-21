@@ -12,7 +12,7 @@ class SendCoinView extends Component {
 	render() {
 		return (
 			<div className="send-coin-view-container">
-				<RecentHistory/>
+				{/*<RecentHistory/>*/}
 				<MyBalance/>
 				<SendCoinForm/>
 				<KeyDisplayer/>
