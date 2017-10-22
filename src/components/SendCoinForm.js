@@ -70,14 +70,14 @@ class SendCoinForm extends Component {
 			return false;
 		}
 		const balance = Number( this.props.account.balances[ 0 ].balance );
-		// if ( this.state.transactionTotal > balance ) {
-		// 	this.setState( { error: "send_coin.error.not_enough_balance" } );
-		// 	return false;
-		// }
-		// if ( balance - this.state.transactionTotal < config.minimum_balance ) {
-		// 	this.setState( { error: "send_coin.error.minimum_balance" } );
-		// 	return false;
-		// }
+		if ( this.state.transactionTotal > balance ) {
+			this.setState( { error: "send_coin.error.not_enough_balance" } );
+			return false;
+		}
+		if ( balance - this.state.transactionTotal < config.minimum_balance ) {
+			this.setState( { error: "send_coin.error.minimum_balance" } );
+			return false;
+		}
 
 		this.setState( { error: null } );
 
