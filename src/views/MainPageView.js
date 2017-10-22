@@ -20,6 +20,7 @@ class MainPageView extends Component {
 			redirect: null,
 			contentBottom: false,
 			show: true,
+			hasError: true,
 		};
 	}
 

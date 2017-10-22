@@ -10,11 +10,19 @@ import * as StellarToolkit from 'libs/stellar-toolkit/index';
 import async from 'async';
 import { find } from 'underscore';
 import AmountSpan from "components/AmountSpan";
+import ErrorPopup from "./ErrorPopup";
 
 const { StellarOperations } = StellarToolkit;
 const config = require( 'config.json' );
 
 class TransactionConfirm extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			error: null,
+		};
+	}
 	showSendComplete = () => {
 		this.props.showSpinner( true );
 
@@ -25,11 +33,12 @@ class TransactionConfirm extends Component {
 					$callback( null, false );
 				} )
 				.catch( ( $error ) => {
-					const noDestination = find( $error.extras.result_codes.operations, $item => 'op_no_destination' );
+					const noDestination = find( $error.extras.result_codes.operations, $item => $item === 'op_no_destination' );
 					if ( noDestination ) {
-						$callback( null, $error.extras );
+						$callback( null, $error );
+						return;
 					}
-					$callback( '보내기에 실패했습니다.' );
+					$callback( $error );
 				} );
 		} );
 		queue.push( ( $extras, $callback ) => {
@@ -39,7 +48,7 @@ class TransactionConfirm extends Component {
 						$callback();
 					} )
 					.catch( ( $error ) => {
-						$callback( '보내기에 실패했습니다. (받는 계좌 개설 실패)' );
+						$callback( $error );
 					} );
 			}
 			else {
@@ -50,8 +59,9 @@ class TransactionConfirm extends Component {
 		async.waterfall( queue, ( $error, $result ) => {
 			if ( $error ) {
 				this.props.showSpinner( false );
+				this.props.transactionComplete( false, null );
 				this.props.transactionConfirm( false, null );
-				alert( $error );
+				this.setState( { error: $error } );
 			}
 			else {
 				this.props.showSpinner( false );
@@ -75,6 +85,18 @@ class TransactionConfirm extends Component {
 		}
 		return (
 			<ModalContainer modalOpen={this.props.modalOpen} doClose={this.hideTransactionConfirm}>
+				{ this.state.error &&
+				<ErrorPopup>
+					<h2 className="text-center">Error</h2>
+					<p>Error Code</p>
+					<pre>{ this.state.error.extras.result_codes.transaction }</pre>
+					<p>Code</p>
+					<pre>{ JSON.stringify( this.state.error.extras.result_codes, null, 2 ) }</pre>
+					<div className={ 'text-center'}>
+						<BlueButton onClick={ () => this.setState( { error: null } ) }>{ T.translate( 'common.close' ) }</BlueButton>
+					</div>
+				</ErrorPopup>
+				}
 				<div className="transaction-confirm-container">
 					<h1>
 						{T.translate( "transaction_confirm.header" )}

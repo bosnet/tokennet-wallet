@@ -1,0 +1,22 @@
+.error-popup__background {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .5);
+	z-index: 9999999999;
+}
+
+.error-popup__container {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	max-width: 90vw;
+	max-height: 90vh;
+	overflow: auto;
+	background: #ffffff;
+	transform: translate(-50%, -50%);
+	padding: 12px;
+	border-radius: 8px;
+}
