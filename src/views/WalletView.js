@@ -25,7 +25,7 @@ class WalletView extends Component {
 			<div className="wallet-view-container">
 				{this.renderRedirect()}
 				{/*<RecentHistory/>*/}
-				s<MyBalance/>
+				<MyBalance/>
 
 				<p className="your-account">{T.translate( 'common.your_account' )}</p>
 				<p className="button-wrapper">

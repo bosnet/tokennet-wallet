@@ -21,7 +21,6 @@
 
 	span {
 		@include response(md) {
-			font-family: 'San Francisco Display Ultralight', sans-serif;
 			font-size: 42px;
 			margin: 0;
 		}
