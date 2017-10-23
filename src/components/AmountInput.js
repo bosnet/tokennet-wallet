@@ -45,7 +45,8 @@ class AmountInput extends Component {
 				   onKeyDown={this.onKeyDown}
 				   onKeyUp={this.onKeyUp}
 				   type="number"
-				   placeholder="0.0001"/>
+				   min="0.1"
+				   placeholder="0.1"/>
 		)
 	}
 }
