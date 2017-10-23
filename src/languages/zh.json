@@ -58,7 +58,7 @@
 			"transaction_amount_zero": "输入交易金额",
 			"not_enough_balance": "余额不足",
 			"incorrect_public_address": "公共地址不正确",
-			"minimum_balance": "M转出后地址保证最少余额为 20 BOS."
+			"minimum_balance": "M转出后地址保证最少余额为 {minimum_balance} BOS."
 		}
 	},
 	"key_generator": {

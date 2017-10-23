@@ -111,7 +111,7 @@ class SendCoinForm extends Component {
 
 	renderError = () => {
 		if ( this.state.error ) {
-			return <TextAlert>{T.translate( this.state.error )}</TextAlert>;
+			return <TextAlert>{T.translate( this.state.error, { minimum_balance: config.minimum_balance } )}</TextAlert>;
 		}
 		else {
 			return '';

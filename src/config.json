@@ -2,7 +2,7 @@
 	"api_url": "https://horizon-testnet.stellar.org",
 	"passphrases": "Test SDF Network ; September 2015",
 	"transaction_fee": 0.00001,
-	"minimum_balance": 20,
+	"minimum_balance": 100,
 	"ks_url": "/ks.json",
 	"ks_interval": 5,
 	"active_make_a_new_key": false,
