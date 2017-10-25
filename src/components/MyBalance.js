@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import numeral from 'numeral';
 import T from 'i18n-react';
 import './MyBalance.scss';
 import { connect } from 'react-redux';
 import AmountSpan from "./AmountSpan";
+import trimZero from "../utils/trimZero";
 
 class MyBalance extends Component {
 	render() {
@@ -16,7 +16,7 @@ class MyBalance extends Component {
 			<div className="balance-container">
 				<p id="balance-label" data-lang={ this.props.language }><T.span text="wallet_view.balance"/></p>
 				<p id="balance">
-					<AmountSpan value={ numeral( balance ).format( '0,0.0000[00000000]' ) }/>
+					<AmountSpan value={ trimZero( balance ) }/>
 					{ ' ' }
 					<span className={ 'unit' }>BOS</span>
 				</p>

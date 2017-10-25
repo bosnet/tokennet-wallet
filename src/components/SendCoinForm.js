@@ -9,7 +9,7 @@ import { StellarTools } from 'libs/stellar-toolkit';
 import TextAlert from "./TextAlert";
 import AmountInput from "./AmountInput";
 import Decimal from 'decimal.js';
-import numeral from 'numeral';
+import trimZero from "../utils/trimZero";
 
 const config = require( 'config.json' );
 
@@ -156,7 +156,7 @@ class SendCoinForm extends Component {
 							this.updateAmount( $event )
 						}}/>
 						<p className="sending-amount">
-							{T.translate( 'send_coin.total_will_be_sent', { amount: numeral( this.state.transactionTotal ).format( '0,0.0000[00000000]' ) } )}
+							{T.translate( 'send_coin.total_will_be_sent', { amount: trimZero( this.state.transactionTotal ) } )}
 						</p>
 					</div>
 				</div>

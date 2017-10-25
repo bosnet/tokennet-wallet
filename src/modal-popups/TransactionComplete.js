@@ -5,8 +5,8 @@ import './TransactionComplete.scss';
 import { connect } from "react-redux";
 import * as actions from "actions/index";
 import T from 'i18n-react';
-import numeral from 'numeral';
 import AmountSpan from "components/AmountSpan";
+import trimZero from "../utils/trimZero";
 
 class TransactionComplete extends Component {
 	closeTransactionComplete = () => {
@@ -16,7 +16,7 @@ class TransactionComplete extends Component {
 	render() {
 		let amount = 0;
 		if ( this.props.paymentData ) {
-			amount = numeral( this.props.paymentData.transactionTotal ).format( '0,0.0000[00000000]' );
+			amount = trimZero( this.props.paymentData.transactionTotal );
 		}
 		return (
 			<ModalContainer modalOpen={this.props.modalOpen} doClose={this.closeTransactionComplete}>

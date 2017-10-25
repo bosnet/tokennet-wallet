@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import numeral from 'numeral';
 import T from 'i18n-react';
 import './HistoryTable.scss';
 import { connect } from "react-redux";
 import moment from 'moment';
 import AmountSpan from "./AmountSpan";
+import trimZero from "../utils/trimZero";
 
 class HistoryTable extends Component {
 	RENDER_ITEM_PER = 5;
@@ -80,7 +80,7 @@ class HistoryTable extends Component {
 					<td><T.span text={label}/></td>
 					<td className={'target-cell'}>{target}</td>
 					<td>
-						<AmountSpan value={ numeral( amount ).format( '0,0.0000[00000000]' ) }/>
+						<AmountSpan value={ trimZero( amount ) }/>
 					</td>
 					<td>{date}</td>
 				</tr>;

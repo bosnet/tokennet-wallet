@@ -5,12 +5,12 @@ import './TransactionConfirm.scss';
 import { connect } from "react-redux";
 import * as actions from "actions/index";
 import T from 'i18n-react';
-import numeral from 'numeral';
 import * as StellarToolkit from 'libs/stellar-toolkit/index';
 import async from 'async';
 import { find } from 'underscore';
 import AmountSpan from "components/AmountSpan";
 import ErrorPopup from "./ErrorPopup";
+import trimZero from "../utils/trimZero";
 
 const { StellarOperations } = StellarToolkit;
 const config = require( 'config.json' );
@@ -80,8 +80,8 @@ class TransactionConfirm extends Component {
 		let amount = 0;
 		let total = 0;
 		if ( this.props.paymentData ) {
-			amount = numeral( this.props.paymentData.amount ).format( '0,0.0000[00000000]' );
-			total = numeral( this.props.paymentData.transactionTotal ).format( '0,0.0000[00000000]' );
+			amount = trimZero( this.props.paymentData.amount );
+			total = trimZero( this.props.paymentData.transactionTotal );
 		}
 		return (
 			<ModalContainer modalOpen={this.props.modalOpen} doClose={this.hideTransactionConfirm}>

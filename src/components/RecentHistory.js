@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import numeral from 'numeral';
 import './RecentHistory.scss';
 import { connect } from "react-redux";
 import T from 'i18n-react';
+import trimZero from "../utils/trimZero";
 
 class RecentHistory extends Component {
 	constructor() {
@@ -23,7 +23,7 @@ class RecentHistory extends Component {
 			const me = this.props.keypair.publicKey();
 			const payment = this.props.paymentHistory[ 0 ];
 			if ( payment.type === 'payment' ) {
-				amount = numeral( this.props.paymentHistory[ 0 ].amount ).format( '0,0.0000[00000000]' );
+				amount = trimZero( this.props.paymentHistory[ 0 ].amount );
 				let label = 'wallet_view.you_just_received';
 
 				if ( payment.from === me ) {
