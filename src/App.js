@@ -140,13 +140,35 @@ class App extends Component {
 		return (
 			<div className="App">
 
+				{ this.props.showGeneratorConfirm &&
 				<ConfirmGeneratorOpen modalOpen={this.props.showGeneratorConfirm}/>
+				}
+
+				{ this.props.showKeyGenerator &&
 				<KeyGenerator modalOpen={this.props.showKeyGenerator}/>
+				}
+
+				{ this.props.showRecordSeed &&
 				<RecordSeeds modalOpen={this.props.showRecordSeed}/>
+				}
+
+				{ this.props.showTransactionConfirm &&
 				<TransactionConfirm modalOpen={this.props.showTransactionConfirm}/>
+				}
+
+				{ this.props.showTransactionComplete &&
 				<TransactionComplete modalOpen={this.props.showTransactionComplete}/>
+				}
+
+				{ this.props.showCopyComplete &&
 				<CopyComplete show={this.props.showCopyComplete}/>
+				}
+
+
+				{ this.props.showSpinner &&
 				<Spinner spinnerShow={this.props.showSpinner}/>
+				}
+
 				<Header/>
 
 				<Route exact path="/" component={MainPageView}/>

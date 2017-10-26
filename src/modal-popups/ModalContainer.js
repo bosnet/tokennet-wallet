@@ -36,7 +36,17 @@ class ModalContainer extends Component {
 						className="close-modal-button-x"
 						onClick={this.closeModal}
 					></button>
-					{this.props.children}
+
+					<div className="content-container">
+						<div className="content-middle-wrapper">
+							<div className="content-wrapper">
+								<div>
+									{this.props.children}
+								</div>
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		)

@@ -19,39 +19,38 @@
 		left: 50%;
 		top: 50%;
 		transform: translate3D(-50%, -50%, 0);
-		animation: spinnerAnimation 1500ms infinite;
-		transition-duration: 0s;
-		transition: none;
-		background: url('../assets/imgs/spinners/0.png') no-repeat center / 51px 58px;
+		animation: spinnerAnimation 1500ms infinite step-end;
+		background: url('../assets/imgs/spinners/sheet.png') no-repeat 0 0;
+		background-size: 51px auto;
 	}
 }
 
 @keyframes spinnerAnimation {
 	0% {
-		background: url('../assets/imgs/spinners/0.png') no-repeat center / 51px 58px;
+		background-position: 0 0;
 	}
 
 	16.6% {
-		background: url('../assets/imgs/spinners/1.png') no-repeat center / 51px 58px;
+		background-position: 0 -58px;
 	}
 
 	33.2% {
-		background: url('../assets/imgs/spinners/2.png') no-repeat center / 51px 58px;
+		background-position: 0 -116px;
 	}
 
 	49.8% {
-		background: url('../assets/imgs/spinners/3.png') no-repeat center / 51px 58px;
+		background-position: 0 -174px;
 	}
 
 	66.4% {
-		background: url('../assets/imgs/spinners/4.png') no-repeat center / 51px 58px;
+		background-position: 0 -232px;
 	}
 
 	83% {
-		background: url('../assets/imgs/spinners/5.png') no-repeat center / 51px 58px;
+		background-position: 0 -290px;
 	}
 
 	100% {
-		background: url('../assets/imgs/spinners/0.png') no-repeat center / 51px 58px;
+		background-position: 0 0;
 	}
 }

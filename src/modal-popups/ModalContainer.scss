@@ -1,3 +1,5 @@
+@import '../assets/sass/vendors/response';
+
 .modal-container {
 	display: none;
 	position: fixed;
@@ -15,16 +17,28 @@
 
 .modal-wrapper {
 	position: absolute;
-	width: 100%;
-	top: 50%;
-	transform: translateY(-50%);
+	width: 100vw;
+	height: 100vh;
+	top: 0;
 	background-color: #ffffff;
+
+	@include response(md) {
+		top: 50%;
+		transform: translateY(-50%);
+		min-height: 658px;
+		height: auto;
+	}
+
+	@media (max-height: 658px) {
+		height: 100vh;
+		overflow: auto;
+	}
 }
 
 .close-modal-button-x {
 	position: absolute;
-	top: -40px;
-	right: 40px;
+	top: 14px;
+	right: 14px;
 	background: transparent;
 	height: 20px;
 	width: 20px;
@@ -37,7 +51,7 @@
 		left: -5px;
 		width: 25px;
 		height: 1px;
-		background-color: #ffffff;
+		background-color: #000000;
 		transform: rotate(45deg);
 	}
 
@@ -47,7 +61,11 @@
 		left: -5px;
 		width: 25px;
 		height: 1px;
-		background-color: #ffffff;
+		background-color: #000000;
 		transform: rotate(-45deg);
+	}
+
+	@include response(md) {
+		display: none;
 	}
 }

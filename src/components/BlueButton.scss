@@ -25,12 +25,12 @@
 
 	&.big {
 		min-width: 156px;
-		height: 32px;
 		border-radius: 32px;
+		padding: 5px 10px 6px;
 
 		@include response(md) {
 			min-width: 233px;
-			height: 45px;
+			padding: 8px 16px 9px;
 			border-radius: 45px;
 			font-size: 17px;
 		}
@@ -38,13 +38,13 @@
 
 	&.medium {
 		min-width: 85px;
-		height: 27px;
 		font-size: 10px;
 		border-radius: 27px;
+		padding: 4px 8px 5px;
 
 		@include response(md) {
 			min-width: 159px;
-			height: 45px;
+			padding: 8px 16px 9px;
 			font-size: 17px;
 			border-radius: 45px;
 		}
@@ -53,22 +53,20 @@
 	&.small {
 		font-size: 10px;
 		min-width: 100px;
-		height: 20px;
+		padding: 0 0 1px;
 		border-radius: 20px;
 		margin: 0 0.5em;
-		border-min-width: 1px;
 	}
 
 	&.tiny {
 		font-size: 10px;
 		min-width: 46px;
-		height: 20px;
+		padding: 0 0 1px;
 		border-radius: 14px;
-		border-min-width: 1px;
 
 		@include response(md) {
 			min-width: 72px;
-			height: 30px;
+			padding: 2px 2px 3px;
 			border-radius: 30px;
 			font-size: 14px;
 		}

@@ -44,11 +44,13 @@
 
 .download-icon {
 	width: 18px;
-	margin-left: 15px;
+	margin-left: 8px;
 	position: relative;
-	top: -1px;
+	top: 1px;
 
 	@include response(md) {
 		width: auto;
+		top: -1px;
+		margin-left: 15px;
 	}
 }

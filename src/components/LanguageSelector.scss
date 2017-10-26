@@ -6,13 +6,13 @@
 	font-family: 'Exo 2', sans-serif;
 	width: 115px;
 	height: 22px;
-	top: 1px;
+	top: 3px;
 	text-align: left;
 	background-color: #29263d;
 	color: #ffffff;
 	border-radius: 11px;
 	padding: 4px 12px;
-	margin-left: 15px;
+	margin-left: 8px;
 	font-size: 0.5em;
 
 	&.is-open {
@@ -23,8 +23,10 @@
 	@include response(md) {
 		width: 133px;
 		height: 36px;
+		top: 3px;
 		border-radius: 18px;
 		font-size: 16px;
+		margin-left: 15px;
 		padding: 8px 0 0 24px;
 	}
 }
