@@ -17,7 +17,8 @@
 		"transaction_fee": "이체 수수료"
 	},
 	"header": {
-		"see_manual": "매뉴얼 보기(준비중)"
+		"see_manual": "사용자 가이드 (준비중)",
+		"pdf_path": "/guide-ko.pdf"
 	},
 	"welcome_view": {
 		"title": "BOScoin 웹지갑",

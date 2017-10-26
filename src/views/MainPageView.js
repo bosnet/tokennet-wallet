@@ -41,14 +41,6 @@ class MainPageView extends Component {
 		}
 	}
 
-	resizing = () => {
-		let bottomHeight =  0;
-		if( document.querySelector( '#step-to-make-account' ) ) {
-			bottomHeight = document.querySelector( '#step-to-make-account' ).clientHeight;
-		}
-		document.querySelector( '#main-page-container .tablize' ).style.minHeight = `calc( 100vh - 110px - ${bottomHeight}px )`;
-	};
-
 	createAccount() {
 		this.props.showSpinner( true );
 		generateTestPair()
@@ -60,77 +52,54 @@ class MainPageView extends Component {
 			} );
 	}
 
-	componentDidMount() {
-		this.resizing();
-		window.addEventListener( 'resize', this.resizing );
-	}
-
 	render() {
 		return (
 			<div id="main-page-container" className="main-page-container">
 				{this.renderRedirect()}
-				<div className="tablize">
-					<div className="table-row">
-						<div className="cell vertical-middle text-center">
-							<img className={'main-logo'} src={symbolImage} alt="BOSCoin symbol"/>
+				<div className="content-container">
+					<div className="content-middle-wrapper">
+						<div className="content-wrapper">
+							<div>
+								<img className={'main-logo'} src={symbolImage} alt="BOSCoin symbol"/>
 
-							<T.p className={'title'} text="welcome_view.title"/>
-							<T.p text="welcome_view.title_description"/>
+								<T.p className={'title'} text="welcome_view.title"/>
+								<T.p text="welcome_view.title_description"/>
 
-							<p dangerouslySetInnerHTML={{ __html: this.props.maintenance.message }}/>
+								<p dangerouslySetInnerHTML={{ __html: this.props.maintenance.message }}/>
 
-							<div className={'button-group'}>
-								{config.active_make_a_new_key&&
-								<div>
-									<BlueButton big disabled={ this.props.maintenance.onMaintenance }
-												onClick={this.clickMakeNewKey}>
-										<T.span text="welcome_view.button_make"/>
-									</BlueButton>
-								</div>
-								}
+								<div className={'button-group'}>
+									{config.active_make_a_new_key&&
+									<div>
+										<BlueButton big disabled={ this.props.maintenance.onMaintenance }
+													onClick={this.clickMakeNewKey}>
+											<T.span text="welcome_view.button_make"/>
+										</BlueButton>
+									</div>
+									}
 
-								{config.active_create_test_account&&
-								<div>
-									<BlueButton big disabled={ this.props.maintenance.onMaintenance }
-												onClick={() => this.createAccount()}>
-										<T.span text="welcome_view.create_account"/>
-									</BlueButton>
-								</div>
-								}
+									{config.active_create_test_account&&
+									<div>
+										<BlueButton big disabled={ this.props.maintenance.onMaintenance }
+													onClick={() => this.createAccount()}>
+											<T.span text="welcome_view.create_account"/>
+										</BlueButton>
+									</div>
+									}
 
-								<div>
-									<BlueButton big disabled={ this.props.maintenance.onMaintenance }
-												onClick={this.clickOpenYourWallet}>
-										<T.span text="welcome_view.button_open"/>
-									</BlueButton>
+									<div>
+										<BlueButton big disabled={ this.props.maintenance.onMaintenance }
+													onClick={this.clickOpenYourWallet}>
+											<T.span text="welcome_view.button_open"/>
+										</BlueButton>
+									</div>
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				{/*<div id="step-to-make-account" className={this.state.contentBottom ? 'content-bottom' : ''}>*/}
-					{/*<h2><T.span text="welcome_view.guide_title"/></h2>*/}
-					{/*<ol>*/}
-						{/*<li><T.span text="welcome_view.guide.step1_1"/><BlueButton small nonAction><T.span*/}
-							{/*text="welcome_view.create_account"/></BlueButton><T.span text="welcome_view.guide.step1_2"/>*/}
-						{/*</li>*/}
-						{/*<li><T.span text="welcome_view.guide.step2"/></li>*/}
-						{/*<li><T.span text="welcome_view.guide.step3_1"/><BlueButton small nonAction><T.span*/}
-							{/*text="welcome_view.button_open"/></BlueButton><T.span text="welcome_view.guide.step3_2"/>*/}
-						{/*</li>*/}
-						{/*<li><T.span text="welcome_view.guide.step4"/></li>*/}
-						{/*<li><T.span text="welcome_view.guide.step5_1"/><BlueButton tiny nonAction><T.span*/}
-							{/*text="common.open"/></BlueButton><T.span text="welcome_view.guide.step5_2"/></li>*/}
-						{/*<li><T.span text="welcome_view.guide.step6_1"/><BlueButton tiny nonAction><T.span*/}
-							{/*text="common.send"/></BlueButton><T.span text="welcome_view.guide.step6_2"/></li>*/}
-					{/*</ol>*/}
-				{/*</div>*/}
 			</div>
 		)
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener( 'resize', this.resizing );
 	}
 }
 

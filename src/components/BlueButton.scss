@@ -1,11 +1,27 @@
 @import '../assets/sass/vendors/response';
 
+:lang(ko), :lang(zh) {
+	.blue-button {
+		font-weight: 300;
+	}
+}
+
 .blue-button {
 	min-width: 60px;
-	height: 20px;
+	//height: 20px;
 	border-radius: 20px;
 	border: 2px solid #039cbf;
 	transition: all 0.3s ease-in-out;
+	background-color: transparent;
+	color: #039cbf;
+	font-size: 12px;
+	display: inline-block;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	user-select: none;
+	padding: .375rem .75rem;
+	line-height: 1.5;
 
 	&.big {
 		min-width: 156px;
@@ -57,10 +73,6 @@
 			font-size: 14px;
 		}
 	}
-
-	background-color: transparent;
-	color: #039cbf;
-	font-size: 12px;
 
 	&:hover {
 		background-color: #039cbf;

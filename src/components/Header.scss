@@ -4,53 +4,51 @@
 	width: 100%;
 	position: relative;
 	margin: auto;
+	text-align: left;
+}
+
+.header-utils {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	a {
+		color: #ffffff;
+		text-decoration: none;
+	}
 }
 
 .logo-image {
-	width: 122px;
+	width: 35px;
 	position: relative;
-	top: 33px;
-	margin-bottom: 32px;
 
 	@include response(md) {
-		top: 0;
-		width: 244px;
+		width: auto;
 	}
 }
 
 .see-the-full-manual {
-	padding-top: 30px;
+	display: inline-block;
 	font-size: 0.5em;
 	color: #ffffff;
 	text-align: right;
 
 	@include response(md) {
-		padding: 0 190px 0 0;
-		font-size: 16px;
-		color: #039cbf;
+		font-size: 15px;
+	}
 
-		&:after {
-			content: '';
-			display: block;
-			background-color: #039cbf;
-			width: 36px;
-			height: 36px;
-			position: absolute;
-			border-radius: 18px;
-			top: 7px;
-			right: 180px;
-		}
+	* {
+		vertical-align: middle;
 	}
 }
 
 .download-icon {
-	width: 14px;
-	margin-left: 14px;
+	width: 18px;
+	margin-left: 15px;
 	position: relative;
-	z-index: 999;
+	top: -1px;
 
 	@include response(md) {
-		width: 16px;
-		margin-left: 24px;
+		width: auto;
 	}
 }

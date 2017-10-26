@@ -87,23 +87,34 @@ class LoginView extends Component {
 		}
 		return (
 			<div className="login-container">
-				{this.renderRedirect()}
-				<img src={wallet} alt="BOSCoin symbol"/>
-				<h1>
-					<T.span text="login_view.header"/>
-				</h1>
-				<span className="under-line-blue"> </span>
-				<p>
-					<T.span text="login_view.guide_line_1"/><br/>
-					<T.span text="login_view.guide_line_2"/>
-				</p>
 
-				<input type="text" placeholder={T.translate( 'login_view.header' )} onChange={this.validateSeed}
-					   style={style}/>
-				<p className="button-wrapper">
-					<BlueButton medium onClick={this.openWallet} disabled={!this.state.isValid}><T.span
-						text="common.open"/></BlueButton>
-				</p>
+				{this.renderRedirect()}
+
+				<div className="content-container">
+					<div className="content-middle-wrapper">
+						<div className="content-wrapper">
+							<div>
+								<img src={wallet} alt="BOSCoin symbol"/>
+								<h1>
+									<T.span text="login_view.header"/>
+								</h1>
+								<span className="under-line-blue"> </span>
+								<p>
+									<T.span text="login_view.guide_line_1"/><br/>
+									<T.span text="login_view.guide_line_2"/>
+								</p>
+
+								<input type="text" placeholder={T.translate( 'login_view.header' )} onChange={this.validateSeed}
+									   style={style}/>
+								<p className="button-wrapper">
+									<BlueButton medium onClick={this.openWallet} disabled={!this.state.isValid}><T.span
+										text="common.open"/></BlueButton>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		)
 	}

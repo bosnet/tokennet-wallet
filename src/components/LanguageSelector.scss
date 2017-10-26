@@ -1,23 +1,29 @@
 @import '../assets/sass/vendors/response';
 
 .select-box-styled {
-	position: absolute;
+	position: relative;
 	display: inline-block;
 	font-family: 'Exo 2', sans-serif;
-	top: 10px;
-	right: 0;
 	width: 115px;
 	height: 22px;
+	top: 1px;
 	text-align: left;
 	background-color: #29263d;
 	color: #ffffff;
-	border-radius: 3px;
-	padding: 6px 0 0 12px;
+	border-radius: 11px;
+	padding: 4px 12px;
+	margin-left: 15px;
 	font-size: 0.5em;
 
+	&.is-open {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
 	@include response(md) {
-		width: 164px;
+		width: 133px;
 		height: 36px;
+		border-radius: 18px;
 		font-size: 16px;
 		padding: 8px 0 0 24px;
 	}
@@ -44,16 +50,26 @@
 .select-box-list {
 	display: none;
 	position: absolute;
-	top: 36px;
+	top: 22px;
 	left: 0;
-	border-radius: 3px;
+	border-bottom-left-radius: 18px;
+	border-bottom-right-radius: 18px;
 	background-color: #29263d;
-	width: 164px;
+	width: 115px;
 	z-index: 999;
+
+	@include response(md) {
+		top: 36px;
+		width: 133px;
+	}
 }
 
 .select-box-list p {
-	padding: 6px 0 6px 24px;
+	padding: 6px 0 6px 12px;
+
+	@include response(md) {
+		padding: 6px 0 6px 24px;
+	}
 }
 
 .select-box-list p:hover {

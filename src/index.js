@@ -11,6 +11,8 @@ import { Provider } from 'react-redux';
 // Router 관련
 import { BrowserRouter } from 'react-router-dom';
 
+require( 'libs/ie-checker' );
+
 // 스토어 생성
 const store = createStore( reducers );
 const DOM = <Provider store={store}>

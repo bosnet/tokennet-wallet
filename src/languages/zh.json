@@ -17,7 +17,8 @@
 		"transaction_fee": "佣金"
 	},
 	"header": {
-		"see_manual": "请参阅完整手册"
+		"see_manual": "请参阅完整手册",
+		"pdf_path": "/guide-zh.pdf"
 	},
 	"welcome_view": {
 		"title": "BOScoin wallet",

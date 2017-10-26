@@ -17,7 +17,8 @@
 		"transaction_fee": "Transaction Fee"
 	},
 	"header": {
-		"see_manual": "See the full manual"
+		"see_manual": "User Guide",
+		"pdf_path": "/guide-en.pdf"
 	},
 	"welcome_view": {
 		"title": "BOScoin wallet",

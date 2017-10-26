@@ -3,6 +3,7 @@ import * as actions from 'actions';
 import { connect } from 'react-redux';
 import './LanguageSelector.scss';
 import { find, indexOf } from 'underscore';
+import classNames from 'classnames';
 
 class LanguageSelector extends Component {
 	constructor() {
@@ -57,7 +58,7 @@ class LanguageSelector extends Component {
 
 	render() {
 		return (
-			<div className="select-box-styled" onClick={this.selectBoxToggle}>
+			<div className={ classNames( { 'select-box-styled': true, 'is-open': this.state.selectBoxOpen }) } onClick={this.selectBoxToggle}>
 				<div>{this.state.languageList[ this.state.currentLanguageIndex ][ 0 ]}</div>
 				<div className={this.state.selectBoxOpen ? 'select-box-list  select-box-open' : 'select-box-list'}>
 					{this.renderLanguageList()}

@@ -36,9 +36,27 @@
 	src: url(https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.eot?#iefix) format("embedded-opentype"), url(https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2) format("woff2"), url(https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff) format("woff"), url(https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.ttf) format("truetype");
 }
 
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+//@import url(https://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url(https://fonts.googleapis.com/earlyaccess/notosanssc.css);
+
 html, body,
 input, textarea, select, button {
 	font-family: sans-serif;
+}
+
+:lang(ko) {
+	body,
+	input, textarea, select, button {
+		font-family: 'Noto Sans KR', sans-serif;
+	}
+}
+
+:lang(zh) {
+	body,
+	input, textarea, select, button {
+		font-family: 'Noto Sans SC', sans-serif;
+	}
 }
 
 * {
@@ -61,33 +79,35 @@ body {
 
 .App {
 	position: relative;
-	text-align: center;
 	min-height: 100vh;
-	padding: 10px 18px;
+	padding: 14px;
 	background-image: url('assets/imgs/background-wave-mobile.png');
 	background-size: 100%;
 	background-position: right bottom;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	overflow-x: hidden;
+	text-align: center;
 
 	@include response(md) {
-		padding: 70px 60px;
+		padding: 40px 50px 50px;
 		background-image: url('assets/imgs/background-wave.png');
 	}
 
 	.copyright {
 		position: absolute;
 		bottom: 50px;
-		right: 18px;
 		font-size: 10px;
 		font-family: 'Exo 2', sans-serif;
 		color: #ffffff;
-		display: none;
+		width: 100%;
+		right: 0;
+		text-align: center;
 
 		@include response(md) {
 			display: block;
-			right: 60px;
+			width: auto;
+			right: 50px;
 		}
 	}
 }
@@ -135,4 +155,33 @@ body {
 
 .text-right {
 	text-align: center;
+}
+
+.content-wrapper {
+	min-height: calc( 100vh - 44px - 76px );
+	padding: 46px 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include response(md) {
+		min-height: calc( 100vh - 79px - 100px );
+	}
+}
+
+.lt-ie12 {
+	.content-container {
+		display: table;
+		width: 100%;
+	}
+
+	.content-middle-wrapper {
+		display: table-row;
+	}
+
+	.content-wrapper {
+		display: table-cell;
+		vertical-align: middle;
+	}
 }
