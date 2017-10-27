@@ -1,0 +1,44 @@
+@import '../assets/sass/vendors/response';
+
+.icon-button {
+	display: inline-block;
+	font-size: 12px;
+
+	@include response(md) {
+		font-size: 17px;
+	}
+
+	* {
+		vertical-align: middle;
+		display: inline-block;
+	}
+
+	a {
+		color: #0094bd;
+		text-decoration: none;
+	}
+
+	.icon {
+		width: 32px;
+
+		@include response(md) {
+			width: 45px;
+		}
+
+		&.left {
+			margin-right: 8px;
+
+			@include response(md) {
+				margin-right: 12px;
+			}
+		}
+
+		&.right {
+			margin-left: 8px;
+
+			@include response(md) {
+				margin-left: 12px;
+			}
+		}
+	}
+}

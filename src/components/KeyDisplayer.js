@@ -1,34 +1,66 @@
 import React, { Component } from 'react';
 import BlueButton from './BlueButton';
-import ArrowDown from 'assets/imgs/blue-arrow-head-down.png';
 import T from 'i18n-react';
 import './KeyDisplayer.scss';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 import Clipboard from 'clipboard';
 import { each } from 'underscore';
+import classNames from 'classnames';
 
 class KeyDisplayer extends Component {
-	constructor() {
-		super();
+	render() {
+		return (
+			<div className={ classNames( { 'seed-container': true, 'dark-theme': this.props.darkTheme } )  }>
+				<div className="key-boxes">
+					<div className="caption">{T.translate( 'common.account_address' )}</div>
+					<div className="key-box h-group">
+						<div className="label col">
+							{T.translate( 'common.public_address' )}
+						</div>
+						<div className="key col">
+							{this.props.keypair ? this.props.keypair.publicKey() : ''}
+						</div>
+						<div className="copy-button col"
+							 data-clipboard-text={this.props.keypair ? this.props.keypair.publicKey() : ''}>
+							<BlueButton tiny filled><T.span text="common.copy"/></BlueButton>
+						</div>
+					</div>
 
-		this.toggleSecretSeed = this.toggleSecretSeed.bind( this );
+					{ this.props.setOpenSecretKey &&
+					<div className="key-box h-group">
+						<hr/>
 
-		const state = {
-			secretSeedOpen: false,
-		};
+						<div className="label col">
+							{T.translate( 'common.secret_seed' )}
+						</div>
+						<div className="key col">
+							{this.props.keypair ? this.props.keypair.secret() : ''}
+						</div>
+						<div className="copy-button col"
+							 data-clipboard-text={this.props.keypair ? this.props.keypair.secret() : ''}>
+							<BlueButton tiny filled><T.span text="common.copy"/></BlueButton>
+						</div>
+					</div>
+					}
 
-		this.state = state;
+				</div>
+			</div>
+		)
 	}
 
-	componentDidMount() {
-		if ( this.props.setOpenSecretKey ) {
-			this.setState( {
-				secretSeedOpen: true
-			} );
+	updateBackground = () => {
+		if( this.props.darkTheme ) {
+			const caption = document.querySelector( '.key-boxes .caption' );
+			if( caption ) {
+				const y = caption.getBoundingClientRect().y;
+				caption.style.backgroundPositionY = y * -1 + 'px';
+			}
 		}
+	};
 
-		each( document.querySelectorAll( '.copy-btn-wrapper' ), $element => {
+	componentDidMount() {
+		each( document.querySelectorAll( '.copy-button' ), $element => {
 			const clipboard = new Clipboard( $element );
 
 			clipboard.on( 'success', ( $event ) => {
@@ -38,74 +70,17 @@ class KeyDisplayer extends Component {
 				}, 1500 )
 			} );
 		} );
+
+		this.updateBackground();
+		window.addEventListener( 'scroll', this.updateBackground );
+		this.timer = setInterval( this.updateBackground, 200 );
 	}
 
-	toggleSecretSeed() {
-		this.setState( {
-			secretSeedOpen: !this.state.secretSeedOpen
-		} );
-	}
-
-	render() {
-		return (
-			<div className={
-				'seed-container ' +
-				(this.state.secretSeedOpen ? 'secret-seed-open' : '')
-			}>
-				<p className="open-seed-wrapper">
-					<button onClick={this.toggleSecretSeed} className="open-seed" data-lang={this.props.language}>
-						{this.state.secretSeedOpen ? (
-							<T.span text="wallet_view.hide_secret_seed"/>
-						) : (
-							<T.span text="wallet_view.open_secret_seed"/>
-						)}
-						<img src={ArrowDown} alt="arrow"/>
-					</button>
-				</p>
-				<p>{T.translate( 'common.account_address' )}</p>
-				<div className="keys-box">
-					<div className="public-key-box">
-						<p>{T.translate( 'common.public_address' )}</p>
-						<div className="public-key-wrapper">
-							<div className="gt-md-label">
-								<p>
-									{T.translate( 'common.public_address' )}
-								</p>
-							</div>
-							<div>
-								<p className="public-key">
-									{this.props.keypair ? this.props.keypair.publicKey() : ''}
-								</p>
-							</div>
-							<div className="copy-btn-wrapper"
-								 data-clipboard-text={this.props.keypair ? this.props.keypair.publicKey() : ''}>
-								<BlueButton tiny filled><T.span text="common.copy"/></BlueButton>
-							</div>
-						</div>
-					</div>
-
-					<div className="secret-key-box">
-						<p>{T.translate( 'common.secret_seed' )}</p>
-						<div className="secret-key-wrapper">
-							<div className="gt-md-label">
-								<p>
-									{T.translate( 'common.secret_seed' )}
-								</p>
-							</div>
-							<div>
-								<p className="secret-key">
-									{this.props.keypair ? this.props.keypair.secret() : ''}
-								</p>
-							</div>
-							<div className="copy-btn-wrapper"
-								 data-clipboard-text={this.props.keypair ? this.props.keypair.secret() : ''}>
-								<BlueButton tiny filled><T.span text="common.copy"/></BlueButton>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		)
+	componentWillUnmount() {
+		if( this.timer ) {
+			clearInterval( this.timer );
+		}
+		window.removeEventListener( 'scroll', this.updateBackground );
 	}
 }
 

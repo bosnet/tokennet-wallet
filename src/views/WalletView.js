@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import BlueButton from 'components/BlueButton';
 import KeyDisplayer from 'components/KeyDisplayer';
 import HistoryTable from 'components/HistoryTable';
 import MyBalance from 'components/MyBalance'
-// import RecentHistory from 'components/RecentHistory';
 import T from 'i18n-react';
 import './WalletView.scss';
 import { Redirect } from 'react-router-dom';
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import IconButton from 'components/IconButton';
+import SendIcon from 'assets/imgs/send-icon.png';
+import ReceiveIcon from 'assets/imgs/receive-icon.png';
 
 class WalletView extends Component {
 	renderRedirect() {
@@ -24,25 +24,31 @@ class WalletView extends Component {
 		return (
 			<div className="wallet-view-container">
 				{this.renderRedirect()}
-				{/*<RecentHistory/>*/}
-				<MyBalance/>
 
-				<p className="your-account">{T.translate( 'common.your_account' )}</p>
-				<p className="button-wrapper">
-					<Link to="/send">
-						<BlueButton medium>
-							<T.span text="common.send"/>
-						</BlueButton>
-					</Link>
-					<Link to="/receive">
-						<BlueButton medium>
-							<T.span text="common.receive"/>
-						</BlueButton>
-					</Link>
-				</p>
+				<div className="content-container">
+					<div className="content-middle-wrapper">
+						<div className="content-wrapper">
+							<div>
+								<p className="your-account">{T.translate( 'wallet_view.balance' )}</p>
 
-				<KeyDisplayer/>
-				<HistoryTable/>
+								<hr/>
+
+								<MyBalance/>
+
+								<p className="button-wrapper">
+									<IconButton to="/send" label={ T.translate( 'common.send' ) }
+												image={ SendIcon } iconRight/>
+									<IconButton to="/receive" label={ T.translate( 'common.receive' ) }
+												image={ ReceiveIcon } iconRight/>
+								</p>
+
+								<KeyDisplayer darkTheme/>
+								<HistoryTable/>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		)
 	}

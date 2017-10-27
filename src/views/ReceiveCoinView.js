@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import MyBalance from 'components/MyBalance'
-// import RecentHistory from 'components/RecentHistory';
 import KeyDisplayer from 'components/KeyDisplayer';
-import BlueButton from 'components/BlueButton';
 import QRious from 'qrious';
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import './ReceiveCoinView.scss';
 import T from 'i18n-react';
 import { connect } from "react-redux";
+import IconButton from 'components/IconButton';
+import AccountIcon from 'assets/imgs/account-icon.png';
+import SendIcon from 'assets/imgs/send-icon.png';
 
 class ReceiveCoinView extends Component {
 	componentDidMount() {
@@ -32,24 +33,37 @@ class ReceiveCoinView extends Component {
 		return (
 			<div className="receive-coin-view-container">
 				{this.renderRedirect()}
-				{/*<RecentHistory/>*/}
-				<MyBalance/>
 
-				<div className="receive-wrapper">
-					<p>{T.translate( 'common.receive' )}</p>
-					<canvas width="90" height="90" id="my-address-qrcode"></canvas>
+				<div className="content-container">
+					<div className="content-middle-wrapper">
+						<div className="content-wrapper">
+							<div>
+								<p className="receive-coin-view-container__title" data-lang={this.props.language}>{T.translate( 'common.receive' )}</p>
+
+								<hr/>
+
+								<MyBalance/>
+
+								<div className="receive-wrapper">
+									<canvas width="90" height="90" id="my-address-qrcode"/>
+								</div>
+
+								<KeyDisplayer darkTheme/>
+								<div className="h-group button-wrapper">
+									<div className="col">
+										<IconButton to="/wallet" label={ T.translate( 'common.account' ) }
+													image={ AccountIcon } iconLeft/>
+									</div>
+									<div className="col right">
+										<IconButton to="/send" label={ T.translate( 'common.send' ) }
+													image={ SendIcon } iconRight/>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
-				<KeyDisplayer/>
-				<div className="button-wrapper">
-					<Link to="/wallet">
-						<BlueButton medium>{T.translate( 'common.account' )}</BlueButton>
-					</Link>
-
-					<Link to="/send">
-						<BlueButton medium>{T.translate( 'common.send' )}</BlueButton>
-					</Link>
-				</div>
 			</div>
 		)
 	}

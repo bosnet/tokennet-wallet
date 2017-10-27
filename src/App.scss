@@ -61,6 +61,7 @@ input, textarea, select, button {
 
 * {
 	box-sizing: border-box;
+	word-break: keep-all;
 }
 
 html {
@@ -70,10 +71,10 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	background-size: 100%;
+	background-size: contain;
 	background-position: center bottom;
 	background-image: url('assets/imgs/background-gradation.png');
-	background-repeat: no-repeat;
+	background-repeat: repeat-x;
 	background-attachment: fixed;
 }
 
@@ -81,11 +82,6 @@ body {
 	position: relative;
 	min-height: 100vh;
 	padding: 14px;
-	background-image: url('assets/imgs/background-wave-mobile.png');
-	background-size: 100%;
-	background-position: right bottom;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
 	overflow-x: hidden;
 	text-align: center;
 
@@ -130,10 +126,14 @@ body {
 
 .button-wrapper {
 	text-align: center;
-	padding-top: 1em;
+	margin: 28px auto;
 
 	button:first-child {
 		margin-right: 1em;
+	}
+
+	@include response(md) {
+		margin: 46px auto;
 	}
 }
 
@@ -157,9 +157,23 @@ body {
 	text-align: center;
 }
 
+.hide-desktop {
+	@include response(md) {
+		display: none;
+	}
+}
+
+.show-desktop-block {
+	display: none;
+
+	@include response(md) {
+		display: block;
+	}
+}
+
 .content-wrapper {
 	min-height: calc( 100vh - 44px - 76px );
-	padding: 46px 0;
+	padding: 46px 13px;
 
 	display: flex;
 	align-items: center;

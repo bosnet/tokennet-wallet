@@ -134,7 +134,11 @@
 
 .button-wrapper {
 	text-align: center;
-	margin: 35px 0 18px;
+	margin: 18px 0;
+
+	@include response(md) {
+		margin: 35px 0 18px;
+	}
 }
 
 .public-address-validation {

@@ -9,10 +9,6 @@ class LanguageSelector extends Component {
 	constructor() {
 		super();
 
-		this.renderLanguageList = this.renderLanguageList.bind( this );
-		this.setLanguage = this.setLanguage.bind( this );
-		this.selectBoxToggle = this.selectBoxToggle.bind( this );
-
 		const state = {
 			currentLanguageIndex: 0,
 			languageList: [
@@ -26,7 +22,7 @@ class LanguageSelector extends Component {
 		this.state = state;
 	}
 
-	setLanguage( $language ) {
+	setLanguage = ( $language ) => {
 		this.setState( {
 			currentLanguageIndex: $language
 		} );
@@ -37,9 +33,9 @@ class LanguageSelector extends Component {
 		}
 		this.props.changeLanguage( this.state.languageList[ $language ][ 1 ] );
 		this.selectBoxToggle();
-	}
+	};
 
-	renderLanguageList() {
+	renderLanguageList = () => {
 		const listDom = [];
 		let length = this.state.languageList.length;
 
@@ -48,13 +44,13 @@ class LanguageSelector extends Component {
 		}
 
 		return listDom;
-	}
+	};
 
-	selectBoxToggle() {
+	selectBoxToggle = () => {
 		this.setState( {
 			selectBoxOpen: !this.state.selectBoxOpen
 		} );
-	}
+	};
 
 	render() {
 		return (

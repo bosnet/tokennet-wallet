@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import wallet from 'assets/imgs/boscoin-symbol-image-blue.png';
 import BlueButton from 'components/BlueButton';
 import './LoginView.scss';
 import { Redirect } from "react-router-dom";
@@ -94,7 +93,6 @@ class LoginView extends Component {
 					<div className="content-middle-wrapper">
 						<div className="content-wrapper">
 							<div>
-								<img src={wallet} alt="BOSCoin symbol"/>
 								<h1>
 									<T.span text="login_view.header"/>
 								</h1>
@@ -104,8 +102,8 @@ class LoginView extends Component {
 									<T.span text="login_view.guide_line_2"/>
 								</p>
 
-								<input type="text" placeholder={T.translate( 'login_view.header' )} onChange={this.validateSeed}
-									   style={style}/>
+								<textarea placeholder={T.translate( 'login_view.header' )} onChange={this.validateSeed}
+										  style={style}/>
 								<p className="button-wrapper">
 									<BlueButton medium onClick={this.openWallet} disabled={!this.state.isValid}><T.span
 										text="common.open"/></BlueButton>

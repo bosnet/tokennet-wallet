@@ -4,8 +4,38 @@
 	text-align: left;
 
 	@include response(md) {
-		max-width: 860px;
+		max-width: 960px;
 		margin: auto;
+	}
+
+	hr {
+		display: block;
+		width: 3em;
+		height: 1px;
+		border: none;
+		color: #039cbf;
+		background-color: #039cbf;
+		margin: 15px auto;
+
+		@include response(md) {
+			margin: 28px auto;
+		}
+	}
+
+	.seed-container {
+		margin-top: 23px;
+	}
+
+	.icon-button {
+		margin-left: 27px;
+
+		@include response(md) {
+			margin-left: 34px;
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
 	}
 }
 
@@ -16,5 +46,4 @@
 	font-size: 25px;
 	font-weight: 200;
 	margin: 0;
-	line-height: 0.5em;
 }

@@ -9,36 +9,56 @@
 	}
 
 	h1 {
-		margin-bottom: 1em;
-		font-size: 1.5em;
+		font-size: 20px;
+
+		@include response(md) {
+			font-size: 36px;
+		}
 	}
 
 	.under-line-blue {
 		position: relative;
-		display: inline-block;
+		display: block;
 		width: 3em;
-		height: 2px;
+		height: 1px;
 		background-color: #039cbf;
-		margin-bottom: 1em;
+		margin: 18px auto;
+
+		@include response(md) {
+			margin: 36px auto;
+		}
 	}
 
 	p {
 		font-size: 11px;
 		font-weight: 100;
+		margin: 18px auto;
 
 		@include response(md) {
 			font-size: 17px;
+			margin: 36px auto;
 		}
 	}
 
-	input {
+	input, textarea {
 		width: 100%;
 		border-radius: 5px;
 		color: #000000;
 		font-style: italic;
-		height: 33px;
+		height: 44px;
 		border: 1px solid #039cbf;
 		padding: 0 2em;
-		max-width: 560px;
+		max-width: 760px;
+		font-size: 14px;
+	}
+
+	textarea {
+		padding: 7px 21px;
+		height: 58px;
+
+		@include response(md) {
+			height: 44px;
+			font-size: 17px;
+		}
 	}
 }

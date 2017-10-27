@@ -1,10 +1,5 @@
 class StreamManager {
-	constructor() {
-		this.stopStream = this.stopStream.bind( this );
-		this.stopAllStream = this.stopAllStream.bind( this );
-	}
-
-	static stopStream( $stream ) {
+	static stopStream = ( $stream ) => {
 		if ( $stream ) {
 			try {
 				$stream();
@@ -12,14 +7,14 @@ class StreamManager {
 			catch ( $error ) {
 			}
 		}
-	}
+	};
 
-	static stopAllStream() {
+	static stopAllStream = () => {
 		const stream = [ this.accountStream, this.effectsStream, this.offersStream, this.paymentStream ];
 		stream.forEach( $stream => {
-			this.stopStream( $stream );
+			StreamManager.stopStream( $stream );
 		} );
-	}
+	};
 }
 
 export default StreamManager;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ModalContainer from './ModalContainer';
 import BlueButton from 'components/BlueButton';
-import SymbolWhiteBack from 'assets/imgs/boscoin-symbol-image-white.png';
 import KeyGeneratorMessage from './KeyGeneratorMessage';
 import './ConfirmGeneratorOpen.scss';
 import * as actions from "actions/index";
@@ -26,7 +25,7 @@ class ConfirmGeneratorOpen extends Component {
 				<div className="confirm-open-container">
 					<KeyGeneratorMessage/>
 
-					<img src={SymbolWhiteBack} alt="BOSCoin wallet symbol"/>
+
 					<p className="button-wrapper">
 						<BlueButton medium
 									onClick={this.openKeyGenerator}>{T.translate( 'common.generator' )}</BlueButton>

@@ -122,7 +122,6 @@ class SendCoinForm extends Component {
 		return (
 			<div className="send-coin-form-container">
 				{this.renderRedirect()}
-				<p data-lang={this.props.language}>{T.translate( 'common.send' )}</p>
 
 				<div className="input-group">
 					<div className="input-group-label-wrapper">

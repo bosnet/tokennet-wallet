@@ -1,18 +1,53 @@
 @import '../assets/sass/vendors/response';
 
+.receive-coin-view-container {
+
+	@include response(md) {
+		max-width: 960px;
+		margin: auto;
+	}
+
+	.receive-coin-view-container__title {
+		text-align: center;
+		color: #ffffff;
+		font-family: 'Exo 2', sans-serif;
+		font-size: 25px;
+		font-weight: 200;
+		margin: 0;
+	}
+
+	hr {
+		display: block;
+		width: 3em;
+		height: 1px;
+		border: none;
+		color: #039cbf;
+		background-color: #039cbf;
+		margin: 15px auto;
+
+		@include response(md) {
+			margin: 28px auto;
+		}
+	}
+}
+
 .receive-wrapper {
 	text-align: center;
+
 	p {
 		color: #ffffff;
 		font-size: 18px;
 		font-weight: 100;
 		margin: 0 0 1.5em;
 	}
+
 	#my-address-qrcode {
 		display: block;
 		width: 90px;
 		height: 90px;
 		margin: 0 auto 1.5em;
+		background: #ffffff;
+		padding: 4px;
 
 		@include response(md) {
 			width: 180px;
@@ -20,12 +55,3 @@
 		}
 	}
 }
-
-.receive-coin-view-container {
-	@include response(md) {
-		width: 860px;
-		margin: auto;
-	}
-}
-
-

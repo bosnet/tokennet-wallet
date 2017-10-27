@@ -66,8 +66,10 @@ class RecordSeeds extends Component {
 			<ModalContainer data-lang={this.props.language} doClose={this.nextStep} modalOpen={this.props.modalOpen}>
 				<div className="record-seed-container">
 					{this.renderWarningMessage()}
-					<KeyDisplayer/>
-					<BlueButton medium onClick={this.nextStep}>{ T.translate( 'record_seed.yes' ) }</BlueButton>
+					<KeyDisplayer setOpenSecretKey={true}/>
+					<div className="button-wrapper">
+						<BlueButton medium onClick={this.nextStep}>{ T.translate( 'record_seed.yes' ) }</BlueButton>
+					</div>
 				</div>
 			</ModalContainer>
 		)

@@ -12,9 +12,6 @@ class HistoryTable extends Component {
 	constructor() {
 		super();
 
-		this.renderHistory = this.renderHistory.bind( this );
-		this.readMore = this.readMore.bind( this );
-
 		const state = {
 			historyPage: 0,
 		};
@@ -22,17 +19,17 @@ class HistoryTable extends Component {
 		this.state = state;
 	}
 
-	readMore() {
+	readMore = () => {
 		this.setState( {
 			historyPage: this.state.historyPage + 1
 		} );
-	}
+	};
 
 	shortAddress( $address, $length = 6 ) {
 		return $address.substr( 0, $length ) + '...' + $address.substr( $length * -1 );
 	}
 
-	renderHistory() {
+	renderHistory = () => {
 		const history = [];
 		let data = this.props.paymentHistory;
 		let length = data.length;
@@ -47,7 +44,7 @@ class HistoryTable extends Component {
 			let amount = 0;
 			let label = '';
 			let target = '';
-			let date = moment( payment.transaction.created_at ).format( 'YY-MM-DD HH:mm' );
+			let date = moment( payment.transaction.created_at ).format( 'YYYY.MM.DD HH:mm' );
 			switch ( payment.type ) {
 				case 'create_account' :
 					const funder = payment.funder;
@@ -57,6 +54,7 @@ class HistoryTable extends Component {
 					}
 					else {
 						label = 'wallet_view.created_account';
+						target = '-';
 					}
 					amount = payment.starting_balance;
 					break;
@@ -76,34 +74,34 @@ class HistoryTable extends Component {
 					break;
 			}
 			if ( label !== '' ) {
-				const DOM = <tr key={data[ i ].id}>
-					<td><T.span text={label}/></td>
-					<td className={'target-cell'}>{target}</td>
-					<td>
+				const DOM = <div className="h-group" key={data[ i ].id}>
+					<div className="col label"><T.span text={label}/></div>
+					<div className="col target">{target}</div>
+					<div className="col amount">
 						<AmountSpan value={ trimZero( amount ) }/>
-					</td>
-					<td>{date}</td>
-				</tr>;
+					</div>
+					<div className="col date">{date}</div>
+				</div>;
 				history.push( DOM );
 			}
 		}
 
 		return history;
-	}
+	};
 
 	render() {
+		const hasMore = (this.state.historyPage + 1) * this.RENDER_ITEM_PER < this.props.paymentHistory.length;
 		return (
 			<div className="history-table-container" data-lang={this.props.language}>
-				<p><T.span text="wallet_view.history"/></p>
-				<table data-length={this.props.paymentHistory.length}>
-					<tbody>
+				<div data-length={this.props.paymentHistory.length}>
 					{this.renderHistory()}
-					</tbody>
-				</table>
+				</div>
 				<p className={"more-wrapper " +
-				((this.state.historyPage + 1) * this.RENDER_ITEM_PER < this.props.paymentHistory.length ? 'is-more' : '')
+				( hasMore ? 'is-more' : '')
 				}>
+					{ hasMore &&
 					<span onClick={this.readMore}>more </span>
+					}
 				</p>
 			</div>
 		)

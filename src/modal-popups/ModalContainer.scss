@@ -32,6 +32,11 @@
 	@media (max-height: 658px) {
 		height: 100vh;
 		overflow: auto;
+
+		// App.scss 의 override
+		.content-wrapper {
+			min-height: calc(100vh);
+		}
 	}
 }
 

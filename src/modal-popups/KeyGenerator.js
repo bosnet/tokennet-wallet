@@ -17,7 +17,7 @@ class KeyGenerator extends Component {
 	render() {
 		return (
 			<ModalContainer doClose={this.closeKeyGenerator} modalOpen={this.props.modalOpen}>
-				<KeyGeneratorMessage/>
+				<KeyGeneratorMessage simple/>
 
 				<div className="key-displayer-wrapper">
 					<KeyDisplayer setOpenSecretKey={true}/>

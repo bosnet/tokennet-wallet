@@ -1,3 +1,33 @@
+@import '../assets/sass/vendors/response';
+
 .send-coin-view-container {
 	text-align: left;
+
+	@include response(md) {
+		max-width: 960px;
+		margin: auto;
+	}
+
+	.send-coin-view-container__title {
+		text-align: center;
+		color: #ffffff;
+		font-family: 'Exo 2', sans-serif;
+		font-size: 25px;
+		font-weight: 200;
+		margin: 0;
+	}
+
+	hr {
+		display: block;
+		width: 3em;
+		height: 1px;
+		border: none;
+		color: #039cbf;
+		background-color: #039cbf;
+		margin: 15px auto;
+
+		@include response(md) {
+			margin: 28px auto;
+		}
+	}
 }

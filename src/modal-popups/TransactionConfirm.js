@@ -112,7 +112,7 @@ class TransactionConfirm extends Component {
 								<td>
 									{T.translate( "common.public_address" )}
 								</td>
-								<td>
+								<td style={{ wordBreak: 'break-all' }}>
 									{this.props.paymentData ? this.props.paymentData.destination : ''}
 								</td>
 							</tr>

@@ -32,9 +32,8 @@
 
 	.amount-text {
 		font-size: 12px;
-		font-style: italic;
 		font-weight: 100;
-		color: #000000;
+		color: #039cbf;
 		margin: 1em 0 0;
 
 		@include response(md) {

@@ -34,6 +34,7 @@
 .warn-message {
 	color: #f40b20;
 	font-size: 10px;
+	margin: 20px auto;
 
 	@include response(md) {
 		font-size: 14px;

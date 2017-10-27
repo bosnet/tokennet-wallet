@@ -19,27 +19,25 @@
 
 	.under-line {
 		position: relative;
-		display: inline-block;
+		display: block;
 		width: 3em;
 		height: 2px;
 		background-color: #000000;
+		margin: 20px auto;
 
 		@include response(md) {
 			width: 5em;
+			margin: 40px auto;
 		}
 	}
 
 	p {
-		color: #f40b20;
-		font-style: italic;
 		font-size: 11px;
+		margin: 20px auto;
 
 		@include response(md) {
 			font-size: 17px;
-
-			&.button-wrapper {
-				margin-top: 20px;
-			}
+			margin: 40px auto;
 		}
 	}
 
@@ -52,7 +50,7 @@
 		@include response(md) {
 			padding: 30px 38px;
 			border-radius: 5px;
-			border: 2px solid #039cbf;
+			border: 1px solid #191928;
 		}
 
 		tr {

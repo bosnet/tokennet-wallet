@@ -54,8 +54,6 @@ class App extends Component {
 		const userLang = navigator.language || navigator.userLanguage;
 		this.selectLang( userLang );
 
-		this.checkKillSwitch = this.checkKillSwitch.bind( this );
-
 		this.checkKillSwitch();
 	}
 
@@ -74,7 +72,7 @@ class App extends Component {
 		T.setTexts( require( './languages/' + lang + '.json' ) );
 	}
 
-	checkKillSwitch() {
+	checkKillSwitch = () => {
 		const queue = [];
 		queue.push( callback => {
 			axios.get( config.ks_url + '?' + Math.random() )
