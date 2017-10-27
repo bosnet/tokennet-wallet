@@ -104,5 +104,10 @@
 		"hide_secret_seed": "보안키 숨기기",
 		"you_just_received": "최근 {amount} BOS를 받았습니다.",
 		"you_just_sent": "최근 {amount} BOS를 보냈습니다."
+	},
+	"error_popup": {
+		"main_message": "일시적인 오류가 발생했습니다. 다시 시도해 주세요.",
+		"learn_more": "자세히 보기",
+		"close": "닫기"
 	}
 }

@@ -60,7 +60,7 @@ class TransactionConfirm extends Component {
 			if ( $error ) {
 				this.props.showSpinner( false );
 				this.props.transactionComplete( false, null );
-				this.props.transactionConfirm( false, null );
+				// this.props.transactionConfirm( false, null );
 				this.setState( { error: $error } );
 			}
 			else {
@@ -88,12 +88,28 @@ class TransactionConfirm extends Component {
 				{ this.state.error &&
 				<ErrorPopup>
 					<h2 className="text-center">Error</h2>
-					<p>Error Code</p>
-					<pre>{ this.state.error.extras.result_codes.transaction }</pre>
-					<p>Code</p>
-					<pre>{ JSON.stringify( this.state.error.extras.result_codes, null, 2 ) }</pre>
+					<div>
+						{ T.translate( 'error_popup.main_message' ) }
+					</div>
+					<div className="text-right">
+						<BlueButton tiny
+							onClick={ () => this.setState( { showErrorDetail: !this.state.showErrorDetail } ) }
+						>
+							{ this.state.showErrorDetail ? T.translate( 'error_popup.close' ) : T.translate( 'error_popup.learn_more' ) }
+						</BlueButton>
+					</div>
+					{ this.state.showErrorDetail &&
+					<div>
+						<p>Error Code</p>
+						<pre>{ this.state.error.extras.result_codes.transaction }</pre>
+						<p>Code</p>
+						<pre>{ JSON.stringify( this.state.error.extras.result_codes, null, 2 ) }</pre>
+					</div>
+					}
 					<div className={ 'text-center'}>
-						<BlueButton onClick={ () => this.setState( { error: null } ) }>{ T.translate( 'common.close' ) }</BlueButton>
+						<BlueButton medium
+							onClick={ () => this.props.transactionConfirm( false, null ) }
+						>{ T.translate( 'common.close' ) }</BlueButton>
 					</div>
 				</ErrorPopup>
 				}

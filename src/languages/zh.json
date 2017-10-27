@@ -104,5 +104,10 @@
 		"hide_secret_seed": "隐藏种子",
 		"you_just_received": "您收到上次交易的 {amount} BOS ",
 		"you_just_sent": "您已发送最后一次交易的 {amount} BOS "
+	},
+	"error_popup": {
+		"main_message": "A temporary error has occurred. Please try again.",
+		"learn_more": "Learn more",
+		"close": "Close"
 	}
 }
