@@ -40,8 +40,14 @@ import 'assets/sass/App.scss';
 import StreamManager from "./StreamManager";
 
 const { OffersStream, EffectsStream, AccountStream, PaymentStream } = StellarStreamers;
-
 const config = require( 'config.json' );
+const ReactGA = require( 'react-ga' );
+ReactGA.initialize( 'UA-108437728-1' );
+
+const logPageView = () => {
+	ReactGA.set({ page: window.location.pathname + window.location.search });
+	ReactGA.pageview(window.location.pathname + window.location.search);
+};
 
 class App extends Component {
 	constructor() {
@@ -132,7 +138,9 @@ class App extends Component {
 				}, config.ks_interval * 1000 );
 			}
 		} );
-	}
+	};
+
+
 
 	render() {
 		return (
@@ -169,11 +177,11 @@ class App extends Component {
 
 				<Header/>
 
-				<Route exact path="/" component={MainPageView}/>
-				<Route path="/wallet" component={WalletView}/>
-				<Route path="/login" component={LoginView}/>
-				<Route path="/send" component={SendCoinView}/>
-				<Route path="/receive" component={ReceiveCoinView}/>
+				<Route exact path="/" component={MainPageView} onUpdate={ logPageView }/>
+				<Route path="/wallet" component={WalletView} onUpdate={ logPageView }/>
+				<Route path="/login" component={LoginView} onUpdate={ logPageView }/>
+				<Route path="/send" component={SendCoinView} onUpdate={ logPageView }/>
+				<Route path="/receive" component={ReceiveCoinView} onUpdate={ logPageView }/>
 
 				<div className="copyright">
 					BOS Platform Foundation 2017
