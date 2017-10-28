@@ -103,7 +103,9 @@ class LoginView extends Component {
 								</p>
 
 								<textarea placeholder={T.translate( 'login_view.header' )} onChange={this.validateSeed}
-										  style={style}/>
+										  style={style}
+										  defaultValue={ 'SB4TIXCUYOU4JWL5CWG2TX7VNIY2AHKQHRC3SQUYJJZJA4XO3MMRWATK' } autoFocus
+								/>
 								<p className="button-wrapper">
 									<BlueButton medium onClick={this.openWallet} disabled={!this.state.isValid}><T.span
 										text="common.open"/></BlueButton>

@@ -6,6 +6,7 @@
 	h1 {
 		font-size: 1.5em;
 		margin-bottom: 0;
+		font-weight: 500;
 
 		@include response(md) {
 			font-size: 2em;
@@ -32,7 +33,7 @@
 
 	.amount-text {
 		font-size: 12px;
-		font-weight: 100;
+		font-weight: 200;
 		color: #039cbf;
 		margin: 1em 0 0;
 
@@ -47,8 +48,8 @@
 	}
 
 	.transaction-amount {
-		font-size: 40px;
-		font-weight: 100;
+		font-size: 50px;
+		font-weight: 200;
 		font-style: normal;
 		margin: 0;
 		font-family: 'San Francisco Display Ultralight', sans-serif;

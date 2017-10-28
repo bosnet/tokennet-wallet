@@ -3,10 +3,10 @@
 .key-boxes {
 	border: 1px solid #0094bd;
 	border-radius: 10px;
-	padding: 20px 17px;
+	padding: 20px 22px;
 	text-align: left;
 	position: relative;
-	margin: 20px auto 10px;
+	margin: 23px auto 10px;
 
 	.caption {
 		position: absolute;
@@ -17,23 +17,24 @@
 		left: 50%;
 		top: 0;
 		transform: translate( -50%, -50% );
-		background-blend-mode: color-dodge;
+		display: none;
 
 		@include response(md) {
 			font-size: 17px;
+			display: block;
 		}
 	}
 
 	.label {
 		position: relative;
-		font-size: 10px;
+		font-size: 12px;
 		width: 100%;
-		font-weight: 100;
+		font-weight: 200;
 		margin-bottom: 8px;
 
 		@include response(md) {
 			font-size: 15px;
-			width: 125px;
+			width: 115px;
 			top: 3px;
 		}
 	}
@@ -41,12 +42,14 @@
 	.key {
 		position: relative;
 		word-break: break-all;
-		font-size: 11px;
+		font-size: 12px;
 		width: calc( 100% - 65px );
+		font-family: 'Noto Sans KR', sans-serif;
+		font-weight: 500;
 
 		@include response(md) {
 			font-size: 17px;
-			width: calc( 100% - 100px - 125px );
+			width: calc( 100% - 100px - 115px );
 			top: 1px;
 		}
 	}

@@ -3,6 +3,10 @@
 .confirm-open-container {
 	padding: 28px;
 
+	h1 {
+		margin-bottom: 5px;
+	}
+
 	.button-wrapper {
 		margin: 20px;
 		padding: 0;
@@ -14,12 +18,16 @@
 	}
 
 	img {
-		width: 50px;
+		width: 100px;
 
 		@include response(md) {
-			width: 100px;
+			width: 140px;
 			margin-top: 20px;
 		}
+	}
+
+	.show-desktop-block {
+		display: block;
 	}
 
 }

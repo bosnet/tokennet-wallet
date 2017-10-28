@@ -7,7 +7,7 @@
 	color: #ffffff;
 
 	.main-logo {
-		width: 245px;
+		width: 280px;
 		margin-bottom: 19px;
 
 		@include response(md) {
@@ -47,9 +47,10 @@
 	}
 
 	.title + p {
-		font-size: 10px;
+		font-size: 12px;
+		line-height: 150%;
 		margin: 0 0 20px;
-		font-weight: 100;
+		font-weight: 200;
 
 		@include response(md) {
 			font-size: 17px;

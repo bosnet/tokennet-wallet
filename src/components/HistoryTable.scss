@@ -5,6 +5,7 @@
 	font-size: 10px;
 	color: #ffffff;
 	padding: 0 16px;
+	margin-top: 20px;
 
 	@include response(md) {
 		font-size: 14px;
@@ -19,6 +20,7 @@
 	.h-group {
 		padding: 8px 0;
 		border-bottom: 1px solid #5c5c74;
+		margin-bottom: 1px;
 
 		@include response(md) {
 			padding: 0;
@@ -28,7 +30,7 @@
 
 	.label {
 		width: 100%;
-		font-weight: 100;
+		font-weight: 200;
 		color: #039cbf;
 
 		@include response(md) {
@@ -40,7 +42,7 @@
 		width: 100%;
 		min-height: 30px;
 		word-break: break-all;
-		font-weight: 100;
+		font-weight: 200;
 
 		@include response(md) {
 			width: calc( 100% - 100px - 150px - 120px );
@@ -49,21 +51,25 @@
 	}
 
 	.amount {
-		width: calc( 100% - 90px );
+		width: calc( 100% - 100px );
 		text-align: right;
+		font-size: 13px;
 
 		@include response(md) {
 			width: 150px;
+			font-size: 14px;
 		}
 	}
 
 	.date {
-		width: 90px;
+		width: 100px;
 		text-align: right;
-		font-weight: 100;
+		font-weight: 200;
+		font-size: 13px;
 
 		@include response(md) {
 			width: 120px;
+			font-size: 14px;
 		}
 	}
 

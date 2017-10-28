@@ -23,10 +23,11 @@
 	background-color: #ffffff;
 
 	@include response(md) {
-		top: 50%;
-		transform: translateY(-50%);
-		min-height: 658px;
-		height: auto;
+		//top: 50%;
+		//transform: translateY(-50%);
+		//min-height: 658px;
+		//height: 100vh;
+		//height: auto;
 	}
 
 	@media (max-height: 658px) {
@@ -36,7 +37,16 @@
 		// App.scss 의 override
 		.content-wrapper {
 			min-height: calc(100vh);
+
+			&>div {
+				max-height: 100%;
+				overflow: auto;
+			}
 		}
+	}
+
+	.content-wrapper {
+		height: 100vh;
 	}
 }
 

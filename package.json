@@ -70,7 +70,8 @@
 		"start": "cross-env NODE_PATH=src node scripts/start.js",
 		"build": "cross-env NODE_PATH=src node scripts/build.js",
 		"test": "node scripts/test.js --env=jsdom",
-		"stat": "cross-env NODE_PATH=src NODE_ENV=production webpack --config ./config/webpack.config.prod.js --profile --json > stat.json"
+		"stat": "cross-env NODE_PATH=src NODE_ENV=production webpack --config ./config/webpack.config.prod.js --profile --json > stat.json",
+		"deploy": "aws s3 sync ./build/ s3://tokennet-test-wallet.dev.blockchainos.org/ --acl public-read --delete"
 	},
 	"jest": {
 		"collectCoverageFrom": [

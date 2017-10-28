@@ -1,3 +1,5 @@
+@import '../assets/sass/vendors/response';
+
 .copy-complete-container {
 	display: none;
 	width: 100%;
@@ -18,5 +20,9 @@
 		top: 50%;
 		transform: translate3D(-50%, -50%, 0);
 		width: 112px;
+
+		@include response(md) {
+			width: auto;
+		}
 	}
 }

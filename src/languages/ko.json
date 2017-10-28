@@ -17,7 +17,7 @@
 		"transaction_fee": "이체 수수료"
 	},
 	"header": {
-		"see_manual": "사용자 가이드 (준비중)",
+		"see_manual": "사용자 가이드",
 		"pdf_path": "/guide-ko.pdf"
 	},
 	"welcome_view": {

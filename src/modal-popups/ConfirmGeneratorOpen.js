@@ -25,12 +25,12 @@ class ConfirmGeneratorOpen extends Component {
 				<div className="confirm-open-container">
 					<KeyGeneratorMessage/>
 
-
 					<p className="button-wrapper">
 						<BlueButton medium
 									onClick={this.openKeyGenerator}>{T.translate( 'common.generator' )}</BlueButton>
 						<BlueButton medium onClick={this.doClose}>{T.translate( 'common.close' )}</BlueButton>
 					</p>
+
 				</div>
 			</ModalContainer>
 		)

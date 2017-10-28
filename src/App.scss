@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Exo+2:200,400');
+@import url('https://fonts.googleapis.com/css?family=Exo+2:100,200,300,400,500,700');
 @import 'assets/sass/vendors/response';
 
 @font-face {
@@ -43,6 +43,13 @@
 html, body,
 input, textarea, select, button {
 	font-family: sans-serif;
+}
+
+:lang(en) {
+	body,
+	input, textarea, select, button {
+		font-family: 'Exo 2', sans-serif;
+	}
 }
 
 :lang(ko) {
@@ -92,7 +99,7 @@ body {
 	.copyright {
 		position: absolute;
 		bottom: 50px;
-		font-size: 10px;
+		font-size: 12px;
 		font-family: 'Exo 2', sans-serif;
 		color: #ffffff;
 		width: 100%;

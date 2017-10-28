@@ -17,10 +17,6 @@
 			display: inline-block;
 		}
 	}
-
-	.button-wrapper {
-		margin-top: 0;
-	}
 }
 
 .seed-container + .button-wrapper {
@@ -41,7 +37,6 @@
 
 		@include response(md) {
 			padding-bottom: 2em;
-			border-bottom: 2px solid #5c5c74;
 			margin-bottom: 2em;
 		}
 	}
@@ -101,6 +96,7 @@
 	.input-public-address {
 		width: calc(100% - 41px);
 		padding-left: 1.5em;
+		font-family: "Noto Sans KR", sans-serif;
 
 		@include response(md) {
 			display: inline-block;
@@ -114,7 +110,7 @@
 		color: #000000;
 		font-weight: 400;
 		padding: 10px;
-		font-size: 22px;
+		font-size: 23px;
 
 		@include response(md) {
 			display: inline-block;
@@ -123,7 +119,7 @@
 	}
 
 	.sending-amount {
-		color: #5c5c74;
+		color: #ffffff;
 		float: right;
 
 		&:after {

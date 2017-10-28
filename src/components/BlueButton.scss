@@ -1,8 +1,8 @@
 @import '../assets/sass/vendors/response';
 
-:lang(ko), :lang(zh) {
+:lang(ko), :lang(zh), :lang(en) {
 	.blue-button {
-		font-weight: 300;
+		font-weight: 500;
 	}
 }
 
@@ -25,7 +25,7 @@
 	&.big {
 		min-width: 156px;
 		border-radius: 32px;
-		padding: 6px 10px 5px;
+		padding: 5px 10px 6px;
 
 		@include response(md) {
 			min-width: 233px;
@@ -37,9 +37,9 @@
 
 	&.medium {
 		min-width: 85px;
-		font-size: 10px;
+		font-size: 12px;
 		border-radius: 27px;
-		padding: 5px 8px 4px;
+		padding: 4px 8px 5px;
 
 		@include response(md) {
 			min-width: 159px;
@@ -50,7 +50,7 @@
 	}
 
 	&.small {
-		font-size: 10px;
+		font-size: 12px;
 		min-width: 100px;
 		padding: 0;
 		border-radius: 20px;
@@ -58,7 +58,7 @@
 	}
 
 	&.tiny {
-		font-size: 10px;
+		font-size: 12px;
 		min-width: 46px;
 		padding: 0;
 		border-radius: 14px;
