@@ -137,7 +137,6 @@ class LoginView extends Component {
 								<p className="button-wrapper">
 									<BlueButton medium onClick={this.openWallet} disabled={!this.state.isValid}><T.span
 										text="common.open"/></BlueButton>
-									<BlueButton onClick={ () => StreamManager.stopAllStream() }>Stop All Stream</BlueButton>
 								</p>
 							</div>
 						</div>
