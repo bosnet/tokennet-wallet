@@ -10,7 +10,7 @@ class StreamManager {
 	};
 
 	static stopAllStream = () => {
-		const stream = [ this.accountStream, this.effectsStream, this.offersStream, this.paymentStream ];
+		const stream = [ StreamManager.accountStream, StreamManager.effectsStream, StreamManager.offersStream, StreamManager.paymentStream ];
 		stream.forEach( $stream => {
 			StreamManager.stopStream( $stream );
 		} );

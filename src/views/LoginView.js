@@ -7,8 +7,10 @@ import * as actions from "actions/index";
 import { connect } from "react-redux";
 import T from 'i18n-react';
 import StreamManager from "../StreamManager";
+import { StellarStreamers } from 'libs/stellar-toolkit';
 
 const { getAccount } = StellarServer;
+const { OffersStream, EffectsStream, AccountStream, PaymentStream } = StellarStreamers;
 
 class LoginView extends Component {
 	constructor() {
@@ -38,10 +40,41 @@ class LoginView extends Component {
 	requestAccount = ( keypair ) => {
 		getAccount( keypair.publicKey() )
 			.then( account => {
-				// to redux
-				this.props.updateKeypair( keypair );
+				if( this.props.keypair ) {
+					if( this.props.keypair.publicKey() !== keypair.publicKey() ) {
+						StreamManager.stopAllStream();
+						this.props.resetHistory();
 
-				// state 바인딩
+						StreamManager.accountStream = AccountStream( keypair.publicKey(), ( streamAccount ) => {
+							this.props.streamAccount( streamAccount );
+						} );
+						StreamManager.effectsStream = EffectsStream( keypair.publicKey(), ( effects ) => {
+							this.props.streamEffects( effects );
+						} );
+						StreamManager.offersStream = OffersStream( keypair.publicKey(), ( offers ) => {
+							this.props.streamOffers( offers );
+						} );
+						StreamManager.paymentStream = PaymentStream( keypair.publicKey(), ( payment ) => {
+							this.props.streamPayment( payment );
+						} );
+					}
+				}
+				else {
+					StreamManager.accountStream = AccountStream( keypair.publicKey(), ( streamAccount ) => {
+						this.props.streamAccount( streamAccount );
+					} );
+					StreamManager.effectsStream = EffectsStream( keypair.publicKey(), ( effects ) => {
+						this.props.streamEffects( effects );
+					} );
+					StreamManager.offersStream = OffersStream( keypair.publicKey(), ( offers ) => {
+						this.props.streamOffers( offers );
+					} );
+					StreamManager.paymentStream = PaymentStream( keypair.publicKey(), ( payment ) => {
+						this.props.streamPayment( payment );
+					} );
+				}
+
+				this.props.updateKeypair( keypair );
 				this.setState( { isValid: true } );
 			} )
 			.catch( error => {
@@ -58,8 +91,6 @@ class LoginView extends Component {
 
 			if( this.props.keypair ) {
 				if( this.props.keypair.publicKey() !== keypair.publicKey() ) {
-					StreamManager.stopAllStream();
-					this.props.resetHistory();
 					this.requestAccount( keypair );
 				}
 				else {
@@ -69,8 +100,6 @@ class LoginView extends Component {
 			else {
 				this.requestAccount( keypair );
 			}
-
-
 		}
 		else {
 			this.setState( { isValid: false } );
@@ -104,11 +133,11 @@ class LoginView extends Component {
 
 								<textarea placeholder={T.translate( 'login_view.header' )} onChange={this.validateSeed}
 										  style={style}
-										  defaultValue={ 'SB4TIXCUYOU4JWL5CWG2TX7VNIY2AHKQHRC3SQUYJJZJA4XO3MMRWATK' } autoFocus
 								/>
 								<p className="button-wrapper">
 									<BlueButton medium onClick={this.openWallet} disabled={!this.state.isValid}><T.span
 										text="common.open"/></BlueButton>
+									<BlueButton onClick={ () => StreamManager.stopAllStream() }>Stop All Stream</BlueButton>
 								</p>
 							</div>
 						</div>
@@ -126,6 +155,18 @@ const mapStoreToProps = ( store ) => ({
 
 // 리덕스 연결
 const mapDispatchToStore = ( dispatch ) => ( {
+	streamAccount: ( $account ) => {
+		dispatch( actions.streamAccount( $account ) );
+	},
+	streamEffects: ( $effects ) => {
+		dispatch( actions.streamEffects( $effects ) );
+	},
+	streamOffers: ( $offers ) => {
+		dispatch( actions.streamOffers( $offers ) );
+	},
+	streamPayment: ( $payment ) => {
+		dispatch( actions.streamPayment( $payment ) );
+	},
 	updateKeypair: ( $keypair ) => {
 		dispatch( actions.updateKeypair( $keypair ) );
 	},

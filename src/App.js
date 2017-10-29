@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from "actions/index";
-import { StellarStreamers } from 'libs/stellar-toolkit';
 
 /*
 	Libraries
@@ -37,9 +36,7 @@ import RecordSeeds from 'modal-popups/RecordSeeds';
  */
 import './App.scss';
 import 'assets/sass/App.scss';
-import StreamManager from "./StreamManager";
 
-const { OffersStream, EffectsStream, AccountStream, PaymentStream } = StellarStreamers;
 const config = require( 'config.json' );
 const ReactGA = require( 'react-ga' );
 ReactGA.initialize( 'UA-108437728-1' );
@@ -191,37 +188,6 @@ class App extends Component {
 	}
 
 	componentWillReceiveProps( nextProps ) {
-		if ( nextProps.keypair ) {
-			if ( nextProps.keypair.publicKey() !== this.state.publicKey ) {
-				const keypair = nextProps.keypair;
-
-				this.setState( {
-					publicKey: nextProps.keypair.publicKey(),
-				} );
-
-				// 기존 스트림 제거
-				StreamManager.stopAllStream();
-
-				// 스트림 시작
-				StreamManager.accountStream = AccountStream( keypair.publicKey(), ( streamAccount ) => {
-					this.props.streamAccount( streamAccount );
-				} );
-				StreamManager.effectsStream = EffectsStream( keypair.publicKey(), ( effects ) => {
-					this.props.streamEffects( effects );
-				} );
-				StreamManager.offersStream = OffersStream( keypair.publicKey(), ( offers ) => {
-					this.props.streamOffers( offers );
-				} );
-				StreamManager.paymentStream = PaymentStream( keypair.publicKey(), ( payment ) => {
-					this.props.streamPayment( payment );
-				} );
-			}
-		}
-		else {
-			// 기존 스트림 제거
-			StreamManager.stopAllStream();
-		}
-
 		this.selectLang( nextProps.language );
 	}
 }
@@ -240,21 +206,6 @@ const mapStateToProps = ( state ) => ({
 });
 
 const mapDispatchToStore = ( dispatch ) => ( {
-	streamAccount: ( $account ) => {
-		dispatch( actions.streamAccount( $account ) );
-	},
-	streamEffects: ( $effects ) => {
-		dispatch( actions.streamEffects( $effects ) );
-	},
-	streamOffers: ( $offers ) => {
-		dispatch( actions.streamOffers( $offers ) );
-	},
-	streamPayment: ( $payment ) => {
-		dispatch( actions.streamPayment( $payment ) );
-	},
-	resetHistory: () => {
-		dispatch( actions.resetHistory() );
-	},
 	setMaintenance: ( maintenanceData ) => {
 		dispatch( actions.setMaintenance( maintenanceData ) );
 	},
