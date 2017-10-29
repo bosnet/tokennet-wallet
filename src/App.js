@@ -39,7 +39,7 @@ import 'assets/sass/App.scss';
 
 const config = require( 'config.json' );
 const ReactGA = require( 'react-ga' );
-ReactGA.initialize( 'UA-108437728-1' );
+ReactGA.initialize( config.ga_id );
 
 const logPageView = () => {
 	ReactGA.set({ page: window.location.pathname + window.location.search });
