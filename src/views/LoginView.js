@@ -152,7 +152,7 @@ const mapStoreToProps = ( store ) => ({
 	keypair: store.keypair.keypair,
 });
 
-// 리덕스 연결
+// Redux
 const mapDispatchToStore = ( dispatch ) => ( {
 	streamAccount: ( $account ) => {
 		dispatch( actions.streamAccount( $account ) );

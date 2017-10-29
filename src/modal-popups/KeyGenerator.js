@@ -38,7 +38,7 @@ class KeyGenerator extends Component {
 	}
 }
 
-// 리덕스 연결
+// Redux
 const mapDispatchToProps = ( dispatch ) => ({
 	showKeyGenerator: ( $isShow ) => {
 		dispatch( actions.showKeyGenerator( $isShow ) );

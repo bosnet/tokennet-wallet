@@ -32,7 +32,7 @@ class SendCoinForm extends Component {
 	checkPublicKey = ( $event ) => {
 		const key = $event.currentTarget.value.trim();
 
-		// 본인의 public key 일 경우 무조건 false
+		// Can not send own public key
 		if ( this.props.keypair.publicKey() === key ) {
 			this.setState( { addressValidated: false } );
 			return false;

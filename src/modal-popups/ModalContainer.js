@@ -14,7 +14,6 @@ class ModalContainer extends Component {
 	}
 
 	closeModal = () => {
-		// 부모 컴포넌트로부터 doClose 함수를 받았을 경우 실행하고 아닐 경우 스스로 state를 변경해 닫힌다
 		if ( isFunction( this.props.doClose ) ) {
 			this.props.doClose();
 		}

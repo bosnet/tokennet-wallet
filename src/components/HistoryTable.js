@@ -49,7 +49,7 @@ class HistoryTable extends Component {
 				case 'create_account' :
 					const funder = payment.funder;
 					if ( funder === me ) {
-						label = 'wallet_view.sent'; // TODO: 생성하며 보내는 경우 표기가 추후 달라질 수 있음
+						label = 'wallet_view.sent';
 						target = payment.account;
 					}
 					else {

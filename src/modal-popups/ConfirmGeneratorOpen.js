@@ -37,7 +37,7 @@ class ConfirmGeneratorOpen extends Component {
 	}
 }
 
-// 리덕스 연결
+// Redux
 const mapDispatchToProps = ( dispatch ) => ({
 	showSpinner: ( $isShow ) => {
 		dispatch( actions.showSpinner( $isShow ) );
