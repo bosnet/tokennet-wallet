@@ -11,6 +11,8 @@ import { find } from 'underscore';
 import AmountSpan from "components/AmountSpan";
 import ErrorPopup from "./ErrorPopup";
 import trimZero from "../utils/trimZero";
+import learnMoreIcon from 'assets/imgs/show-error-detail.png';
+import closeIcon from 'assets/imgs/hide-error-detail.png';
 
 const { StellarOperations } = StellarToolkit;
 const config = require( 'config.json' );
@@ -92,11 +94,22 @@ class TransactionConfirm extends Component {
 						{ T.translate( 'error_popup.main_message' ) }
 					</div>
 					<div className="text-right">
-						<BlueButton tiny
+						<button className="error-popup__learn-more"
 							onClick={ () => this.setState( { showErrorDetail: !this.state.showErrorDetail } ) }
 						>
-							{ this.state.showErrorDetail ? T.translate( 'error_popup.close' ) : T.translate( 'error_popup.learn_more' ) }
-						</BlueButton>
+							{ this.state.showErrorDetail &&
+								<span>
+									{ T.translate( 'error_popup.close' ) }
+								<img src={ closeIcon } alt={ T.translate( 'error_popup.close' ) }/>
+								</span>
+							}
+							{ !this.state.showErrorDetail &&
+								<span>
+									{ T.translate( 'error_popup.learn_more' ) }
+								<img src={ learnMoreIcon } alt={ T.translate( 'error_popup.learn_more' ) }/>
+								</span>
+							}
+						</button>
 					</div>
 					{ this.state.showErrorDetail &&
 					<div>

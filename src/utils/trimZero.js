@@ -5,6 +5,8 @@ export default ( value ) => {
 	const number = string.split( '.' );
 	if( number.length > 1 ) {
 		let integer = number[ 0 ];
+		integer = integer.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
 		let decimal = number[ 1 ];
 		while( decimal.length > 4 && decimal.split( '' ).pop() === '0' ) {
 			decimal = decimal.substr( 0, decimal.length - 1 );

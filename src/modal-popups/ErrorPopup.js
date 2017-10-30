@@ -20,11 +20,21 @@ class ErrorPopup extends Component {
 	}
 
 	renderContainer = () => {
-		return <div className={ 'error-popup__background' }>
-			<div className={ 'error-popup__container' }>
-				{this.props.children}
+		return <div className="modal-container open error-popup__container">
+			<div className="modal-wrapper">
+
+				<div className="content-container">
+					<div className="content-middle-wrapper">
+						<div className="content-wrapper">
+							<div>
+								{this.props.children}
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
-		</div>;
+		</div>
 	};
 
 	render() {

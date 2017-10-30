@@ -34,7 +34,7 @@ class ModalContainer extends Component {
 					<button
 						className="close-modal-button-x"
 						onClick={this.closeModal}
-					></button>
+					/>
 
 					<div className="content-container">
 						<div className="content-middle-wrapper">
