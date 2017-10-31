@@ -41,7 +41,8 @@
 		},
 		"error": {
 			"fail_create_account": "无法创建账户."
-		}
+		},
+		"test_mode": "This is a<br><strong>TEST Web-wallet!</strong>"
 	},
 	"login_view": {
 		"header": "输入你的私钥",

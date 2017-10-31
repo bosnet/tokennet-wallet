@@ -1,23 +1,27 @@
 # BOScoin Wallet
 
-## 설치
+## Install
 
     yarn # or npm install
 
-## 실행
+## Run
 
     yarn start # or npm run start
 
-## 설정 Config
+## Config
 
-설정은 `src/config.json` 에서 변경할 수 있습니다.
+You can change `src/config.json`.
 
-- api_url: Horizon API 주소
+- test_mode: If you set `true`, change background and main page view.
+- api_url: Horizon API URL
 - passphrases: Horizon API Pass Phrases
-- transaction_fee: 이체 수수료
-- minimum_balance: 최소 보유 잔액
+- transaction_fee: Transaction Fee
+- minimum_balance: Minimum Balance
 - ks_url: Kill Switch file path or API url
-- ks_interval: Kill Switch 확인 주기 (초단위로 입력)
+- ks_interval: Kill Switch check cycle (second unit)
+- active_make_a_new_key: Show `Make a new key` Button
+- active_create_test_account: Show `Create new account on TestNet` Button
+- ga_id: Google Analytics ID
 
 ## Kill Switch data format
 
@@ -27,6 +31,6 @@
     	"message": "XHTML Message<br/>Here"
     }
 
-## 빌드
+## Build
 
     yarn build

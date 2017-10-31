@@ -41,7 +41,8 @@
 		},
 		"error": {
 			"fail_create_account": "Fail to create account."
-		}
+		},
+		"test_mode": "This is a<br><strong>TEST Web-wallet!</strong>"
 	},
 	"login_view": {
 		"header": "Input your seed",
