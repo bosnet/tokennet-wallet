@@ -61,9 +61,16 @@ class MainPageView extends Component {
 					<div className="content-middle-wrapper">
 						<div className="content-wrapper">
 							<div>
-								<img className={'main-logo'} src={symbolImage} alt="BOSCoin symbol"/>
+								{ !config.test_mode &&
+									<div>
+										<img className={'main-logo'} src={symbolImage} alt="BOSCoin symbol"/>
+										<T.p className={'title'} text="welcome_view.title"/>
+									</div>
+								}
+								{ config.test_mode &&
+									<div className="test-mode" dangerouslySetInnerHTML={{ __html: T.translate( 'welcome_view.test_mode' ) }}/>
+								}
 
-								<T.p className={'title'} text="welcome_view.title"/>
 								<T.p text="welcome_view.title_description"/>
 
 								<p dangerouslySetInnerHTML={{ __html: this.props.maintenance.message }}/>

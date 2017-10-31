@@ -83,6 +83,10 @@ body {
 	background-image: url('assets/imgs/background-gradation.png');
 	background-repeat: repeat-x;
 	background-attachment: fixed;
+
+	&.test-mode {
+		background-image: url('assets/imgs/test-background-gradation.png');
+	}
 }
 
 .App {

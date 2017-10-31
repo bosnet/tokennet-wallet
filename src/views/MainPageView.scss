@@ -133,4 +133,17 @@
 			}
 		}
 	}
+
+	.test-mode {
+		font-size: 35px;
+		font-weight: bold;
+
+		strong {
+			color: #ff0000;
+		}
+
+		@include response(md) {
+			font-size: 70px;
+		}
+	}
 }

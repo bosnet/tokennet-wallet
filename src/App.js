@@ -132,8 +132,6 @@ class App extends Component {
 		} );
 	};
 
-
-
 	render() {
 		return (
 			<div className="App">
@@ -184,6 +182,12 @@ class App extends Component {
 
 	componentWillReceiveProps( nextProps ) {
 		this.selectLang( nextProps.language );
+	}
+
+	componentDidMount() {
+		if( config.test_mode ) {
+			document.querySelector( 'body' ).className += ' test-mode';
+		}
 	}
 }
 
