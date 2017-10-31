@@ -18,7 +18,7 @@
 	},
 	"header": {
 		"see_manual": "사용자 가이드",
-		"pdf_path": "/guide-ko.pdf"
+		"pdf_path": "https://boscoin.io/docs/wallet-guide-kor.pdf"
 	},
 	"welcome_view": {
 		"title": "BOScoin 웹지갑",

@@ -5,7 +5,7 @@
 	"minimum_balance": 0.1,
 	"ks_url": "/ks.json",
 	"ks_interval": 5,
-	"active_make_a_new_key": true,
+	"active_make_a_new_key": false,
 	"active_create_test_account": true,
 	"ga_id": "UA-108856157-1"
 }

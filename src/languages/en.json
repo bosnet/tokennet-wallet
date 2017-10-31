@@ -18,7 +18,7 @@
 	},
 	"header": {
 		"see_manual": "User Guide",
-		"pdf_path": "/guide-en.pdf"
+		"pdf_path": "https://boscoin.io/docs/wallet-guide-eng.pdf"
 	},
 	"welcome_view": {
 		"title": "BOScoin wallet",
