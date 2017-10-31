@@ -7,6 +7,7 @@ import T from 'i18n-react';
 import IconButton from 'components/IconButton';
 import AccountIcon from 'assets/imgs/account-icon.png';
 import ReceiveIcon from 'assets/imgs/receive-icon.png';
+import pageview from 'utils/pageview';
 
 class SendCoinView extends Component {
 	render() {
@@ -39,6 +40,10 @@ class SendCoinView extends Component {
 				</div>
 			</div>
 		)
+	}
+
+	componentDidMount() {
+		pageview();
 	}
 }
 

@@ -6,6 +6,7 @@ import './RecordSeeds.scss';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 import T from 'i18n-react';
+import pageview from "utils/pageview";
 
 class RecordSeeds extends Component {
 	constructor() {
@@ -73,6 +74,10 @@ class RecordSeeds extends Component {
 				</div>
 			</ModalContainer>
 		)
+	}
+
+	componentDidMount() {
+		pageview( '/popup/record-seeds' );
 	}
 }
 

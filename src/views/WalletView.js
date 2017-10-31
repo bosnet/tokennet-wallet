@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import IconButton from 'components/IconButton';
 import SendIcon from 'assets/imgs/send-icon.png';
 import ReceiveIcon from 'assets/imgs/receive-icon.png';
+import pageview from 'utils/pageview';
 
 class WalletView extends Component {
 	renderRedirect() {
@@ -51,6 +52,10 @@ class WalletView extends Component {
 
 			</div>
 		)
+	}
+
+	componentDidMount() {
+		pageview();
 	}
 }
 

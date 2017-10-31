@@ -41,11 +41,6 @@ const config = require( 'config.json' );
 const ReactGA = require( 'react-ga' );
 ReactGA.initialize( config.ga_id );
 
-const logPageView = () => {
-	ReactGA.set({ page: window.location.pathname + window.location.search });
-	ReactGA.pageview(window.location.pathname + window.location.search);
-};
-
 class App extends Component {
 	constructor() {
 		super();
@@ -174,11 +169,11 @@ class App extends Component {
 
 				<Header/>
 
-				<Route exact path="/" component={MainPageView} onUpdate={ logPageView }/>
-				<Route path="/wallet" component={WalletView} onUpdate={ logPageView }/>
-				<Route path="/login" component={LoginView} onUpdate={ logPageView }/>
-				<Route path="/send" component={SendCoinView} onUpdate={ logPageView }/>
-				<Route path="/receive" component={ReceiveCoinView} onUpdate={ logPageView }/>
+				<Route exact path="/" component={MainPageView}/>
+				<Route path="/wallet" component={WalletView}/>
+				<Route path="/login" component={LoginView}/>
+				<Route path="/send" component={SendCoinView}/>
+				<Route path="/receive" component={ReceiveCoinView}/>
 
 				<div className="copyright">
 					BOS Platform Foundation 2017

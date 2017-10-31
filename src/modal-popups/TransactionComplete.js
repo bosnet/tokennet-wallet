@@ -7,6 +7,7 @@ import * as actions from "actions/index";
 import T from 'i18n-react';
 import AmountSpan from "components/AmountSpan";
 import trimZero from "../utils/trimZero";
+import pageview from "utils/pageview";
 
 class TransactionComplete extends Component {
 	closeTransactionComplete = () => {
@@ -38,6 +39,10 @@ class TransactionComplete extends Component {
 				</div>
 			</ModalContainer>
 		)
+	}
+
+	componentDidMount() {
+		pageview( '/popup/transaction-complete' );
 	}
 }
 

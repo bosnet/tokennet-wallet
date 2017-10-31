@@ -8,6 +8,7 @@ import { Redirect } from "react-router-dom";
 import T from 'i18n-react';
 
 import { StellarServer } from 'libs/stellar-toolkit';
+import pageview from 'utils/pageview';
 
 const { generateTestPair } = StellarServer;
 const config = require( 'config.json' );
@@ -100,6 +101,10 @@ class MainPageView extends Component {
 				</div>
 			</div>
 		)
+	}
+
+	componentDidMount() {
+		pageview();
 	}
 }
 

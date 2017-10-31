@@ -7,6 +7,7 @@ import './KeyGenerator.scss';
 import { connect } from "react-redux";
 import * as actions from "../actions/index";
 import T from 'i18n-react';
+import pageview from "utils/pageview";
 
 class KeyGenerator extends Component {
 	closeKeyGenerator = () => {
@@ -35,6 +36,10 @@ class KeyGenerator extends Component {
 				</p>
 			</ModalContainer>
 		)
+	}
+
+	componentDidMount() {
+		pageview( '/popup/key-generator' );
 	}
 }
 

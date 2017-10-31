@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './ErrorPopup.scss';
+import pageview from "utils/pageview";
 
 const modalRoot = document.querySelector( '#popup-root' );
 
@@ -13,6 +14,7 @@ class ErrorPopup extends Component {
 
 	componentDidMount() {
 		modalRoot.appendChild(this.el);
+		pageview( '/popup/error-popup' );
 	}
 
 	componentWillUnmount() {

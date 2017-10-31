@@ -7,6 +7,7 @@ import * as actions from "actions/index";
 import { connect } from "react-redux";
 import T from 'i18n-react';
 import { Keypair } from 'libs/stellar-sdk';
+import pageview from "utils/pageview";
 
 class ConfirmGeneratorOpen extends Component {
 	openKeyGenerator = () => {
@@ -34,6 +35,10 @@ class ConfirmGeneratorOpen extends Component {
 				</div>
 			</ModalContainer>
 		)
+	}
+
+	componentDidMount() {
+		pageview( '/popup/confirm-generator-open' );
 	}
 }
 

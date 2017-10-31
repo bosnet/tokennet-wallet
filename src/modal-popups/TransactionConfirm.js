@@ -13,6 +13,7 @@ import ErrorPopup from "./ErrorPopup";
 import trimZero from "../utils/trimZero";
 import learnMoreIcon from 'assets/imgs/show-error-detail.png';
 import closeIcon from 'assets/imgs/hide-error-detail.png';
+import pageview from "utils/pageview";
 
 const { StellarOperations } = StellarToolkit;
 const config = require( 'config.json' );
@@ -176,6 +177,10 @@ class TransactionConfirm extends Component {
 				</div>
 			</ModalContainer>
 		)
+	}
+
+	componentDidMount() {
+		pageview( '/popup/transaction-confirm' );
 	}
 }
 

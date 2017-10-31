@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import T from 'i18n-react';
 import StreamManager from "../StreamManager";
 import { StellarStreamers } from 'libs/stellar-toolkit';
+import pageview from 'utils/pageview';
 
 const { getAccount } = StellarServer;
 const { OffersStream, EffectsStream, AccountStream, PaymentStream } = StellarStreamers;
@@ -145,6 +146,10 @@ class LoginView extends Component {
 
 			</div>
 		)
+	}
+
+	componentDidMount() {
+		pageview();
 	}
 }
 

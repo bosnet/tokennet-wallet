@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import IconButton from 'components/IconButton';
 import AccountIcon from 'assets/imgs/account-icon.png';
 import SendIcon from 'assets/imgs/send-icon.png';
+import pageview from 'utils/pageview';
 
 class ReceiveCoinView extends Component {
 	componentDidMount() {
@@ -18,6 +19,7 @@ class ReceiveCoinView extends Component {
 				value: this.props.keypair.publicKey(),
 			} );
 		}
+		pageview();
 	}
 
 	renderRedirect() {
