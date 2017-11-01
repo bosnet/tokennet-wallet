@@ -1,5 +1,5 @@
 {
-	"test_mode": true,
+	"test_mode": false,
 	"api_url": "https://horizon-tokennet-test.dev.blockchainos.org",
 	"passphrases": "Test BOS Token Network ; tokennet.test; September 2017",
 	"transaction_fee": 0.0001,

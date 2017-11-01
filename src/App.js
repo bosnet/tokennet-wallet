@@ -97,6 +97,8 @@ class App extends Component {
 			const start = killSwitch.start_time;
 			const end = killSwitch.end_time;
 			const result = {
+				start_time: start,
+				end_time: end,
 				onMaintenance: false,
 				message: null,
 			};
@@ -114,6 +116,8 @@ class App extends Component {
 				this.props.setMaintenance( {
 					onMaintenance: false,
 					message: null,
+					start_time: null,
+					end_time: null,
 				} );
 			}
 			else if ( result ) {

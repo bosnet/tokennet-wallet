@@ -1,5 +1,9 @@
 {
 	"start_time": "2017-10-07T18:17:00.588208",
-	"end_time": "2017-10-07T18:18:00.588221",
-	"message": "tokennet-wallet service is under maintenance.\n<br />\nWe are updating our status in <a href='https://twitter.com/boscoinio?lang=en' target='_blank'>@boscoinio</a> .\n<br />\nThanks."
+	"end_time": "2018-10-07T18:18:00.588221",
+	"message": {
+		"en": "<div style='margin-bottom: 2em; font-size: 25px;'>I'm sorry.<br>Regular inspection is scheduled until 10:00 a.m. tomorrow.</div><div><a href='https://google.com' target='_blank'><button class='blue-button big'>Learn more</button></a></div>",
+		"ko": "<div style='margin-bottom: 2em; font-size: 25px;'>이용에 불편을 드려 죄송합니다.<br>내일 오전 10시까지 정기점검합니다.</div><div><a href='https://google.com' target='_blank'><button class='blue-button big'>상세내용보기</button></a></div>",
+		"zh": "<div style='margin-bottom: 2em; font-size: 25px;'>I'm sorry.<br>Regular inspection is scheduled until 10:00 a.m. tomorrow.</div><div><a href='https://google.com' target='_blank'><button class='blue-button big'>Learn more</button></a></div>."
+	}
 }
