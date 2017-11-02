@@ -1,12 +1,12 @@
 {
-	"test_mode": false,
+	"test_mode": true,
 	"api_url": "https://horizon-tokennet-test.dev.blockchainos.org",
 	"passphrases": "Test BOS Token Network ; tokennet.test; September 2017",
 	"transaction_fee": 0.0001,
 	"minimum_balance": 0.1,
 	"ks_url": "/ks.json",
 	"ks_interval": 5,
-	"active_make_a_new_key": false,
+	"active_make_a_new_key": true,
 	"active_create_test_account": true,
 	"ga_id": "UA-108856157-1"
 }
