@@ -14,7 +14,6 @@ import trimZero from "../utils/trimZero";
 import learnMoreIcon from 'assets/imgs/show-error-detail.png';
 import closeIcon from 'assets/imgs/hide-error-detail.png';
 import pageview from "utils/pageview";
-import axios from 'axios';
 
 const { StellarOperations } = StellarToolkit;
 const config = require( 'config.json' );
@@ -31,33 +30,36 @@ class TransactionConfirm extends Component {
 		this.props.showSpinner( true );
 
 		const queue = [];
-
-		const sendPayment = callback => {
+		queue.push( $callback => {
 			StellarOperations.sendPayment( this.props.paymentData )( this.props.keypair )
 				.then( () => {
-					callback( null, false );
+					$callback( null, false );
 				} )
 				.catch( ( $error ) => {
 					const noDestination = find( $error.extras.result_codes.operations, $item => $item === 'op_no_destination' );
 					if ( noDestination ) {
-						callback( null, $error );
+						$callback( null, $error );
 						return;
 					}
-					callback( $error );
+					$callback( $error );
 				} );
-		};
+		} );
+		queue.push( ( $extras, $callback ) => {
+			if ( $extras ) {
+				StellarOperations.createAccount( this.props.paymentData )( this.props.keypair )
+					.then( () => {
+						$callback();
+					} )
+					.catch( ( $error ) => {
+						$callback( $error );
+					} );
+			}
+			else {
+				$callback();
+			}
+		} );
 
-		const createAccount = callback => {
-			StellarOperations.createAccount( this.props.paymentData )( this.props.keypair )
-				.then( () => {
-					callback();
-				} )
-				.catch( ( $error ) => {
-					callback( $error );
-				} );
-		};
-
-		const onQueueComplete = ( $error, $result ) => {
+		async.waterfall( queue, ( $error, $result ) => {
 			if ( $error ) {
 				this.props.showSpinner( false );
 				this.props.transactionComplete( false, null );
@@ -69,21 +71,8 @@ class TransactionConfirm extends Component {
 				this.props.transactionComplete( true, this.props.paymentData );
 				this.props.transactionConfirm( false, null );
 			}
-		};
+		} );
 
-		const checkAddressExist = () => {
-			axios.get( `${config.api_url}/accounts/${this.props.paymentData.destination}` )
-				.then( () => {
-					queue.push( sendPayment );
-					async.waterfall( queue, onQueueComplete );
-				} )
-				.catch( () => {
-					queue.push( createAccount );
-					async.waterfall( queue, onQueueComplete );
-				} );
-		};
-
-		checkAddressExist();
 	};
 
 	hideTransactionConfirm = () => {
