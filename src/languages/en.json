@@ -60,7 +60,8 @@
 			"transaction_amount_zero": "Input Transaction Amount",
 			"not_enough_balance": "Insufficient Balance",
 			"incorrect_public_address": "Incorrect Public Address",
-			"minimum_balance": "Minimum balance after transfer must be at least {minimum_balance} BOS."
+			"minimum_balance": "Minimum balance after transfer must be at least {minimum_balance} BOS.",
+			"decimal_limit": "You can only input to 7 decimal places."
 		}
 	},
 	"key_generator": {

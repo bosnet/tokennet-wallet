@@ -47,13 +47,24 @@ class SendCoinForm extends Component {
 			} );
 	};
 
-	updateAmount( $event ) {
-		const sendingAmount = Number( $event.currentTarget.value );
+	onChange = () => {
+		const input = document.querySelector( '.input-sending-amount' );
+		const sendingAmount = Number( input.value );
 		const transactionTotal = new Decimal( sendingAmount ).plus( this.state.transactionFee ).toNumber();
 		this.setState( {
 			sendingAmount,
 			transactionTotal,
 		} );
+	};
+
+	componentDidMount() {
+		this.timer = setInterval( () => {
+			this.onChange();
+		}, 50 );
+	}
+
+	componentWillUnmount() {
+		clearInterval( this.timer );
 	}
 
 	openTransactionConfirm = () => {
@@ -77,6 +88,13 @@ class SendCoinForm extends Component {
 		if ( balance - this.state.transactionTotal < config.minimum_balance ) {
 			this.setState( { error: "send_coin.error.minimum_balance" } );
 			return false;
+		}
+		const numbers = this.state.transactionTotal.toString().split( '.' );
+		if( numbers.length > 1 ) {
+			if( numbers[ 1 ].length > 7 ) {
+				this.setState( { error: "send_coin.error.decimal_limit" } );
+				return false;
+			}
 		}
 
 		this.setState( { error: null } );
@@ -151,9 +169,9 @@ class SendCoinForm extends Component {
 						<p className="input-label gt-md">
 							{T.translate( 'send_coin.input_amount' )}
 						</p>
-						<AmountInput className={'input-sending-amount'} onChange={$event => {
-							this.updateAmount( $event )
-						}}/>
+						<AmountInput className={'input-sending-amount'}
+									 onChange={ this.onChange }
+						/>
 						<p className="sending-amount">
 							{T.translate( 'send_coin.total_will_be_sent', { amount: trimZero( this.state.transactionTotal ) } )}
 						</p>

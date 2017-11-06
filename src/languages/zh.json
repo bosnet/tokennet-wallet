@@ -60,7 +60,8 @@
 			"transaction_amount_zero": "输入交易金额",
 			"not_enough_balance": "余额不足",
 			"incorrect_public_address": "公共地址不正确",
-			"minimum_balance": "转出后地址保证最少余额为 {minimum_balance} BOS."
+			"minimum_balance": "转出后地址保证最少余额为 {minimum_balance} BOS.",
+			"decimal_limit": "您只能输入到小数点后7位."
 		}
 	},
 	"key_generator": {
