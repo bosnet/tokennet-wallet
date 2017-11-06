@@ -128,11 +128,11 @@ class App extends Component {
 						window.location.href = '/';
 					}
 				}
-
-				setTimeout( () => {
-					this.checkKillSwitch();
-				}, config.ks_interval * 1000 );
 			}
+
+			setTimeout( () => {
+				this.checkKillSwitch();
+			}, config.ks_interval * 1000 );
 		} );
 	};
 
