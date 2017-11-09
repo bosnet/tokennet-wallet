@@ -54,7 +54,12 @@ class HistoryTable extends Component {
 					}
 					else {
 						label = 'wallet_view.created_account';
-						target = '-';
+						if( payment.transaction && payment.transaction.source_account ) {
+							target = payment.transaction.source_account;
+						}
+						else {
+							target = '-';
+						}
 					}
 					amount = payment.starting_balance;
 					break;
