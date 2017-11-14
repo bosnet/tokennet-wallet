@@ -67,6 +67,7 @@
 		"whatwg-fetch": "^2.0.3"
 	},
 	"scripts": {
+		"i": "npx -p node@6 -- npm install",
 		"start": "npx -p node@6 -- cross-env NODE_PATH=src node scripts/start.js",
 		"build": "npx -p node@6 -- cross-env NODE_PATH=src node scripts/build.js",
 		"test": "node scripts/test.js --env=jsdom",
