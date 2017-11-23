@@ -61,6 +61,9 @@ class LoginView extends Component {
 					}
 				}
 				else {
+					StreamManager.stopAllStream();
+					this.props.resetHistory();
+
 					StreamManager.accountStream = AccountStream( keypair.publicKey(), ( streamAccount ) => {
 						this.props.streamAccount( streamAccount );
 					} );
