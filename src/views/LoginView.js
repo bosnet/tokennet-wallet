@@ -25,6 +25,7 @@ class LoginView extends Component {
 
 	openWallet = () => {
 		if ( this.state.isValid ) {
+			this.props.showTimer( true );
 			this.setState( { redirect: '/wallet' } );
 		}
 	};
@@ -180,6 +181,9 @@ const mapDispatchToStore = ( dispatch ) => ( {
 	resetHistory: () => {
 		dispatch( actions.resetHistory() );
 	},
+	showTimer: ( isShow ) => {
+		dispatch( actions.showTimer( isShow ) );
+	}
 } );
 
 LoginView = connect( mapStoreToProps, mapDispatchToStore )( LoginView );

@@ -38,8 +38,10 @@ class WalletView extends Component {
 
 								<p className="button-wrapper">
 									<IconButton to="/send" label={ T.translate( 'common.send' ) }
+												onClick={ () => this.props.postponeTimer( true ) }
 												image={ SendIcon } iconRight/>
 									<IconButton to="/receive" label={ T.translate( 'common.receive' ) }
+												onClick={ () => this.props.postponeTimer( true ) }
 												image={ ReceiveIcon } iconRight/>
 								</p>
 
