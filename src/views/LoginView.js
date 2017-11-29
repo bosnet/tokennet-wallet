@@ -139,6 +139,11 @@ class LoginView extends Component {
 								<textarea placeholder={T.translate( 'login_view.header' )} onChange={this.validateSeed}
 										  style={style}
 								/>
+								{ ( this.state.isValid !== null && this.state.isValid === false ) &&
+								<p className="error">
+									<T.span text="login_view.error.invalid_secret_seed"/>
+								</p>
+								}
 								<p className="button-wrapper">
 									<BlueButton medium onClick={this.openWallet} disabled={!this.state.isValid}><T.span
 										text="common.open"/></BlueButton>

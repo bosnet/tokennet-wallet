@@ -47,7 +47,10 @@
 	"login_view": {
 		"header": "输入你的私钥",
 		"guide_line_1": "请输入你的私钥，打开您的账户.",
-		"guide_line_2": "请在安全的地方写下您的公共地址和私钥。确保您不要忘记或泄漏您的私钥。您可能丢失您的所有BOScoin！"
+		"guide_line_2": "请在安全的地方写下您的公共地址和私钥。确保您不要忘记或泄漏您的私钥。您可能丢失您的所有BOScoin！",
+		"error": {
+			"invalid_secret_seed": "Invalid Secret Seed or not enough balance."
+		}
 	},
 	"send_coin": {
 		"input_recipient_address": "请输入收款人的公共地址",

@@ -47,7 +47,10 @@
 	"login_view": {
 		"header": "Input your seed",
 		"guide_line_1": "Please input your Secret Seed to access your account.",
-		"guide_line_2": "Please keep the Secret Seed to yourself, otherwise access to your wallet could be compromised."
+		"guide_line_2": "Please keep the Secret Seed to yourself, otherwise access to your wallet could be compromised.",
+		"error": {
+			"invalid_secret_seed": "Invalid Secret Seed or not enough balance."
+		}
 	},
 	"send_coin": {
 		"input_recipient_address": "Input the Public Address of recipient",
