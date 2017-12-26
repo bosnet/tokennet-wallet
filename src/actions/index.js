@@ -35,6 +35,16 @@ export const showCopyComplete = ( $isShow ) => ( {
 	isShow: $isShow,
 } );
 
+export const showTimer = ( $isShow ) => ( {
+	type: types.SHOW_TIMER,
+	isShow: $isShow,
+} );
+
+export const postponeTimer = ( postpone ) => ( {
+	type: types.POSTPONE_TIMER,
+	postpone: postpone,
+} );
+
 export const showTransactionConfirm = ( $isShow, $paymentData ) => ( {
 	type: types.SHOW_TRANSACTION_CONFIRM,
 	isShow: $isShow,

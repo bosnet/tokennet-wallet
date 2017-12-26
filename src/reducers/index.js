@@ -9,6 +9,7 @@ import transactionConfirm from './transactionConfirm';
 import transactionComplete from './transactionComplete';
 import stream from './stream';
 import maintenance from './maintenance';
+import timer from './timer';
 
 import { combineReducers } from 'redux';
 
@@ -24,6 +25,7 @@ const reducers = combineReducers( {
 	transactionComplete,
 	stream,
 	maintenance,
+	timer,
 } );
 
 export default reducers;
