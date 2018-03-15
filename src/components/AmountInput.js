@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import trimDecimal from 'utils/trimDecimal';
 
 class AmountInput extends Component {
 	onKeyDown = ( $event ) => {
@@ -22,21 +23,11 @@ class AmountInput extends Component {
 		if ( map.indexOf( keyCode ) === -1 ) {
 			$event.preventDefault();
 		}
-
-		this.storeValue = $event.currentTarget.value;
 	};
 
 	onKeyUp = ( $event ) => {
 		const value = $event.currentTarget.value;
-		if( value.indexOf( '.' ) > -1 ) {
-			const decimal = value.split( '.' ).pop().toString();
-			if( decimal.length > 7 ) {
-				$event.currentTarget.value = this.storeValue;
-				$event.preventDefault();
-			}
-		}
-
-		this.storeValue = null;
+		$event.currentTarget.value = trimDecimal( value );
 	};
 
 	render() {
@@ -44,6 +35,7 @@ class AmountInput extends Component {
 			<input {...this.props}
 				   onKeyDown={this.onKeyDown}
 				   onKeyUp={this.onKeyUp}
+				   onBlur={this.onKeyUp}
 				   type="number"
 				   min="0.1"
 				   placeholder="0.1"/>

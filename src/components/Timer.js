@@ -35,7 +35,6 @@ class Timer extends Component {
 	}
 
 	componentWillReceiveProps( nextProps ) {
-		console.log( nextProps );
 		if( nextProps.timer.hasPostpone ) {
 			this.setState( { time: 180 } );
 			this.props.postponeTimer( false );
