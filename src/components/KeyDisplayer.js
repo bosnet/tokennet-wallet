@@ -7,6 +7,8 @@ import * as actions from '../actions/index';
 import Clipboard from 'clipboard';
 import { each } from 'underscore';
 import classNames from 'classnames';
+import store from '../observables/store';
+import { observer } from 'mobx-react';
 
 class KeyDisplayer extends Component {
 	render() {
@@ -19,10 +21,10 @@ class KeyDisplayer extends Component {
 							{T.translate( 'common.public_address' )}
 						</div>
 						<div className="key col">
-							{this.props.keypair ? this.props.keypair.publicKey() : ''}
+							{ store.keypair ? store.keypair.publicKey() : ''}
 						</div>
 						<div className="copy-button col"
-							 data-clipboard-text={this.props.keypair ? this.props.keypair.publicKey() : ''}>
+							 data-clipboard-text={store.keypair ? store.keypair.publicKey() : ''}>
 							<BlueButton tiny filled><T.span text="common.copy"/></BlueButton>
 						</div>
 					</div>
@@ -35,10 +37,10 @@ class KeyDisplayer extends Component {
 							{T.translate( 'common.secret_seed' )}
 						</div>
 						<div className="key col">
-							{this.props.keypair ? this.props.keypair.secret() : ''}
+							{store.keypair ? store.keypair.secret() : ''}
 						</div>
 						<div className="copy-button col"
-							 data-clipboard-text={this.props.keypair ? this.props.keypair.secret() : ''}>
+							 data-clipboard-text={store.keypair ? store.keypair.secret() : ''}>
 							<BlueButton tiny filled><T.span text="common.copy"/></BlueButton>
 						</div>
 					</div>
@@ -90,11 +92,7 @@ const mapDispatchToProps = ( dispatch ) => ({
 	}
 });
 
-const mapStoreToProps = ( store ) => ({
-	keypair: store.keypair.keypair,
-	language: store.language.language,
-});
-
-KeyDisplayer = connect( mapStoreToProps, mapDispatchToProps )( KeyDisplayer );
+KeyDisplayer = connect( null, mapDispatchToProps )( KeyDisplayer );
+KeyDisplayer = observer( KeyDisplayer );
 
 export default KeyDisplayer;

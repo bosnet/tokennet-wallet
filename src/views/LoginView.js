@@ -9,6 +9,7 @@ import T from 'i18n-react';
 import StreamManager from "../StreamManager";
 import { StellarStreamers } from 'libs/stellar-toolkit';
 import pageview from 'utils/pageview';
+import store from '../observables/store';
 
 const { getAccount } = StellarServer;
 const { OffersStream, EffectsStream, AccountStream, PaymentStream } = StellarStreamers;
@@ -48,7 +49,9 @@ class LoginView extends Component {
 						this.props.resetHistory();
 
 						StreamManager.accountStream = AccountStream( keypair.publicKey(), ( streamAccount ) => {
-							this.props.streamAccount( streamAccount );
+							if( store.keypair.publicKey() === streamAccount.id ) {
+								this.props.streamAccount( streamAccount );
+							}
 						} );
 						StreamManager.effectsStream = EffectsStream( keypair.publicKey(), ( effects ) => {
 							this.props.streamEffects( effects );
@@ -57,7 +60,15 @@ class LoginView extends Component {
 							this.props.streamOffers( offers );
 						} );
 						StreamManager.paymentStream = PaymentStream( keypair.publicKey(), ( payment ) => {
-							this.props.streamPayment( payment );
+							const publicKey = store.keypair.publicKey();
+							if(
+								publicKey === payment.from
+								|| publicKey === payment.to
+								|| publicKey === payment.account
+								|| publicKey === payment.source_account
+							) {
+								this.props.streamPayment( payment );
+							}
 						} );
 					}
 				}
@@ -66,7 +77,9 @@ class LoginView extends Component {
 					this.props.resetHistory();
 
 					StreamManager.accountStream = AccountStream( keypair.publicKey(), ( streamAccount ) => {
-						this.props.streamAccount( streamAccount );
+						if( store.keypair.publicKey() === streamAccount.id ) {
+							this.props.streamAccount( streamAccount );
+						}
 					} );
 					StreamManager.effectsStream = EffectsStream( keypair.publicKey(), ( effects ) => {
 						this.props.streamEffects( effects );
@@ -75,11 +88,20 @@ class LoginView extends Component {
 						this.props.streamOffers( offers );
 					} );
 					StreamManager.paymentStream = PaymentStream( keypair.publicKey(), ( payment ) => {
-						this.props.streamPayment( payment );
+						const publicKey = store.keypair.publicKey();
+						if(
+							publicKey === payment.from
+							|| publicKey === payment.to
+							|| publicKey === payment.account
+							|| publicKey === payment.source_account
+						) {
+							this.props.streamPayment( payment );
+						}
 					} );
 				}
 
 				this.props.updateKeypair( keypair );
+				store.keypair = keypair;
 				this.setState( { isValid: true } );
 			} )
 			.catch( error => {
