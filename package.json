@@ -37,6 +37,8 @@
 		"i18n-react": "^0.6.3",
 		"jest": "^20.0.4",
 		"js-xdr": "^1.0.1",
+		"mobx": "^4.3.1",
+		"mobx-react": "^5.2.0",
 		"moment": "^2.19.1",
 		"node-sass": "^4.6.0",
 		"object-assign": "^4.1.1",
