@@ -22,7 +22,7 @@
 	},
 	"welcome_view": {
 		"title": "BOScoin wallet",
-		"title_description": "生成私钥, 管理你的钱包, 发送和接收BOScoin.",
+		"title_description": "The BOScoin Wallet, a Mainnet-based Wallet, has been launched ahead of our transition from Tokennet to Mainnet.\nYou can only view past Tokennet transactions, and all other functions no longer work.\nPlease use the Mainnet Wallet instead of Tokennet Wallet.",
 		"button_make": "生成私钥",
 		"create_account": "在测试网络上创建账户",
 		"button_open": "打开你的钱包",

@@ -22,7 +22,7 @@
 	},
 	"welcome_view": {
 		"title": "BOScoin 웹지갑",
-		"title_description": "계정 및 지갑을 관리하고, BOScoin을 보내고 받으세요.",
+		"title_description": "보스코인 자체 독립적인 생태계를 이끌어갈 Mainnet 기반의 Wallet인 BOScoin Wallet이 출시되었습니다.\n토큰넷에서 거래했던 과거 거래내역 조회만 가능하고, 다른 기능들은 더 이상 동작하지 않습니다.\n거래 및 신규 계좌 생성을 위해서는 메인넷 월렛을 이용해 주세요.",
 		"button_make": "지갑 주소 만들기",
 		"create_account": "Create new account on Testnet",
 		"button_open": "지갑 열기",

@@ -22,7 +22,7 @@
 	},
 	"welcome_view": {
 		"title": "BOScoin wallet",
-		"title_description": "Create your Seed, Manage your Wallet, Send and receive BOScoins.",
+		"title_description": "The BOScoin Wallet, a Mainnet-based Wallet, has been launched ahead of our transition from Tokennet to Mainnet.\nYou can only view past Tokennet transactions, and all other functions no longer work.\nPlease use the Mainnet Wallet instead of Tokennet Wallet.",
 		"button_make": "Key Generator",
 		"create_account": "Create new account on TestNet",
 		"button_open": "Open your wallet",
